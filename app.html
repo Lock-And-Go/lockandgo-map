@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mapa spotov — LockAndGo</title>
+<meta name="description" content="12 úschovní batožiny v Bratislave. Filtruj podľa polohy, ceny a otváracích hodín." />
+<meta name="theme-color" content="#F2EDE5" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+<style>
+:root {
+  --bg:        #F2EDE5;
+  --bg-2:      #EAE4D9;
+  --paper:     #FAF7F0;
+  --paper-2:   #F7F2EA;
+  --ink:       #1A1815;
+  --ink-2:     #544E45;
+  --ink-3:     #8D8579;
+  --ink-4:     #BFB7A8;
+  --ink-5:     #DDD6C6;
+  --line:      rgba(26, 24, 21, 0.10);
+  --line-2:    rgba(26, 24, 21, 0.18);
+
+  --terracotta:     #B85C3C;
+  --terracotta-2:   #9C4A2D;
+  --terracotta-50:  #F4E4D9;
+  --terracotta-100: #EBCBB9;
+
+  --forest:    #3D5A40;
+  --forest-2:  #4F6E52;
+  --moss-50:   #E8EDE4;
+
+  --warm:      #C99368;
+  --warm-50:   #F4E8D9;
+
+  --display: 'Instrument Serif', 'Times New Roman', serif;
+  --body:    'Manrope', system-ui, sans-serif;
+
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-full: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(26, 24, 21, 0.04), 0 1px 1px rgba(26, 24, 21, 0.03);
+  --shadow-md: 0 8px 28px -10px rgba(26, 24, 21, 0.12), 0 2px 6px rgba(26, 24, 21, 0.04);
+
+  --header-h: 70px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 14.5px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; border: none; background: none; padding: 0; }
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--terracotta-100); color: var(--ink); }
+
+/* ───── Header ───── */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 0 28px;
+  background: rgba(242, 237, 229, 0.82);
+  backdrop-filter: blur(14px) saturate(1.1);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  border-bottom: 1px solid var(--line);
+  z-index: 1000;
+}
+.brand {
+  display: inline-flex; align-items: center; gap: 11px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.brand-mark {
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  background: var(--ink);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--bg);
+}
+.brand-mark svg { width: 17px; height: 17px; }
+.brand .amp { color: var(--terracotta); font-style: italic; margin: 0 1px; }
+
+.nav-wrap {
+  display: flex; gap: 4px; justify-content: center;
+  background: var(--paper);
+  padding: 4px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--line);
+}
+.nav-wrap a {
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: 13.5px;
+  padding: 8px 18px;
+  border-radius: var(--r-full);
+  color: var(--ink-2);
+  transition: all 0.18s;
+}
+.nav-wrap a:hover { color: var(--ink); }
+.nav-wrap a.active {
+  background: var(--ink);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+.header-stats {
+  display: flex; justify-content: flex-end; gap: 14px; align-items: center;
+  font-family: var(--body);
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.header-stats .stat-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-full);
+}
+.header-stats .stat-pill .dot {
+  width: 7px; height: 7px;
+  background: var(--forest);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(61, 90, 64, 0.18);
+}
+.header-stats .stat-pill b {
+  font-family: var(--display);
+  font-style: italic;
+  color: var(--ink);
+  font-weight: 400;
+  font-size: 15px;
+}
+
+/* ───── Layout ───── */
+.shell {
+  position: fixed;
+  top: var(--header-h); left: 0; right: 0; bottom: 0;
+  display: grid;
+  grid-template-columns: 460px 1fr;
+}
+
+.panel {
+  background: var(--paper);
+  border-right: 1px solid var(--line);
+  display: flex; flex-direction: column;
+  min-height: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.stage {
+  position: relative;
+  background: var(--bg-2);
+}
+#map { position: absolute; inset: 0; background: var(--bg-2); }
+
+/* ───── Panel head ───── */
+.panel-head {
+  padding: 28px 28px 22px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.panel-head .eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 12px 5px 10px;
+  background: var(--bg);
+  border-radius: var(--r-full);
+  border: 1px solid var(--line);
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--ink-2);
+  margin-bottom: 14px;
+}
+.panel-head .eyebrow .pulse {
+  width: 7px; height: 7px;
+  background: var(--terracotta);
+  border-radius: 50%;
+  position: relative;
+}
+.panel-head .eyebrow .pulse::after {
+  content: ''; position: absolute; inset: -3px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  opacity: 0.35;
+  animation: ping 2.2s ease-out infinite;
+}
+@keyframes ping {
+  0%   { transform: scale(0.7); opacity: 0.4; }
+  80%, 100% { transform: scale(2.5); opacity: 0; }
+}
+.panel-head h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.panel-head h1 em { font-style: italic; color: var(--terracotta); }
+.panel-head .sub {
+  font-size: 14px;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 360px;
+  line-height: 1.5;
+}
+
+/* ───── Controls ───── */
+.controls {
+  padding: 18px 28px;
+  border-bottom: 1px solid var(--line);
+  display: flex; flex-direction: column; gap: 14px;
+  background: var(--paper-2);
+}
+.search-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+.search-input { position: relative; }
+.search-input input {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px 0 42px;
+  background: var(--bg);
+  border: 1.5px solid transparent;
+  border-radius: var(--r-md);
+  font-size: 14.5px;
+  font-family: var(--body);
+  color: var(--ink);
+  outline: none;
+  transition: all 0.18s;
+}
+.search-input input::placeholder { color: var(--ink-3); }
+.search-input input:hover { background: var(--bg-2); }
+.search-input input:focus {
+  background: var(--paper);
+  border-color: var(--terracotta);
+  box-shadow: 0 0 0 4px rgba(184, 92, 60, 0.10);
+}
+.search-input .icon {
+  position: absolute; left: 14px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-3);
+  pointer-events: none;
+}
+
+.geo-btn {
+  height: 44px;
+  padding: 0 18px;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: var(--r-md);
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 13.5px;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.18s;
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+}
+.geo-btn:hover {
+  background: var(--terracotta);
+  transform: translateY(-1px);
+}
+.geo-btn:active { transform: translateY(0); }
+.geo-btn:focus-visible { outline: 3px solid var(--terracotta-100); outline-offset: 2px; }
+.geo-btn.active {
+  background: var(--terracotta);
+}
+.geo-btn .arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.geo-btn:hover:not(:disabled) .arrow { transform: rotate(-15deg) scale(1.15); }
+.geo-btn:disabled {
+  cursor: progress;
+  opacity: 0.85;
+}
+.geo-btn:disabled:hover { transform: none; background: var(--ink); }
+.geo-btn .arrow.spin {
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.filter-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.filter-group { display: flex; flex-direction: column; gap: 6px; }
+.filter-group label {
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: 11.5px;
+  color: var(--ink-3);
+  display: flex; justify-content: space-between; align-items: baseline;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.filter-group label b {
+  color: var(--terracotta);
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.filter-group select {
+  height: 38px;
+  background: var(--bg);
+  border: 1.5px solid transparent;
+  border-radius: var(--r-sm);
+  padding: 0 32px 0 12px;
+  font-size: 13px;
+  font-family: var(--body);
+  color: var(--ink);
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%231A1815' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.filter-group select:hover { background-color: var(--bg-2); }
+.filter-group select:focus { outline: none; border-color: var(--terracotta); background-color: var(--paper); }
+
+.range-wrap {
+  height: 38px;
+  display: flex; align-items: center;
+  padding: 0 14px;
+  background: var(--bg);
+  border-radius: var(--r-sm);
+  transition: background 0.15s;
+}
+.range-wrap:hover { background: var(--bg-2); }
+input[type=range] {
+  width: 100%;
+  -webkit-appearance: none;
+  background: transparent;
+  height: 24px;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  height: 3px;
+  background: linear-gradient(90deg, var(--terracotta) var(--fill, 25%), var(--ink-5) var(--fill, 25%));
+  border-radius: 3px;
+}
+input[type=range]::-moz-range-track {
+  height: 3px; background: var(--ink-5); border-radius: 3px;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px; height: 18px;
+  background: var(--paper);
+  border: 2.5px solid var(--terracotta);
+  margin-top: -8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.15s;
+  box-shadow: var(--shadow-sm);
+}
+input[type=range]::-webkit-slider-thumb:hover {
+  transform: scale(1.18);
+  background: var(--terracotta-50);
+}
+input[type=range]::-moz-range-thumb {
+  width: 18px; height: 18px;
+  background: var(--paper);
+  border: 2.5px solid var(--terracotta);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.chip-row { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip {
+  height: 32px;
+  padding: 0 14px;
+  background: var(--bg);
+  border: 1px solid transparent;
+  border-radius: var(--r-full);
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: all 0.18s;
+}
+.chip:hover {
+  background: var(--bg-2);
+  color: var(--ink);
+}
+.chip.active {
+  background: var(--ink);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+/* ───── Results meta ───── */
+.results-meta {
+  padding: 14px 28px 8px;
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-family: var(--body);
+  font-size: 13px;
+  color: var(--ink-3);
+}
+.results-meta b {
+  color: var(--terracotta);
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+}
+.results-meta .reset {
+  color: var(--ink-2);
+  font-size: 12px;
+  border-bottom: 1px dashed var(--ink-3);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.results-meta .reset:hover {
+  color: var(--terracotta);
+  border-bottom-color: var(--terracotta);
+}
+
+/* ───── Cards ───── */
+.results {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 16px 24px;
+}
+.results::-webkit-scrollbar { width: 8px; }
+.results::-webkit-scrollbar-track { background: transparent; }
+.results::-webkit-scrollbar-thumb { background: var(--ink-4); border-radius: 4px; }
+.results::-webkit-scrollbar-thumb:hover { background: var(--ink-3); }
+
+.card {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 14px;
+  padding: 16px 14px;
+  margin: 4px 0;
+  border-radius: var(--r-md);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+  border: 1.5px solid transparent;
+  animation: cardIn 0.32s ease-out both;
+}
+.card:hover {
+  background: var(--bg);
+  transform: translateY(-1px);
+}
+.card.active {
+  background: var(--bg);
+  border-color: var(--terracotta);
+  box-shadow: var(--shadow-md);
+}
+.card.active::before {
+  content: '';
+  position: absolute;
+  left: -8px; top: 18px; bottom: 18px;
+  width: 4px;
+  background: var(--terracotta);
+  border-radius: 0 4px 4px 0;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-pin {
+  width: 48px;
+  align-self: start;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.card-pin .num {
+  width: 40px; height: 40px;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  transition: all 0.2s;
+}
+.card:hover .card-pin .num { transform: scale(1.05); }
+.card.active .card-pin .num {
+  background: var(--terracotta);
+  box-shadow: 0 0 0 5px rgba(184, 92, 60, 0.18);
+}
+.card-pin .dist {
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: 11px;
+  color: var(--ink-3);
+}
+
+.card-body { min-width: 0; }
+.card-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.card-name {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.card-price {
+  text-align: right;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.card-price .amt {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1;
+}
+.card-price .per {
+  font-family: var(--body);
+  font-size: 11px;
+  color: var(--ink-3);
+  margin-top: 3px;
+}
+
+.card-area {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  margin-bottom: 10px;
+}
+.card-area svg { width: 13px; height: 13px; color: var(--ink-3); flex-shrink: 0; }
+
+.card-meta {
+  display: flex; flex-wrap: wrap; gap: 6px 10px;
+  font-size: 12px;
+  align-items: center;
+}
+.card-meta .rating {
+  display: inline-flex; align-items: center; gap: 4px;
+  color: var(--ink);
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 12.5px;
+}
+.card-meta .rating .star { color: var(--terracotta); }
+.card-meta .rating .count {
+  color: var(--ink-3);
+  font-weight: 400;
+  font-size: 11.5px;
+}
+.card-meta .status {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: 11.5px;
+  padding: 2px 9px;
+  border-radius: var(--r-full);
+}
+.card-meta .status.open {
+  background: var(--moss-50);
+  color: var(--forest);
+}
+.card-meta .status.open::before {
+  content: ''; width: 5px; height: 5px;
+  background: var(--forest); border-radius: 50%;
+}
+.card-meta .status.closed {
+  background: var(--terracotta-50);
+  color: var(--terracotta-2);
+}
+.card-meta .status.closed::before {
+  content: ''; width: 5px; height: 5px;
+  background: var(--terracotta); border-radius: 50%;
+}
+.card-meta .badge-247 {
+  background: var(--bg-2);
+  color: var(--ink-2);
+  padding: 2px 9px;
+  border-radius: var(--r-full);
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 11px;
+}
+.card-meta .badge-new {
+  background: var(--terracotta);
+  color: var(--bg);
+  padding: 2px 9px;
+  border-radius: var(--r-full);
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 11px;
+}
+
+/* ───── Empty state ───── */
+.empty-state {
+  padding: 56px 24px;
+  text-align: center;
+  color: var(--ink-3);
+}
+.empty-state .icon-wrap {
+  width: 56px; height: 56px;
+  margin: 0 auto 16px;
+  background: var(--bg);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-3);
+}
+.empty-state .display {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.empty-state .small { font-size: 13px; }
+
+/* ───── Panel foot ───── */
+.panel-foot {
+  border-top: 1px solid var(--line);
+  padding: 14px 28px;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--ink-3);
+  background: var(--bg);
+}
+.panel-foot a {
+  color: var(--ink-2);
+  font-weight: 500;
+  border-bottom: 1px dashed var(--ink-3);
+}
+.panel-foot a:hover { color: var(--terracotta); border-bottom-color: var(--terracotta); }
+.panel-foot .pill {
+  background: var(--paper);
+  padding: 4px 10px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--line);
+  font-family: var(--body);
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+/* ───── Map overlays ───── */
+.map-corner {
+  position: absolute; z-index: 500;
+  pointer-events: none;
+}
+.map-corner > * { pointer-events: auto; }
+.map-corner.tr { top: 18px; right: 18px; }
+.map-corner.br { bottom: 30px; right: 18px; }
+
+.legend {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 14px 16px;
+  font-family: var(--body);
+  font-size: 12px;
+  display: flex; flex-direction: column; gap: 8px;
+  color: var(--ink-2);
+  box-shadow: var(--shadow-md);
+}
+.legend-head {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2px;
+}
+.legend .item { display: inline-flex; align-items: center; gap: 8px; }
+.legend .swatch {
+  width: 14px; height: 14px; border-radius: 50%;
+}
+.legend .swatch.spot { background: var(--ink); }
+.legend .swatch.act { background: var(--terracotta); }
+.legend .swatch.cl { background: var(--ink-4); }
+.legend .swatch.you { background: var(--terracotta); border: 2px solid var(--paper); box-shadow: 0 0 0 1.5px var(--terracotta); }
+
+.guarantee-pill {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 14px 16px;
+  display: flex; align-items: center; gap: 12px;
+  max-width: 270px;
+  box-shadow: var(--shadow-md);
+}
+.guarantee-pill .shield {
+  width: 36px; height: 36px;
+  background: var(--ink);
+  border-radius: 10px;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--bg);
+  flex-shrink: 0;
+}
+.guarantee-pill .shield svg { width: 18px; height: 18px; }
+.guarantee-pill .text { font-size: 12px; line-height: 1.3; }
+.guarantee-pill .text b {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--ink);
+  display: block;
+}
+.guarantee-pill .text span {
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+/* ───── Leaflet ───── */
+.leaflet-container { font-family: var(--body); background: var(--bg-2); }
+.leaflet-tile { filter: sepia(0.1) saturate(0.85) brightness(1.02); }
+.leaflet-control-attribution {
+  font-family: var(--body);
+  font-size: 10px !important;
+  background: rgba(250, 247, 240, 0.85) !important;
+  color: var(--ink-3) !important;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm) 0 0 0;
+  padding: 4px 8px !important;
+}
+.leaflet-control-attribution a { color: var(--terracotta) !important; }
+.leaflet-control-zoom {
+  border: 1px solid var(--line) !important;
+  border-radius: var(--r-md) !important;
+  overflow: hidden;
+  background: var(--paper) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+.leaflet-control-zoom a {
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+  border-bottom: 1px solid var(--line) !important;
+  font-family: var(--display) !important;
+  font-weight: 400 !important;
+  width: 36px !important; height: 36px !important;
+  line-height: 36px !important;
+  font-size: 18px !important;
+}
+.leaflet-control-zoom a:last-child { border-bottom: none !important; }
+.leaflet-control-zoom a:hover {
+  background: var(--bg) !important;
+  color: var(--terracotta) !important;
+}
+
+.lg-pin {
+  display: flex; align-items: center; justify-content: center;
+  width: 38px !important; height: 38px !important;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.lg-pin .dot {
+  width: 34px; height: 34px;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  border: 2.5px solid var(--paper);
+  box-shadow: 0 4px 12px rgba(26, 24, 21, 0.30);
+}
+.lg-pin.closed .dot {
+  background: var(--ink-4);
+}
+.lg-pin:hover {
+  transform: scale(1.18) translateY(-2px);
+  z-index: 999 !important;
+}
+.lg-pin:hover .dot {
+  box-shadow: 0 8px 20px rgba(26, 24, 21, 0.4);
+}
+.lg-pin.active {
+  transform: scale(1.32) translateY(-3px);
+  z-index: 1000 !important;
+}
+.lg-pin.active .dot {
+  background: var(--terracotta);
+  border-color: var(--paper);
+  box-shadow: 0 0 0 5px rgba(184, 92, 60, 0.22), 0 8px 20px rgba(184, 92, 60, 0.4);
+}
+
+.user-dot-wrap { display: flex; align-items: center; justify-content: center; }
+.user-dot {
+  width: 18px; height: 18px;
+  background: var(--terracotta);
+  border: 3px solid var(--paper);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(184, 92, 60, 0.5), 0 2px 6px rgba(26, 24, 21, 0.2);
+  animation: userPulse 2.2s ease-in-out infinite;
+}
+@keyframes userPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(184, 92, 60, 0.5), 0 2px 6px rgba(26, 24, 21, 0.2); }
+  70%  { box-shadow: 0 0 0 22px rgba(184, 92, 60, 0), 0 2px 6px rgba(26, 24, 21, 0.2); }
+  100% { box-shadow: 0 0 0 0 rgba(184, 92, 60, 0), 0 2px 6px rgba(26, 24, 21, 0.2); }
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--r-lg) !important;
+  box-shadow: 0 24px 56px -16px rgba(26, 24, 21, 0.20), 0 8px 16px -4px rgba(26, 24, 21, 0.08) !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+.leaflet-popup-content {
+  margin: 0 !important;
+  font-family: var(--body) !important;
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+  width: 290px !important;
+}
+.leaflet-popup-tip {
+  background: var(--paper) !important;
+  border: 1px solid var(--line);
+}
+.leaflet-popup-close-button {
+  color: var(--ink-3) !important;
+  font-size: 22px !important;
+  padding: 10px !important;
+}
+.leaflet-popup-close-button:hover { color: var(--terracotta) !important; }
+
+.pop { padding: 20px 22px 22px; }
+.pop .tag {
+  display: inline-block;
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--terracotta-50);
+  color: var(--terracotta-2);
+  padding: 4px 10px;
+  border-radius: var(--r-full);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.pop h3 {
+  margin: 0 0 6px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.pop .area {
+  display: inline-flex; align-items: center; gap: 5px;
+  color: var(--ink-2);
+  font-size: 12.5px;
+  margin-bottom: 14px;
+}
+.pop .area svg { width: 13px; height: 13px; color: var(--ink-3); }
+.pop .rating-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 14px;
+  background: var(--bg);
+  border-radius: var(--r-md);
+  margin-bottom: 14px;
+}
+.pop .rating-row > div { text-align: center; }
+.pop .rating-row .big {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+.pop .rating-row .big.t { color: var(--terracotta); font-style: italic; }
+.pop .rating-row .label {
+  font-size: 11px;
+  color: var(--ink-3);
+  margin-top: 5px;
+  font-family: var(--body);
+}
+.pop .info-line {
+  display: flex; justify-content: space-between;
+  padding: 7px 0;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  border-top: 1px solid var(--line);
+}
+.pop .info-line:first-of-type { border-top: none; }
+.pop .info-line .lab {
+  color: var(--ink-3);
+  font-family: var(--body);
+  font-weight: 500;
+}
+.pop .schedule-label {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-family: var(--body);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+  font-weight: 600;
+  margin: 6px 2px 6px;
+}
+.pop .schedule-label .today-tag {
+  color: var(--terracotta);
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.pop .schedule {
+  padding: 10px 12px;
+  background: var(--bg);
+  border-radius: var(--r-sm);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, auto);
+  grid-auto-flow: column;
+  gap: 2px 16px;
+  margin-bottom: 4px;
+}
+.pop .schedule .day {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 11.5px;
+  color: var(--ink-2);
+  font-family: var(--body);
+  font-variant-numeric: tabular-nums;
+  padding: 2px 0;
+}
+.pop .schedule .day .d {
+  font-family: var(--display);
+  font-style: italic;
+  color: var(--ink-3);
+  font-size: 13px;
+  width: 22px;
+}
+.pop .schedule .day.today {
+  color: var(--terracotta-2);
+  font-weight: 600;
+}
+.pop .schedule .day.today .d {
+  color: var(--terracotta);
+  font-weight: 400;
+}
+.pop .schedule .day .h.closed {
+  color: var(--ink-4);
+  font-style: italic;
+}
+.pop .approx-note {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: var(--terracotta-50);
+  border-radius: var(--r-sm);
+  font-size: 11.5px;
+  color: var(--terracotta-2);
+  line-height: 1.4;
+  display: flex; gap: 8px; align-items: flex-start;
+}
+.pop .approx-note svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: 1px; }
+.pop .cta {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-top: 14px;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 13px;
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--r-md);
+  transition: all 0.18s;
+}
+.pop .cta:hover {
+  background: var(--terracotta);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -4px rgba(184, 92, 60, 0.4);
+}
+.pop .cta.cta-maps {
+  margin-top: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+}
+.pop .cta.cta-maps:hover {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+  box-shadow: none;
+}
+.pop .user-dist {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 12.5px;
+  color: var(--terracotta-2);
+  background: var(--terracotta-50);
+  padding: 5px 10px;
+  border-radius: var(--r-full);
+  margin-bottom: 12px;
+}
+.pop .user-dist svg { width: 12px; height: 12px; }
+
+/* ───── Mobile ───── */
+@media (max-width: 880px) {
+  :root { --header-h: 60px; }
+  .site-header {
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    padding: 0 16px;
+  }
+  .nav-wrap { display: none; }
+  .header-stats { display: none; }
+  .shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: 48% 52%;
+  }
+  .panel {
+    border-right: none;
+    border-top: 1px solid var(--line);
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+    margin-top: -22px;
+    box-shadow: 0 -8px 24px -8px rgba(26, 24, 21, 0.10);
+    order: 2;
+  }
+  .panel-head { padding: 18px 18px 14px; }
+  .panel-head h1 { font-size: 26px; }
+  .controls { padding: 14px 18px; }
+  .results-meta { padding: 12px 18px 6px; }
+  .results { padding: 4px 10px 24px; }
+  .panel-foot { padding: 12px 18px; }
+  .stage { order: 1; }
+  .map-corner.tr { top: 12px; right: 12px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="brand" aria-label="LockAndGo — domov">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="10" width="16" height="11" rx="2.5"/>
+        <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+      </svg>
+    </span>
+    Lock<span class="amp">&amp;</span>Go
+  </a>
+  <nav class="nav-wrap" aria-label="Hlavná navigácia">
+    <a href="index.html">O nás</a>
+    <a href="app.html" class="active">Mapa</a>
+  </nav>
+  <div class="header-stats">
+    <div class="stat-pill">
+      <span class="dot" aria-hidden="true"></span>
+      <span><b id="open-count">—</b> teraz otvorené</span>
+    </div>
+  </div>
+</header>
+
+<main class="shell">
+  <aside class="panel">
+    <div class="panel-head">
+      <span class="eyebrow">
+        <span class="pulse" aria-hidden="true"></span>
+        Bratislava · live
+      </span>
+      <h1>Kam <em>odložiť</em><br/>kufor.</h1>
+      <p class="sub">12 Bounce úschovní v centre. Slovenský sprievodca — rezervácia, ceny a poistenie cez Bounce.</p>
+    </div>
+
+    <div class="controls">
+      <div class="search-row">
+        <div class="search-input">
+          <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+            <path d="M17 17l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <input id="search" type="search" placeholder="Hlavná stanica, Michalská…" autocomplete="off" aria-label="Hľadať úschovňu" />
+        </div>
+        <button class="geo-btn" id="geo-btn" aria-label="Použiť moju aktuálnu polohu">
+          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/>
+          </svg>
+          Moja poloha
+        </button>
+      </div>
+
+      <div class="filter-row">
+        <div class="filter-group">
+          <label for="radius">Rádius <b><span id="radius-val">3.0</span> km</b></label>
+          <div class="range-wrap">
+            <input id="radius" type="range" min="0.5" max="50" step="0.5" value="3" />
+          </div>
+        </div>
+        <div class="filter-group">
+          <label for="sort">Triediť podľa</label>
+          <select id="sort">
+            <option value="distance">Najbližšie</option>
+            <option value="rating">Najlepšie hodnotené</option>
+            <option value="reviews">Najviac recenzií</option>
+            <option value="price">Najlacnejšie</option>
+            <option value="name">Abecedne</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="chip-row" id="chips" role="tablist">
+        <button class="chip active" data-filter="all">Všetko</button>
+        <button class="chip" data-filter="open">Otvorené teraz</button>
+        <button class="chip" data-filter="247">24/7</button>
+        <button class="chip" data-filter="top">★ 4.5+</button>
+      </div>
+    </div>
+
+    <div class="results-meta">
+      <span><b id="count">—</b> spotov &middot; <span id="from-label">v centre</span></span>
+      <button class="reset" id="reset-btn">Reset filtrov</button>
+    </div>
+
+    <div class="results" id="results" role="list"></div>
+
+    <div class="panel-foot">
+      <span><span class="pill">v0.5</span> Affiliate Bounce · cena rovnaká</span>
+      <a href="mailto:info@lockandgo.sk">Pridať spot</a>
+    </div>
+  </aside>
+
+  <div class="stage">
+    <div id="map"></div>
+
+    <div class="map-corner tr">
+      <div class="legend" role="complementary" aria-label="Legenda mapy">
+        <div class="legend-head">Legenda</div>
+        <div class="item"><span class="swatch spot" aria-hidden="true"></span>Storage spot</div>
+        <div class="item"><span class="swatch act" aria-hidden="true"></span>Vybraný</div>
+        <div class="item"><span class="swatch cl" aria-hidden="true"></span>Zatvorené teraz</div>
+        <div class="item"><span class="swatch you" aria-hidden="true"></span>Tvoja poloha</div>
+      </div>
+    </div>
+
+    <div class="map-corner br">
+      <div class="guarantee-pill">
+        <span class="shield" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </span>
+        <div class="text">
+          <b>Bounce Shield · 10 000 €</b>
+          <span>poistenie v cene</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<script>
+const BA_CENTER = [48.1486, 17.1077];
+const STANDARD_PRICE = 5.90;
+
+const SPOTS = [
+  { id:'01', name:'Staré Mesto Storage Spot', area:'Staré Mesto', lat:48.1432, lng:17.1083,
+    hours:{ display:'07:00 – 22:00 každý deň', is247:false,
+            schedule:[[7,22],[7,22],[7,22],[7,22],[7,22],[7,22],[7,22]] },
+    rating:4.2, reviews:13, price:STANDARD_PRICE,
+    bookingUrl:'https://bounce.com/s/location/ea755c68-8253-4542-9eee-2243854262ee?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765' },
+  { id:'02', name:'Staré Mesto Area Storage Spot', area:'Staré Mesto', lat:48.1438, lng:17.1066,
+    hours:{ display:'09:00 – 21:00 každý deň', is247:false,
+            schedule:[[9,21],[9,21],[9,21],[9,21],[9,21],[9,21],[9,21]] },
+    rating:3.4, reviews:15, price:STANDARD_PRICE,
+    bookingUrl:'https://bounce.com/s/location/e40956d1-e3d6-4566-8c86-699bf84e856c?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765' },
+  { id:'03', name:'Near Bratislava Station Storage Spot', area:'Hlavná stanica', lat:48.1581, lng:17.1065,
+    hours:{ display:'24/7 · nonstop', is247:true,
+            schedule:[[0,24],[0,24],[0,24],[0,24],[0,24],[0,24],[0,24]] },
+    rating:4.2, reviews:186, price:STANDARD_PRICE,
+    bookingUrl:'https://bounce.com/s/location/4ed51715-8ae5-401a-897d-53d1a69fe826?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765' },
+  { id:'04', name:'Near Faculty of Medicine Storage Spot', area:'LF UK · Špitálska', lat:48.1498, lng:17.1138,
+    hours:{ display:'Po-Pi 10:00 – 17:30 · So-Ne 12:00 – 17:30', is247:false,
+            schedule:[[12,17.5],[10,17.5],[10,17.5],[10,17.5],[10,17.5],[10,17.5],[12,17.5]] },
+    rating:5.0, reviews:111, price:STANDARD_PRICE,
+    bookingUrl:'https://bounce.com/s/location/c4b682bc-c881-4f1f-a63a-69d18a4fd4b6?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765' },
+  { id:'05', name:'Near Slovak Pub Storage Spot', area:'Obchodná', lat:48.1491, lng:17.1098,
+    hours:{ display:'Po-So 11:00 – 22:00 · Ne zatvorené', is247:false,
+            schedule:[null,[11,22],[11,22],[11,22],[11,22],[11,22],[11,22]] },
+    rating:5.0, reviews:75, price:STANDARD_PRICE,
+    bookingUrl:'https://bounce.com/s/location/5ac9e530-92c5-4a0d-ae50-a8831d6c52bb?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765' },
+  { id:'06', name:'Across Poštová Tram Stop Storage Spot', area:'Poštová', lat:48.1472, lng:17.1112,
+    hours:{ display:'Po-Pi 11:00 – 21:00 · víkend 12:00 – 21:00', is247:false,
+            schedule:[[12,21],[11,21],[11,21],[11,21],[11,21],[11,21],[12,21]] },
+    rating:4.5, reviews:17, price:STANDARD_PRICE,
+    bookingUrl:'https://bounce.com/s/location/76814354-78c1-4c91-a3d7-13cb7e566990?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765' },
+  { id:'07', name:'Near Michael’s Gate Storage Spot', area:'Michalská brána', lat:48.1455, lng:17.1067,
+    hours:{ display:'Po, St-Ne 11:00 – 21:00 · Ut 13:00 – 21:00', is247:false,
+            schedule:[[11,21],[11,21],[13,21],[11,21],[11,21],[11,21],[11,21]] },
+    rating:4.8, reviews:105, price:STANDARD_PRICE,
+    bookingUrl:'https://bounce.com/s/location/010bc37f-c778-41df-aba7-3b49f205bca8?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765' },
+  { id:'08', name:'Bratislava Stare Mesto Storage Spot', area:'Námestie SNP', lat:48.1465, lng:17.1085,
+    hours:{ display:'Po-So 07:00 – 21:00 · Ne 09:00 – 20:00', is247:false,
+            schedule:[[9,20],[7,21],[7,21],[7,21],[7,21],[7,21],[7,21]] },
+    rating:4.8, reviews:172, price:STANDARD_PRICE,
+    bookingUrl:'https://bounce.com/s/location/65f56376-7df5-4ce6-9a06-be978bc45f41?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765' },
+  { id:'09', name:'Near Gallery Multium Storage Spot', area:'Staré Mesto · galérie', lat:48.1428, lng:17.1096,
+    hours:{ display:'Po-Štv, Ne 11:00 – 22:00 · Pi-So do 23:30', is247:false,
+            schedule:[[11,22],[11,22],[11,22],[11,22],[11,22],[11,23.5],[11,23.5]] },
+    rating:4.5, reviews:35, price:STANDARD_PRICE,
+    bookingUrl:'https://bounce.com/s/location/87194b08-0723-4475-a538-3ec1cdceab46?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765' },
+  { id:'10', name:'Masala Darbar Storage Spot', area:'Štúrova', lat:48.1421, lng:17.1108,
+    hours:{ display:'Ut-Ne 10:30 – 20:00 · Po do 15:00', is247:false,
+            schedule:[[10.5,20],[10.5,15],[10.5,20],[10.5,20],[10.5,20],[10.5,20],[10.5,20]] },
+    rating:4.5, reviews:38, price:STANDARD_PRICE,
+    bookingUrl:'https://bounce.com/s/location/8f897e95-b1a0-4932-914d-bfd5ab135e6e?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765' },
+  { id:'11', name:'Stare Mesto Area Storage Spot', area:'Staré Mesto · outdoor shop', lat:48.1448, lng:17.1118,
+    hours:{ display:'Po-Pi 10:00 – 19:00 · So 09:00 – 13:00 · Ne zatvorené', is247:false,
+            schedule:[null,[10,19],[10,19],[10,19],[10,19],[10,19],[9,13]] },
+    rating:5.0, reviews:40, price:STANDARD_PRICE,
+    bookingUrl:'https://bounce.com/s/location/8bc3beb7-4ca5-4fbf-a854-3dd486a62b26?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765' },
+  { id:'12', name:'Petržalka Storage Spot', area:'Petržalka', lat:48.1175, lng:17.1080,
+    hours:{ display:'Po-Pi 09:00 – 17:00 (St do 19:00, Pi do 15:00)', is247:false,
+            schedule:[null,[9,17],[9,17],[9,19],[9,17],[9,15],null] },
+    rating:5.0, reviews:1, isNew:true, price:STANDARD_PRICE,
+    bookingUrl:'https://bounce.com/s/location/842633a1-89b0-4634-be47-29111a6aab81?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765' }
+];
+
+function toRad(d) { return d * Math.PI / 180; }
+function haversineKm(a, b) {
+  const R = 6371;
+  const dLat = toRad(b[0] - a[0]);
+  const dLng = toRad(b[1] - a[1]);
+  const s = Math.sin(dLat/2)**2 + Math.cos(toRad(a[0])) * Math.cos(toRad(b[0])) * Math.sin(dLng/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(s), Math.sqrt(1-s));
+}
+function fmtDist(km) {
+  if (km == null) return '—';
+  if (km < 1) return Math.round(km * 1000) + ' m';
+  return km.toFixed(1) + ' km';
+}
+function nowHours() {
+  const d = new Date();
+  return d.getHours() + d.getMinutes() / 60;
+}
+function fmtHm(v) {
+  const h = Math.floor(v);
+  const m = Math.round((v - h) * 60);
+  return String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0');
+}
+function spotStatus(spot) {
+  const day = new Date().getDay();
+  const w = spot.hours.schedule[day];
+  if (!w) return { open: false, label: 'Zatvorené dnes' };
+  const [o, c] = w;
+  const h = nowHours();
+  if (h >= o && h < c) return { open: true, label: 'Do ' + fmtHm(c) };
+  if (h < o) return { open: false, label: 'Otvára o ' + fmtHm(o) };
+  return { open: false, label: 'Zatvorené' };
+}
+function escapeHtml(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+/* Weekly schedule grid for popup — JS getDay() is 0=Sun..6=Sat,
+   but we display in EU order Po..Ne. */
+const DAY_LABELS = ['Ne','Po','Ut','St','Št','Pi','So'];
+function scheduleHtml(schedule) {
+  const today = new Date().getDay();
+  const order = [1, 2, 3, 4, 5, 6, 0]; /* Po, Ut, St, Št, Pi, So, Ne */
+  return order.map(i => {
+    const w = schedule[i];
+    let html, closed = false;
+    if (w === null) { html = 'Zatvorené'; closed = true; }
+    else if (w[0] === 0 && w[1] === 24) { html = '24 hodín'; }
+    else { html = `${fmtHm(w[0])} – ${fmtHm(w[1])}`; }
+    const cls = (i === today) ? ' today' : '';
+    return `<div class="day${cls}"><span class="d">${DAY_LABELS[i]}</span><span class="h${closed ? ' closed' : ''}">${html}</span></div>`;
+  }).join('');
+}
+
+const state = {
+  user: null, origin: BA_CENTER, radius: 3,
+  sort: 'distance', filter: 'all', query: '', activeId: null
+};
+
+const map = L.map('map', {
+  center: BA_CENTER,
+  zoom: 14,
+  zoomControl: true,
+  zoomSnap: 0.25,             /* fractional zoom levels — smoother feel */
+  zoomDelta: 0.5,             /* +/- button step */
+  wheelPxPerZoomLevel: 150,   /* default 60 — Mac trackpad zoomne príliš rýchlo */
+  wheelDebounceTime: 80       /* default 40 — batch trackpad scroll events */
+});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  subdomains: 'abcd', maxZoom: 19
+}).addTo(map);
+
+const markersById = new Map();
+let userMarker = null;
+let radiusCircle = null;
+
+function buildIcon(spot) {
+  const st = spotStatus(spot);
+  const cls = st.open ? '' : 'closed';
+  return L.divIcon({
+    className: 'lg-pin ' + cls,
+    html: `<div class="dot">${spot.id}</div>`,
+    iconSize: [38, 38], iconAnchor: [19, 19], popupAnchor: [0, -20]
+  });
+}
+
+function buildPopup(spot) {
+  const st = spotStatus(spot);
+
+  /* User distance + Google Maps directions (uses user origin if known) */
+  const userDist = state.user ? haversineKm(state.user, [spot.lat, spot.lng]) : null;
+  const userDistHtml = userDist != null
+    ? `<div class="user-dist">
+         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+         ${fmtDist(userDist)} od teba
+       </div>`
+    : '';
+  const mapsUrl = state.user
+    ? `https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=${state.user[0]},${state.user[1]}&destination=${spot.lat},${spot.lng}`
+    : `https://www.google.com/maps/dir/?api=1&travelmode=walking&destination=${spot.lat},${spot.lng}`;
+
+  return `<div class="pop">
+    <span class="tag">Spot ${spot.id} · rezervácia cez Bounce</span>
+    <h3>${escapeHtml(spot.name)}</h3>
+    <div class="area">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      ${escapeHtml(spot.area)} · Bratislava
+    </div>
+    ${userDistHtml}
+    <div class="rating-row">
+      <div>
+        <div class="big t">★ ${spot.rating.toFixed(1)}</div>
+        <div class="label">${spot.reviews} ${spot.reviews === 1 ? 'recenzia' : 'recenzií'}</div>
+      </div>
+      <div>
+        <div class="big">od ${spot.price.toFixed(2).replace('.',',')}€</div>
+        <div class="label">/ deň · cez Bounce</div>
+      </div>
+    </div>
+    <div class="schedule-label">
+      <span>Otváracie hodiny</span>
+      <span class="today-tag" style="color:${st.open ? 'var(--forest)' : 'var(--terracotta-2)'}">${st.label}</span>
+    </div>
+    <div class="schedule">${scheduleHtml(spot.hours.schedule)}</div>
+    <div class="approx-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <span>Presná adresa &amp; finálna cena až po výbere v Bounce systéme. Lokácia na mape je orientačná (oblasť ${escapeHtml(spot.area)}).</span>
+    </div>
+    <a class="cta" href="${spot.bookingUrl}" target="_blank" rel="noopener nofollow sponsored">
+      Rezervovať cez Bounce
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+    </a>
+    <a class="cta cta-maps" href="${mapsUrl}" target="_blank" rel="noopener" aria-label="Navigovať do spotu cez Google Maps">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20l-5.4 2.7c-.4.2-.6 0-.6-.4V6.3c0-.3.2-.7.6-.9L9 3m0 17V3m0 17l6 3m0 0l5.4-2.7c.4-.2.6-.6.6-.9V3.7c0-.4-.2-.6-.6-.4L15 6m0 17V6m0 0l-6-3"/></svg>
+      ${state.user ? 'Navigovať z mojej polohy' : 'Otvoriť v Mapách'}
+    </a>
+  </div>`;
+}
+
+function renderMarkers() {
+  markersById.forEach(m => map.removeLayer(m));
+  markersById.clear();
+  SPOTS.forEach(spot => {
+    const marker = L.marker([spot.lat, spot.lng], { icon: buildIcon(spot) });
+    marker.bindPopup(buildPopup(spot));
+    marker.on('click', () => setActive(spot.id, false));
+    marker.on('popupclose', () => {
+      if (state.activeId === spot.id) {
+        state.activeId = null;
+        renderResults();
+        updateMarkerClasses();
+      }
+    });
+    marker.addTo(map);
+    markersById.set(spot.id, marker);
+  });
+  updateMarkerClasses();
+}
+
+function updateMarkerClasses() {
+  markersById.forEach((m, id) => {
+    const el = m.getElement();
+    if (!el) return;
+    el.classList.toggle('active', id === state.activeId);
+  });
+}
+
+function buildList() {
+  const q = state.query.trim().toLowerCase();
+  let list = SPOTS.map(s => {
+    const st = spotStatus(s);
+    return { ...s, dist: haversineKm(state.origin, [s.lat, s.lng]), _status: st };
+  }).filter(s => {
+    if (s.dist > state.radius) return false;
+    if (state.filter === 'open' && !s._status.open) return false;
+    if (state.filter === '247' && !s.hours.is247) return false;
+    if (state.filter === 'top' && s.rating < 4.5) return false;
+    if (q && !(s.name + ' ' + s.area).toLowerCase().includes(q)) return false;
+    return true;
+  });
+  list.sort((a, b) => {
+    if (state.sort === 'price') return (a.price - b.price) || (a.dist - b.dist);
+    if (state.sort === 'rating') return (b.rating - a.rating) || (b.reviews - a.reviews);
+    if (state.sort === 'reviews') return b.reviews - a.reviews;
+    if (state.sort === 'name') return a.name.localeCompare(b.name, 'sk');
+    return a.dist - b.dist;
+  });
+  return list;
+}
+
+const $results = document.getElementById('results');
+const $count = document.getElementById('count');
+const $openCount = document.getElementById('open-count');
+const $fromLabel = document.getElementById('from-label');
+
+function renderResults() {
+  const list = buildList();
+  $count.textContent = list.length;
+  $openCount.textContent = SPOTS.filter(s => spotStatus(s).open).length;
+  $fromLabel.textContent = state.user ? 'od mojej polohy' : 'v centre';
+
+  if (list.length === 0) {
+    $results.innerHTML = `<div class="empty-state">
+      <div class="icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"/><path d="M17 17l4 4"/>
+        </svg>
+      </div>
+      <div class="display">Nič v tomto výseku</div>
+      <div class="small">Skús zväčšiť rádius alebo zmeniť filter.</div>
+    </div>`;
+    return;
+  }
+  $results.innerHTML = list.map(cardHtml).join('');
+  bindCardEvents();
+}
+
+function cardHtml(s) {
+  const st = s._status;
+  return `<div class="card${state.activeId === s.id ? ' active' : ''}" data-id="${s.id}" role="listitem">
+    <div class="card-pin">
+      <div class="num">${s.id}</div>
+      <div class="dist">${fmtDist(s.dist)}</div>
+    </div>
+    <div class="card-body">
+      <div class="card-top">
+        <div class="card-name">${escapeHtml(s.name)}</div>
+        <div class="card-price">
+          <div class="amt">${s.price.toFixed(2).replace('.',',')}€</div>
+          <div class="per">/ deň</div>
+        </div>
+      </div>
+      <div class="card-area">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        ${escapeHtml(s.area)}
+      </div>
+      <div class="card-meta">
+        <span class="rating"><span class="star">★</span>${s.rating.toFixed(1)}<span class="count">(${s.reviews})</span></span>
+        <span class="status ${st.open ? 'open' : 'closed'}">${st.label}</span>
+        ${s.hours.is247 ? '<span class="badge-247">24/7</span>' : ''}
+        ${s.isNew ? '<span class="badge-new">Nové</span>' : ''}
+      </div>
+    </div>
+  </div>`;
+}
+
+function bindCardEvents() {
+  $results.querySelectorAll('.card').forEach(el => {
+    el.addEventListener('click', () => setActive(el.dataset.id, true));
+    el.addEventListener('mouseenter', () => {
+      const m = markersById.get(el.dataset.id);
+      if (m && m.getElement() && el.dataset.id !== state.activeId) {
+        m.getElement().classList.add('active');
+      }
+    });
+    el.addEventListener('mouseleave', () => {
+      const m = markersById.get(el.dataset.id);
+      if (m && m.getElement() && el.dataset.id !== state.activeId) {
+        m.getElement().classList.remove('active');
+      }
+    });
+  });
+}
+
+function setActive(id, flyTo) {
+  state.activeId = id;
+  const m = markersById.get(id);
+  if (m) {
+    if (flyTo) {
+      const ll = m.getLatLng();
+      map.flyTo(ll, Math.max(map.getZoom(), 16), { duration: 0.7 });
+      setTimeout(() => m.openPopup(), 500);
+    } else {
+      m.openPopup();
+    }
+  }
+  renderResults();
+  updateMarkerClasses();
+  setTimeout(() => {
+    const el = $results.querySelector('.card.active');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, 50);
+}
+
+const $radius = document.getElementById('radius');
+const $radiusVal = document.getElementById('radius-val');
+function updateRadiusFill() {
+  const min = parseFloat($radius.min);
+  const max = parseFloat($radius.max);
+  const val = parseFloat($radius.value);
+  const pct = ((val - min) / (max - min)) * 100;
+  $radius.style.setProperty('--fill', pct + '%');
+}
+
+document.getElementById('search').addEventListener('input', (e) => {
+  state.query = e.target.value; renderResults();
+});
+document.getElementById('sort').addEventListener('change', (e) => {
+  state.sort = e.target.value; renderResults();
+});
+$radius.addEventListener('input', (e) => {
+  state.radius = parseFloat(e.target.value);
+  $radiusVal.textContent = state.radius.toFixed(1);
+  updateRadiusFill();
+  drawRadiusCircle();
+  renderResults();
+});
+document.querySelectorAll('#chips .chip').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#chips .chip').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    state.filter = btn.dataset.filter;
+    renderResults();
+  });
+});
+document.getElementById('reset-btn').addEventListener('click', () => {
+  state.query = ''; state.sort = 'distance'; state.filter = 'all'; state.radius = 3;
+  state.user = null; state.origin = BA_CENTER; state.activeId = null;
+  document.getElementById('search').value = '';
+  document.getElementById('sort').value = 'distance';
+  $radius.value = 3; $radiusVal.textContent = '3.0';
+  updateRadiusFill();
+  document.querySelectorAll('#chips .chip').forEach(b => b.classList.remove('active'));
+  document.querySelector('#chips .chip[data-filter="all"]').classList.add('active');
+  document.getElementById('geo-btn').classList.remove('active');
+  if (userMarker) { map.removeLayer(userMarker); userMarker = null; }
+  drawRadiusCircle();
+  renderMarkers();   /* refresh popups so "Navigovať" reverts to no-origin form */
+  renderResults();
+  updateMarkerClasses();
+  map.flyTo(BA_CENTER, 14, { duration: 0.7 });
+});
+
+const $geoBtn = document.getElementById('geo-btn');
+
+const GEO_ICON   = `<svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/></svg>`;
+const GEO_SPIN   = `<svg class="arrow spin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 1-6.4 2.6" style="opacity:0.9"/></svg>`;
+
+function setGeoBtn(state) {
+  if (state === 'loading')      { $geoBtn.innerHTML = `${GEO_SPIN} Hľadám polohu…`; $geoBtn.disabled = true; }
+  else if (state === 'active')  { $geoBtn.innerHTML = `${GEO_ICON} Tvoja poloha`;   $geoBtn.disabled = false; $geoBtn.classList.add('active'); }
+  else                          { $geoBtn.innerHTML = `${GEO_ICON} Moja poloha`;    $geoBtn.disabled = false; $geoBtn.classList.remove('active'); }
+}
+
+function requestGeolocation(opts) {
+  opts = opts || {};
+  if (!navigator.geolocation) {
+    if (opts.userInitiated) alert('Tvoj prehliadač neumožňuje geolokáciu.');
+    return;
+  }
+  setGeoBtn('loading');
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      const ll = [pos.coords.latitude, pos.coords.longitude];
+      state.user = ll;
+      state.origin = ll;
+      placeUserMarker(ll);
+
+      /* Auto-bump radius if user is too far from all spots */
+      const distances = SPOTS.map(s => haversineKm(ll, [s.lat, s.lng]));
+      const minDist = Math.min(...distances);
+      const maxR = parseFloat($radius.max);
+      if (minDist > state.radius) {
+        state.radius = Math.min(maxR, Math.ceil(minDist + 1));
+        $radius.value = state.radius;
+        $radiusVal.textContent = state.radius.toFixed(1);
+        updateRadiusFill();
+      }
+      drawRadiusCircle();
+
+      /* If user is in/near BA → fly to them. Else fit bounds covering user + all spots. */
+      if (minDist > 5) {
+        const bounds = L.latLngBounds([ll, ...SPOTS.map(s => [s.lat, s.lng])]);
+        map.fitBounds(bounds, { padding: [80, 80] });
+      } else {
+        map.flyTo(ll, 15, { duration: 0.8 });
+      }
+
+      setGeoBtn('active');
+      renderMarkers();   /* refresh popups so they show "X km od teba" + navigation */
+      renderResults();
+    },
+    (err) => {
+      setGeoBtn('idle');
+      /* Silent failure on auto-prompt — user can click button to retry */
+      if (opts.userInitiated) {
+        alert('Polohu sa nepodarilo zistiť. Skontroluj povolenia v prehliadači.');
+      }
+    },
+    { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+  );
+}
+
+$geoBtn.addEventListener('click', () => requestGeolocation({ userInitiated: true }));
+
+function placeUserMarker(ll) {
+  if (userMarker) map.removeLayer(userMarker);
+  userMarker = L.marker(ll, {
+    icon: L.divIcon({
+      className: 'user-dot-wrap',
+      html: '<div class="user-dot"></div>',
+      iconSize: [24, 24], iconAnchor: [12, 12]
+    }),
+    zIndexOffset: 1000
+  }).addTo(map);
+}
+
+function drawRadiusCircle() {
+  if (radiusCircle) map.removeLayer(radiusCircle);
+  radiusCircle = L.circle(state.origin, {
+    radius: state.radius * 1000,
+    color: '#B85C3C',
+    weight: 1.5, opacity: 0.4,
+    fillColor: '#B85C3C', fillOpacity: 0.05,
+    dashArray: '6 8', interactive: false
+  }).addTo(map);
+}
+
+updateRadiusFill();
+drawRadiusCircle();
+renderMarkers();
+renderResults();
+
+if (SPOTS.length > 0) {
+  const bounds = L.latLngBounds(SPOTS.map(s => [s.lat, s.lng]));
+  map.fitBounds(bounds, { padding: [60, 60], maxZoom: 14.5 });
+}
+
+/* Auto-request user location on page load.
+   If user denies/blocks → silent fallback to BA centre.
+   If user is far from BA → auto-expands radius + fits map to include user + spots. */
+requestGeolocation({ userInitiated: false });
+
+setInterval(() => { renderMarkers(); renderResults(); }, 60000);
+</script>
+
+</body>
+</html>
