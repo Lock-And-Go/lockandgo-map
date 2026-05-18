@@ -1061,7 +1061,7 @@ input[type=range]::-moz-range-thumb {
   position: fixed;
   inset: 0;
   background: var(--paper);
-  z-index: 200;
+  z-index: 9999;
   transform: translateY(100%);
   transition: transform 0.42s cubic-bezier(0.32, 0.72, 0, 1);
   flex-direction: column;
@@ -1562,7 +1562,7 @@ body.detail-open { overflow: hidden; }
         Bratislava · live
       </span>
       <h1>Kam <em>odložiť</em><br/>kufor.</h1>
-      <p class="sub">12 Bounce úschovní v centre. Slovenský sprievodca — rezervácia, ceny a poistenie cez Bounce.</p>
+      <p class="sub">12 úschovní v centre Bratislavy. Filtruj podľa polohy, ceny a otváracích hodín.</p>
     </div>
 
     <div class="controls">
@@ -1617,7 +1617,7 @@ body.detail-open { overflow: hidden; }
     <div class="results" id="results" role="list"></div>
 
     <div class="panel-foot">
-      <span><span class="pill">v0.5</span> Affiliate Bounce · cena rovnaká</span>
+      <span><span class="pill">v0.6</span> Cena rovnaká ako u partnera</span>
       <a href="mailto:info@lockandgo.sk">Pridať spot</a>
     </div>
   </aside>
@@ -1643,34 +1643,22 @@ body.detail-open { overflow: hidden; }
       </div>
     </div>
 
-    <!-- Mobile-only full-screen spot detail (rendered above panel + map) -->
-    <section class="detail-view" id="detail-view" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="detail-name">
-      <header class="detail-header">
-        <button class="detail-back" id="detail-back" aria-label="Späť na mapu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
-          Späť na mapu
-        </button>
-      </header>
-      <div class="detail-body" id="detail-body"><!-- populated by JS --></div>
-      <footer class="detail-footer" id="detail-footer"><!-- populated by JS --></footer>
-    </section>
+    <!-- Provider-specific guarantees (insurance etc.) sa zobrazia v detaile spotu, nie globálne. -->
 
-    <div class="map-corner br">
-      <div class="guarantee-pill">
-        <span class="shield" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/>
-            <path d="M9 12l2 2 4-4"/>
-          </svg>
-        </span>
-        <div class="text">
-          <b>Bounce Shield · 10 000 €</b>
-          <span>poistenie v cene</span>
-        </div>
-      </div>
-    </div>
   </div>
 </main>
+
+<!-- Mobile-only full-screen spot detail — body-level so it sits ABOVE site-header -->
+<section class="detail-view" id="detail-view" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="detail-name">
+  <header class="detail-header">
+    <button class="detail-back" id="detail-back" aria-label="Späť na mapu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      Späť na mapu
+    </button>
+  </header>
+  <div class="detail-body" id="detail-body"><!-- populated by JS --></div>
+  <footer class="detail-footer" id="detail-footer"><!-- populated by JS --></footer>
+</section>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
@@ -1779,6 +1767,13 @@ function escapeHtml(s) {
     .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+/* Provider label per spot — used in detail tag, popup tag, CTA text.
+   Default 'Bounce' for current 12 spots. Future non-Bounce spots
+   (Eurovea lockers, etc.) just add 'providerLabel: "Eurovea"' to their entry. */
+function spotProvider(spot) {
+  return spot.providerLabel || 'Bounce';
+}
+
 /* Weekly schedule grid for popup — JS getDay() is 0=Sun..6=Sat,
    but we display in EU order Po..Ne. */
 const DAY_LABELS = ['Ne','Po','Ut','St','Št','Pi','So'];
@@ -1846,7 +1841,7 @@ function buildPopup(spot) {
     : `https://www.google.com/maps/dir/?api=1&travelmode=walking&destination=${spot.lat},${spot.lng}`;
 
   return `<div class="pop">
-    <span class="tag">Spot ${spot.id} · rezervácia cez Bounce</span>
+    <span class="tag">Spot ${spot.id} · cez ${spotProvider(spot)}</span>
     <h3>${escapeHtml(spot.name)}</h3>
     <div class="area">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1860,7 +1855,7 @@ function buildPopup(spot) {
       </div>
       <div>
         <div class="big">od ${spot.price.toFixed(2).replace('.',',')}€</div>
-        <div class="label">/ deň · cez Bounce</div>
+        <div class="label">/ deň · orientačná</div>
       </div>
     </div>
     <div class="schedule-label">
@@ -1870,10 +1865,10 @@ function buildPopup(spot) {
     <div class="schedule">${scheduleHtml(spot.hours.schedule)}</div>
     <div class="approx-note">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-      <span>Presná adresa &amp; finálna cena až po výbere v Bounce systéme. Lokácia na mape je orientačná (oblasť ${escapeHtml(spot.area)}).</span>
+      <span>Presnú adresu a finálnu cenu vidíš pri rezervácii u partnera (${escapeHtml(spotProvider(spot))}). Lokácia na mape je orientačná (oblasť ${escapeHtml(spot.area)}).</span>
     </div>
     <a class="cta" href="${spot.bookingUrl}" target="_blank" rel="noopener nofollow sponsored">
-      Rezervovať cez Bounce
+      Rezervovať cez ${spotProvider(spot)}
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
     </a>
     <a class="cta cta-maps" href="${mapsUrl}" target="_blank" rel="noopener" aria-label="Navigovať do spotu cez Google Maps">
@@ -2282,7 +2277,7 @@ function buildDetailBody(spot) {
   const st = spotStatus(spot);
   const userDist = state.user ? haversineKm(state.user, [spot.lat, spot.lng]) : null;
   return `
-    <div class="detail-tag">Spot ${spot.id} · cez Bounce</div>
+    <div class="detail-tag">Spot ${spot.id} · cez ${spotProvider(spot)}</div>
     <h1 class="detail-name" id="detail-name">${escapeHtml(spot.name)}</h1>
     <div class="detail-area">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -2300,7 +2295,7 @@ function buildDetailBody(spot) {
       </div>
       <div class="stat">
         <div class="big">od ${spot.price.toFixed(2).replace('.',',')}€</div>
-        <div class="lbl">/ deň · Bounce sadzba</div>
+        <div class="lbl">/ deň · orientačná</div>
       </div>
     </div>
 
@@ -2312,7 +2307,7 @@ function buildDetailBody(spot) {
 
     <div class="detail-note">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-      <span>Presná adresa a finálna cena ti budú zobrazené pri rezervácii v Bounce systéme. Lokácia na mape je orientačná (oblasť ${escapeHtml(spot.area)}).</span>
+      <span>Presnú adresu a finálnu cenu vidíš pri rezervácii u partnera (${escapeHtml(spotProvider(spot))}). Lokácia na mape je orientačná (oblasť ${escapeHtml(spot.area)}).</span>
     </div>
   `;
 }
@@ -2323,7 +2318,7 @@ function buildDetailFooter(spot) {
     : `https://www.google.com/maps/dir/?api=1&travelmode=walking&destination=${spot.lat},${spot.lng}`;
   return `
     <a class="detail-cta primary" href="${spot.bookingUrl}" target="_blank" rel="noopener nofollow sponsored">
-      Rezervovať cez Bounce
+      Rezervovať cez ${spotProvider(spot)}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
     </a>
     <a class="detail-cta secondary" href="${mapsUrl}" target="_blank" rel="noopener">
