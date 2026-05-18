@@ -3,9 +3,58 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mapa spotov — LockAndGo</title>
-<meta name="description" content="16 úschovní batožiny v Bratislave. Filtruj podľa polohy, ceny a otváracích hodín." />
+<title>Mapa úschovní batožiny v Bratislave · 16 spotov | LockAndGo</title>
+<meta name="description" content="Interaktívna mapa 16 úschovní batožiny v Bratislave. Hlavná stanica, Nivy, Staré Mesto, Petržalka. Filtruj podľa otváracích hodín a ceny, rezervuj online za 2 minúty." />
 <meta name="theme-color" content="#F1F1EC" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<meta name="geo.region" content="SK-BL" />
+<meta name="geo.placename" content="Bratislava" />
+<meta name="geo.position" content="48.1486;17.1077" />
+<meta name="ICBM" content="48.1486, 17.1077" />
+
+<link rel="canonical" href="https://lockandgo.sk/app" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="sk_SK" />
+<meta property="og:site_name" content="LockAndGo" />
+<meta property="og:title" content="Mapa úschovní batožiny v Bratislave · 16 spotov" />
+<meta property="og:description" content="Interaktívna mapa úschovní batožiny v Bratislave — filtre, ceny, otváracie hodiny." />
+<meta property="og:url" content="https://lockandgo.sk/app" />
+<meta property="og:image" content="https://lockandgo.sk/og-image.svg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Mapa úschovní batožiny v Bratislave · 16 spotov | LockAndGo" />
+<meta name="twitter:description" content="Interaktívna mapa úschovní v Bratislave." />
+<meta name="twitter:image" content="https://lockandgo.sk/og-image.svg" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://lockandgo.sk/app#webpage",
+      "url": "https://lockandgo.sk/app",
+      "name": "Mapa úschovní batožiny v Bratislave · 16 spotov",
+      "description": "Interaktívna mapa 16 úschovní batožiny v Bratislave — Hlavná stanica, Nivy, Staré Mesto, Petržalka.",
+      "isPartOf": { "@id": "https://lockandgo.sk/#website" },
+      "inLanguage": "sk-SK",
+      "primaryImageOfPage": "https://lockandgo.sk/og-image.svg",
+      "breadcrumb": { "@id": "https://lockandgo.sk/app#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lockandgo.sk/app#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Domov", "item": "https://lockandgo.sk/" },
+        { "@type": "ListItem", "position": 2, "name": "Mapa spotov", "item": "https://lockandgo.sk/app" }
+      ]
+    }
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1776,6 +1825,85 @@ const SPOTS = [
     notes:'Iba bezkontaktná platba kartou (vrátane Apple Pay / Google Pay). Vhodné pre menšiu batožinu.',
     bookingType:'walkin', providerLabel:'Obchodná 9', isNew:true, bookingUrl:null }
 ];
+
+/* SEO/GEO — inject ItemList JSON-LD generated from SPOTS so Google + AI bots can index every place */
+(function injectSpotsSchema() {
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const fmt = (h) => {
+    const hr = Math.floor(h);
+    const mn = Math.round((h - hr) * 60);
+    return String(hr).padStart(2,'0') + ':' + String(mn).padStart(2,'0');
+  };
+  const hoursSpec = (sch) => {
+    if (!sch) return undefined;
+    const out = [];
+    sch.forEach((slot, i) => {
+      if (!slot) return;
+      const [o, c] = slot;
+      const opens = (o === 0 && c === 24) ? '00:00' : fmt(o);
+      const closes = (o === 0 && c === 24) ? '23:59' : fmt(c);
+      out.push({
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'https://schema.org/' + days[i],
+        opens, closes
+      });
+    });
+    return out.length ? out : undefined;
+  };
+
+  const items = SPOTS.map((s, idx) => {
+    const place = {
+      '@type': 'Place',
+      '@id': 'https://lockandgo.sk/app#spot-' + s.id,
+      name: s.name,
+      url: 'https://lockandgo.sk/app#spot-' + s.id,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: s.address || s.area,
+        addressLocality: 'Bratislava',
+        addressRegion: 'Bratislavský kraj',
+        addressCountry: 'SK'
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: s.lat,
+        longitude: s.lng
+      }
+    };
+    const oh = hoursSpec(s.hours && s.hours.schedule);
+    if (oh) place.openingHoursSpecification = oh;
+    if (s.rating != null && s.reviews) {
+      place.aggregateRating = {
+        '@type': 'AggregateRating',
+        ratingValue: s.rating,
+        reviewCount: s.reviews,
+        bestRating: 5,
+        worstRating: 1
+      };
+    }
+    if (s.price != null) {
+      place.priceRange = '€' + s.price.toFixed(2);
+    }
+    return { '@type': 'ListItem', position: idx + 1, item: place };
+  });
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': 'https://lockandgo.sk/app#itemlist',
+    name: 'Úschovne batožiny v Bratislave',
+    description: 'Mapa 16 úschovní batožiny v Bratislave — Hlavná stanica, Staré Mesto, Nivy, Petržalka.',
+    numberOfItems: SPOTS.length,
+    itemListOrder: 'https://schema.org/ItemListOrderAscending',
+    itemListElement: items
+  };
+
+  const tag = document.createElement('script');
+  tag.type = 'application/ld+json';
+  tag.id = 'spots-itemlist-schema';
+  tag.textContent = JSON.stringify(schema);
+  document.head.appendChild(tag);
+})();
 
 function toRad(d) { return d * Math.PI / 180; }
 function haversineKm(a, b) {
