@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>LockAndGo · poster EN (A5)</title>
+<meta name="description" content="Printable A5 poster — English version for tourist info centres in Bratislava." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg:        #F1F1EC;
+    --paper:     #FAFAF6;
+    --ink:       #1F1F1D;
+    --ink-2:     #555550;
+    --ink-3:     #8E8E89;
+    --line:      rgba(31, 31, 29, 0.10);
+    --yellow:    #B89A45;
+    --yellow-2:  #8B6F2A;
+    --yellow-50: #F5EFD8;
+    --yellow-100:#E5D597;
+    --olive:     #556142;
+  }
+
+  @page {
+    size: A5 portrait;
+    margin: 0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #2a2a28;
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 32px 16px;
+    min-height: 100vh;
+  }
+
+  .page {
+    width: 148mm;
+    height: 210mm;
+    background: var(--paper);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 28px 64px rgba(0,0,0,0.35);
+    color: var(--ink);
+  }
+
+  .page::before {
+    content: '';
+    position: absolute;
+    top: -60mm; right: -50mm;
+    width: 180mm; height: 180mm;
+    background: radial-gradient(circle, var(--yellow-100) 0%, var(--yellow-50) 45%, transparent 70%);
+    opacity: 0.85;
+    pointer-events: none;
+  }
+  .page::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: -20mm;
+    width: 80mm; height: 40mm;
+    background: var(--bg);
+    border-top-right-radius: 60mm;
+    opacity: 0.65;
+    pointer-events: none;
+  }
+
+  .inner {
+    position: relative;
+    z-index: 2;
+    width: 100%; height: 100%;
+    padding: 14mm 13mm;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 16pt;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .brand .lock {
+    display: inline-flex;
+    width: 24px; height: 24px;
+    border-radius: 7px;
+    background: var(--yellow);
+    color: var(--paper);
+    align-items: center;
+    justify-content: center;
+  }
+  .brand .lock svg { width: 13px; height: 13px; }
+  .brand .name em { font-style: normal; color: var(--yellow-2); }
+
+  .eyebrow {
+    margin-top: 10mm;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 9pt;
+    color: var(--olive);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 18px; height: 1.5px;
+    background: var(--olive);
+    border-radius: 1px;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 38pt;
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    margin-top: 6mm;
+    color: var(--ink);
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--yellow-2);
+    font-weight: 600;
+  }
+  h1 .br { display: block; }
+
+  .subtitle {
+    margin-top: 8mm;
+    font-size: 11.5pt;
+    line-height: 1.45;
+    color: var(--ink-2);
+    max-width: 110mm;
+    font-weight: 500;
+  }
+  .subtitle b { color: var(--ink); font-weight: 700; }
+
+  .perks {
+    margin-top: 8mm;
+    display: flex;
+    gap: 10mm;
+    align-items: flex-start;
+  }
+  .perk { flex: 1; }
+  .perk .num {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 20pt;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .perk .num em { font-style: italic; color: var(--yellow-2); }
+  .perk .lbl {
+    margin-top: 3mm;
+    font-size: 8.5pt;
+    line-height: 1.35;
+    color: var(--ink-2);
+    font-weight: 500;
+  }
+
+  .qr-block {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 7mm;
+    padding-top: 7mm;
+    border-top: 1px solid var(--line);
+  }
+  .qr {
+    flex: 0 0 auto;
+    width: 42mm; height: 42mm;
+    padding: 3mm;
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    border-radius: 4mm;
+    box-shadow: 0 4px 10px rgba(31,31,29,0.10);
+  }
+  .qr img { width: 100%; height: 100%; display: block; }
+
+  .qr-text { flex: 1; }
+  .qr-text .cta {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 17pt;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .qr-text .cta em { font-style: italic; color: var(--yellow-2); }
+  .qr-text .url {
+    margin-top: 4mm;
+    display: inline-block;
+    padding: 3mm 5mm;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 11pt;
+    letter-spacing: 0.02em;
+    border-radius: 999px;
+  }
+  .qr-text .url .arrow {
+    display: inline-block;
+    margin-left: 4px;
+    transform: translateY(0.5px);
+  }
+
+  .foot {
+    margin-top: 5mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.5pt;
+    color: var(--ink-3);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  @media print {
+    html, body { background: white; padding: 0; }
+    body { display: block; min-height: auto; }
+    .page { box-shadow: none; width: 148mm; height: 210mm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="inner">
+
+    <div class="brand">
+      <span class="lock" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="11" width="16" height="10" rx="2" />
+          <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+        </svg>
+      </span>
+      <span class="name">Lock<em>And</em>Go</span>
+    </div>
+
+    <div class="eyebrow">Luggage storage · Bratislava</div>
+
+    <h1>
+      Drop your
+      <span class="br">bags. See</span>
+      <span class="br">the <em>city</em>.</span>
+    </h1>
+
+    <p class="subtitle">
+      <b>16 storage spots</b> across Bratislava — Main Station, Nivy, Old Town, Petržalka. Cafés, hotels and 24/7 self-service lockers. Book in two minutes.
+    </p>
+
+    <div class="perks">
+      <div class="perk">
+        <div class="num">from <em>€5.90</em></div>
+        <div class="lbl">per bag / day</div>
+      </div>
+      <div class="perk">
+        <div class="num"><em>24/7</em></div>
+        <div class="lbl">self-service lockers at Nivy &amp; Main Station</div>
+      </div>
+      <div class="perk">
+        <div class="num"><em>2 min</em></div>
+        <div class="lbl">online booking</div>
+      </div>
+    </div>
+
+    <div class="qr-block">
+      <div class="qr">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=600x600&margin=0&data=https%3A%2F%2Flockandgo.sk" alt="QR code · lockandgo.sk" />
+      </div>
+      <div class="qr-text">
+        <div class="cta">Scan &amp; <em>book</em>.</div>
+        <span class="url">lockandgo.sk <span class="arrow">→</span></span>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span>Bratislava · English</span>
+      <span>LockAndGo · 2026</span>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
