@@ -1048,37 +1048,190 @@ input[type=range]::-moz-range-thumb {
 }
 .pop .user-dist svg { width: 12px; height: 12px; }
 
-/* ───── Mobile ───── */
+/* Desktop: hide mobile-only elements */
+.panel-handle { display: none; }
+.geo-fab { display: none; }
+
+/* ─────────────────────────────────────────────────────────
+   MOBILE — bottom-sheet pattern
+   Map = full screen background.
+   Panel = swipeable sheet from bottom (peek / expanded).
+   ───────────────────────────────────────────────────────── */
 @media (max-width: 880px) {
-  :root { --header-h: 60px; }
+  :root { --header-h: 56px; --sheet-peek: 220px; }
+
   .site-header {
     grid-template-columns: auto 1fr;
     gap: 12px;
     padding: 0 16px;
+    background: rgba(242, 237, 229, 0.95);
   }
   .nav-wrap { display: none; }
   .header-stats { display: none; }
+  .brand { font-size: 20px; }
+  .brand-mark { width: 30px; height: 30px; }
+
+  /* Shell = absolute layered, map fills, panel overlays */
   .shell {
-    grid-template-columns: 1fr;
-    grid-template-rows: 48% 52%;
+    display: block;
+    grid-template-columns: none;
+    grid-template-rows: none;
   }
+  .stage {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  /* Bottom sheet */
   .panel {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 88vh;
+    max-height: calc(100vh - var(--header-h) - 40px);
+    background: var(--paper);
     border-right: none;
     border-top: 1px solid var(--line);
-    border-top-left-radius: 22px;
-    border-top-right-radius: 22px;
-    margin-top: -22px;
-    box-shadow: 0 -8px 24px -8px rgba(26, 24, 21, 0.10);
-    order: 2;
+    border-radius: 22px 22px 0 0;
+    box-shadow: 0 -8px 36px -8px rgba(26, 24, 21, 0.18), 0 -2px 6px rgba(26, 24, 21, 0.04);
+    transform: translateY(calc(100% - var(--sheet-peek)));
+    transition: transform 0.36s cubic-bezier(0.32, 0.72, 0, 1);
+    z-index: 50;
+    will-change: transform;
+    touch-action: pan-y;
   }
-  .panel-head { padding: 18px 18px 14px; }
-  .panel-head h1 { font-size: 26px; }
-  .controls { padding: 14px 18px; }
-  .results-meta { padding: 12px 18px 6px; }
-  .results { padding: 4px 10px 24px; }
-  .panel-foot { padding: 12px 18px; }
-  .stage { order: 1; }
-  .map-corner.tr { top: 12px; right: 12px; }
+  .panel.expanded {
+    transform: translateY(0);
+  }
+  .panel.dragging {
+    transition: none;
+  }
+
+  /* Drag handle at top */
+  .panel-handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    flex-shrink: 0;
+    cursor: grab;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+  .panel-handle:active { cursor: grabbing; }
+  .panel-handle .grip {
+    width: 44px; height: 5px;
+    background: var(--ink-4);
+    border-radius: 3px;
+    transition: background 0.15s, width 0.15s;
+  }
+  .panel.expanded .panel-handle .grip { background: var(--ink-3); width: 52px; }
+
+  /* Hide editorial hero text on mobile — save space, just functional */
+  .panel-head { display: none; }
+
+  .controls {
+    padding: 8px 18px 14px;
+    background: var(--paper);
+    flex-shrink: 0;
+    gap: 12px;
+  }
+  .search-input input { height: 46px; font-size: 15px; }
+  .geo-btn { height: 46px; padding: 0 16px; font-size: 13px; }
+
+  /* Chips horizontal scroll */
+  .chip-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin: 0 -18px;
+    padding: 2px 18px;
+  }
+  .chip-row::-webkit-scrollbar { display: none; }
+  .chip { flex-shrink: 0; height: 34px; padding: 0 14px; font-size: 12px; }
+
+  .results-meta {
+    padding: 12px 18px 6px;
+    flex-shrink: 0;
+  }
+  .results {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 10px 80px;  /* extra bottom padding for safe area */
+    overscroll-behavior: contain;
+  }
+  .card { padding: 14px 12px; }
+  .card-name { font-size: 16px; }
+  .card-price .amt { font-size: 20px; }
+
+  .panel-foot { display: none; }
+
+  /* Floating "Moja poloha" FAB on map (replaces panel button for visibility) */
+  .geo-fab {
+    position: absolute;
+    top: calc(var(--header-h) + 12px);
+    right: 14px;
+    z-index: 40;
+    height: 44px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 6px 20px -4px rgba(26, 24, 21, 0.20), 0 2px 4px rgba(26, 24, 21, 0.06);
+    border: 1px solid var(--line);
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.18s;
+  }
+  .geo-fab svg { width: 14px; height: 14px; }
+  .geo-fab.active {
+    background: var(--terracotta);
+    color: var(--bg);
+    border-color: var(--terracotta);
+  }
+  .geo-fab.loading svg { animation: spin 0.9s linear infinite; }
+
+  /* Hide desktop legend + guarantee overlays — too cluttered on small screens */
+  .map-corner.tr,
+  .map-corner.br { display: none; }
+
+  /* Bigger touch targets for map pins */
+  .lg-pin { width: 42px !important; height: 42px !important; }
+  .lg-pin .dot { width: 38px; height: 38px; font-size: 13px; }
+
+  /* Leaflet zoom control — bigger on touch */
+  .leaflet-control-zoom a {
+    width: 40px !important; height: 40px !important; line-height: 40px !important;
+    font-size: 20px !important;
+  }
+  /* Move zoom to left so it doesn't conflict with geo FAB */
+  .leaflet-top.leaflet-right { display: none; }
+  .leaflet-bottom.leaflet-left { bottom: calc(var(--sheet-peek) + 12px) !important; }
+
+  /* Popup — better mobile sizing */
+  .leaflet-popup-content { width: 250px !important; }
+  .pop { padding: 16px 18px 18px; }
+  .pop h3 { font-size: 18px; }
+  .pop .cta { padding: 14px; }   /* bigger tap target */
+  .pop .cta.cta-maps { padding: 14px; }
+
+  /* Hide pricing card eyebrow visually duplicated info */
+  .header-stats { display: none; }
+}
+
+/* Very small screens — landscape phones */
+@media (max-width: 380px) {
+  .controls { padding: 8px 14px 12px; }
+  .results { padding: 4px 6px 80px; }
+  .card { grid-template-columns: 42px 1fr; gap: 10px; }
+  .card-pin .num { width: 36px; height: 36px; font-size: 13px; }
 }
 </style>
 </head>
@@ -1107,7 +1260,12 @@ input[type=range]::-moz-range-thumb {
 </header>
 
 <main class="shell">
-  <aside class="panel">
+  <aside class="panel" id="panel">
+    <!-- Mobile-only drag handle (hidden on desktop via CSS) -->
+    <button class="panel-handle" id="panel-handle" aria-label="Rozbaliť / zbaliť zoznam spotov">
+      <span class="grip" aria-hidden="true"></span>
+    </button>
+
     <div class="panel-head">
       <span class="eyebrow">
         <span class="pulse" aria-hidden="true"></span>
@@ -1176,6 +1334,14 @@ input[type=range]::-moz-range-thumb {
 
   <div class="stage">
     <div id="map"></div>
+
+    <!-- Mobile-only floating geo button (CSS hides on desktop) -->
+    <button class="geo-fab" id="geo-fab-mobile" aria-label="Použiť moju polohu">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/>
+      </svg>
+      <span class="lbl">Moja poloha</span>
+    </button>
 
     <div class="map-corner tr">
       <div class="legend" role="complementary" aria-label="Legenda mapy">
@@ -1670,6 +1836,86 @@ function requestGeolocation(opts) {
 }
 
 $geoBtn.addEventListener('click', () => requestGeolocation({ userInitiated: true }));
+
+/* ─────────────────────────────────────────────────────────
+   MOBILE: bottom-sheet handle toggle + floating geo FAB
+   ───────────────────────────────────────────────────────── */
+const $panel = document.getElementById('panel');
+const $handle = document.getElementById('panel-handle');
+const $geoFab = document.getElementById('geo-fab-mobile');
+
+const isMobile = () => window.matchMedia('(max-width: 880px)').matches;
+
+/* Panel handle: tap to toggle peek/expanded */
+$handle.addEventListener('click', () => {
+  $panel.classList.toggle('expanded');
+});
+
+/* Touch-drag to expand/collapse sheet */
+let dragStartY = 0, dragStartTransform = 0, dragging = false;
+
+function panelHeight() { return $panel.offsetHeight; }
+function peekY() {
+  const peek = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--sheet-peek')) || 220;
+  return panelHeight() - peek;
+}
+
+$handle.addEventListener('touchstart', (e) => {
+  if (!isMobile()) return;
+  dragStartY = e.touches[0].clientY;
+  const currentExpanded = $panel.classList.contains('expanded');
+  dragStartTransform = currentExpanded ? 0 : peekY();
+  dragging = true;
+  $panel.classList.add('dragging');
+}, { passive: true });
+
+$handle.addEventListener('touchmove', (e) => {
+  if (!dragging) return;
+  const dy = e.touches[0].clientY - dragStartY;
+  const target = Math.max(0, Math.min(peekY(), dragStartTransform + dy));
+  $panel.style.transform = `translateY(${target}px)`;
+}, { passive: true });
+
+$handle.addEventListener('touchend', () => {
+  if (!dragging) return;
+  dragging = false;
+  $panel.classList.remove('dragging');
+  $panel.style.transform = '';
+  const transform = new DOMMatrixReadOnly(getComputedStyle($panel).transform);
+  const currentY = transform.m42;
+  /* Snap: if more than 30% expanded, snap to expanded; else snap to peek */
+  if (currentY < peekY() * 0.7) {
+    $panel.classList.add('expanded');
+  } else {
+    $panel.classList.remove('expanded');
+  }
+});
+
+/* Mobile FAB: same handler as panel's geo button */
+if ($geoFab) {
+  $geoFab.addEventListener('click', () => requestGeolocation({ userInitiated: true }));
+}
+
+/* Override setGeoBtn so mobile FAB stays in sync with desktop button */
+const _origSetGeoBtn = setGeoBtn;
+setGeoBtn = function(s) {
+  _origSetGeoBtn(s);
+  if (!$geoFab) return;
+  $geoFab.classList.remove('active', 'loading');
+  const $lbl = $geoFab.querySelector('.lbl');
+  if (s === 'loading')      { $geoFab.classList.add('loading'); if ($lbl) $lbl.textContent = 'Hľadám…'; }
+  else if (s === 'active')  { $geoFab.classList.add('active');  if ($lbl) $lbl.textContent = 'Tvoja poloha'; }
+  else                      {                                    if ($lbl) $lbl.textContent = 'Moja poloha'; }
+};
+
+/* When card clicked on mobile → collapse sheet so user sees pin */
+const _origSetActive = setActive;
+setActive = function(id, flyTo) {
+  _origSetActive(id, flyTo);
+  if (isMobile()) {
+    $panel.classList.remove('expanded');
+  }
+};
 
 function placeUserMarker(ll) {
   if (userMarker) map.removeLayer(userMarker);
