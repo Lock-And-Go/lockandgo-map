@@ -14,13 +14,12 @@
     --bg:        #F1F1EC;
     --paper:     #FAFAF6;
     --ink:       #1F1F1D;
-    --ink-2:     #555550;
-    --ink-3:     #8E8E89;
-    --line:      rgba(31, 31, 29, 0.10);
-    --yellow:    #B89A45;
-    --yellow-2:  #8B6F2A;
-    --yellow-50: #F5EFD8;
-    --yellow-100:#E5D597;
+    --ink-2:     #2D2D2A;
+    --ink-3:     #6B6B65;
+    --line:      rgba(31, 31, 29, 0.18);
+    --yellow:    #ECB923;   /* rich honey gold — not pastel */
+    --yellow-2:  #8B6F1F;
+    --yellow-deep: #D4A41A;
     --olive:     #556142;
   }
 
@@ -49,7 +48,7 @@
   .page {
     width: 148mm;
     height: 210mm;
-    background: var(--paper);
+    background: var(--yellow);
     position: relative;
     overflow: hidden;
     box-shadow: 0 28px 64px rgba(0,0,0,0.35);
@@ -59,20 +58,18 @@
   .page::before {
     content: '';
     position: absolute;
-    top: -60mm; right: -50mm;
-    width: 180mm; height: 180mm;
-    background: radial-gradient(circle, var(--yellow-100) 0%, var(--yellow-50) 45%, transparent 70%);
-    opacity: 0.85;
+    top: 0; left: 0; right: 0;
+    height: 4mm;
+    background: var(--yellow-deep);
     pointer-events: none;
   }
   .page::after {
     content: '';
     position: absolute;
-    bottom: 0; left: -20mm;
-    width: 80mm; height: 40mm;
-    background: var(--bg);
-    border-top-right-radius: 60mm;
-    opacity: 0.65;
+    left: 0; right: 0; bottom: 0;
+    height: 80mm;
+    background: var(--paper);
+    clip-path: polygon(0 14mm, 100% 0, 100% 100%, 0 100%);
     pointer-events: none;
   }
 
@@ -99,8 +96,8 @@
     display: inline-flex;
     width: 24px; height: 24px;
     border-radius: 7px;
-    background: var(--yellow);
-    color: var(--paper);
+    background: var(--ink);
+    color: var(--yellow);
     align-items: center;
     justify-content: center;
   }
@@ -110,11 +107,11 @@
   .eyebrow {
     margin-top: 10mm;
     font-family: 'Inter', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.16em;
     font-size: 9pt;
-    color: var(--olive);
+    color: var(--ink);
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -122,7 +119,7 @@
   .eyebrow::before {
     content: '';
     width: 18px; height: 1.5px;
-    background: var(--olive);
+    background: var(--ink);
     border-radius: 1px;
   }
 
@@ -137,8 +134,8 @@
   }
   h1 em {
     font-style: italic;
-    color: var(--yellow-2);
-    font-weight: 600;
+    color: var(--olive);
+    font-weight: 700;
   }
   h1 .br { display: block; }
 
@@ -146,11 +143,11 @@
     margin-top: 8mm;
     font-size: 11.5pt;
     line-height: 1.45;
-    color: var(--ink-2);
+    color: var(--ink);
     max-width: 110mm;
     font-weight: 500;
   }
-  .subtitle b { color: var(--ink); font-weight: 700; }
+  .subtitle b { color: var(--ink); font-weight: 800; }
 
   .perks {
     margin-top: 8mm;
@@ -167,13 +164,13 @@
     letter-spacing: -0.02em;
     color: var(--ink);
   }
-  .perk .num em { font-style: italic; color: var(--yellow-2); }
+  .perk .num em { font-style: italic; color: var(--olive); }
   .perk .lbl {
     margin-top: 3mm;
     font-size: 8.5pt;
     line-height: 1.35;
     color: var(--ink-2);
-    font-weight: 500;
+    font-weight: 600;
   }
 
   .qr-block {
@@ -182,7 +179,7 @@
     align-items: center;
     gap: 7mm;
     padding-top: 7mm;
-    border-top: 1px solid var(--line);
+    border-top: none;
   }
   .qr {
     flex: 0 0 auto;
@@ -204,15 +201,16 @@
     letter-spacing: -0.02em;
     color: var(--ink);
   }
-  .qr-text .cta em { font-style: italic; color: var(--yellow-2); }
+  .qr-text .cta em { font-style: italic; color: var(--yellow-deep); }
   .qr-text .url {
     margin-top: 4mm;
     display: inline-block;
     padding: 3mm 5mm;
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--yellow);
+    color: var(--ink);
+    border: 2px solid var(--ink);
     font-family: 'Inter', sans-serif;
-    font-weight: 700;
+    font-weight: 800;
     font-size: 11pt;
     letter-spacing: 0.02em;
     border-radius: 999px;
@@ -229,8 +227,8 @@
     justify-content: space-between;
     align-items: center;
     font-size: 7.5pt;
-    color: var(--ink-3);
-    font-weight: 500;
+    color: var(--ink-2);
+    font-weight: 600;
     letter-spacing: 0.02em;
   }
 
