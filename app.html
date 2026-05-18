@@ -1098,8 +1098,12 @@ input[type=range]::-moz-range-thumb {
     transition: transform 0.36s cubic-bezier(0.32, 0.72, 0, 1);
     z-index: 50;
     will-change: transform;
-    touch-action: pan-y;
+    /* No touch-action here — children manage their own. */
   }
+  /* Handle area = custom drag, no native scroll */
+  .panel-handle { touch-action: none; }
+  /* Results list = allow native vertical scroll */
+  .results { touch-action: pan-y; }
   .panel.expanded {
     transform: translateY(0);
   }
@@ -1886,16 +1890,16 @@ function togglePanel() {
   setExpanded(!$panel.classList.contains('expanded'));
 }
 
-/* Tap toggles (works on desktop click + mobile touch fallback) */
+/* Tap toggles. Click is used as fallback for non-touch (rare on mobile) — gated by recent-touch timestamp. */
+let lastTouchEnd = 0;
 $handle.addEventListener('click', (e) => {
-  /* If touch already handled it via touchend, ignore the synthetic click */
-  if (e.detail === 0 && lastTouchHandled) { lastTouchHandled = false; return; }
+  /* If a real touchend already handled this gesture within 700ms, skip the synthetic click. */
+  if (Date.now() - lastTouchEnd < 700) return;
   togglePanel();
 });
 
 /* Touch-drag to expand/collapse — with tap detection */
 let dragStartY = 0, dragStartTransform = 0, dragging = false, movedFar = false;
-let lastTouchHandled = false;
 
 function panelHeight() { return $panel.offsetHeight; }
 function peekY() {
@@ -1924,13 +1928,12 @@ $handle.addEventListener('touchend', () => {
   if (!dragging) return;
   dragging = false;
   $panel.classList.remove('dragging');
+  lastTouchEnd = Date.now();
 
   if (!movedFar) {
-    /* Was a tap — toggle state. Clear inline transform first so transition runs. */
+    /* Was a tap — toggle state. */
     $panel.style.transform = '';
     togglePanel();
-    lastTouchHandled = true;
-    setTimeout(() => { lastTouchHandled = false; }, 350);
     return;
   }
 
@@ -1939,8 +1942,6 @@ $handle.addEventListener('touchend', () => {
   const currentY = transform.m42;
   $panel.style.transform = '';
   setExpanded(currentY < peekY() * 0.5);
-  lastTouchHandled = true;
-  setTimeout(() => { lastTouchHandled = false; }, 350);
 });
 
 /* Tap on visible map area while sheet is expanded → collapse */
