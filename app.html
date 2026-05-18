@@ -1107,25 +1107,53 @@ input[type=range]::-moz-range-thumb {
     transition: none;
   }
 
-  /* Drag handle at top */
+  /* Drag handle at top — bigger tap zone, with chevron */
   .panel-handle {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 24px;
+    gap: 4px;
+    height: 44px;     /* full tap target */
     flex-shrink: 0;
     cursor: grab;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
+    border: none;
+    background: var(--paper);
+    width: 100%;
+    padding: 0;
+    position: relative;
   }
-  .panel-handle:active { cursor: grabbing; }
+  .panel-handle:active { cursor: grabbing; background: var(--bg); }
   .panel-handle .grip {
     width: 44px; height: 5px;
     background: var(--ink-4);
     border-radius: 3px;
-    transition: background 0.15s, width 0.15s;
+    transition: background 0.18s, width 0.18s;
   }
-  .panel.expanded .panel-handle .grip { background: var(--ink-3); width: 52px; }
+  .panel-handle .handle-label {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 2px;
+  }
+  .panel-handle .handle-label svg {
+    width: 10px; height: 10px;
+    transition: transform 0.36s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .panel.expanded .panel-handle .grip { background: var(--ink-3); width: 32px; }
+  .panel.expanded .panel-handle .handle-label svg { transform: rotate(180deg); }
+  .panel-handle .label-peek { display: inline; }
+  .panel-handle .label-expanded { display: none; }
+  .panel.expanded .panel-handle .label-peek { display: none; }
+  .panel.expanded .panel-handle .label-expanded { display: inline; }
 
   /* Hide editorial hero text on mobile — save space, just functional */
   .panel-head { display: none; }
@@ -1264,6 +1292,11 @@ input[type=range]::-moz-range-thumb {
     <!-- Mobile-only drag handle (hidden on desktop via CSS) -->
     <button class="panel-handle" id="panel-handle" aria-label="Rozbaliť / zbaliť zoznam spotov">
       <span class="grip" aria-hidden="true"></span>
+      <span class="handle-label">
+        <span class="label-peek">Filtre &amp; zoznam</span>
+        <span class="label-expanded">Zavrieť · pozrieť mapu</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </span>
     </button>
 
     <div class="panel-head">
@@ -1846,32 +1879,43 @@ const $geoFab = document.getElementById('geo-fab-mobile');
 
 const isMobile = () => window.matchMedia('(max-width: 880px)').matches;
 
-/* Panel handle: tap to toggle peek/expanded */
-$handle.addEventListener('click', () => {
-  $panel.classList.toggle('expanded');
+function setExpanded(on) {
+  $panel.classList.toggle('expanded', !!on);
+}
+function togglePanel() {
+  setExpanded(!$panel.classList.contains('expanded'));
+}
+
+/* Tap toggles (works on desktop click + mobile touch fallback) */
+$handle.addEventListener('click', (e) => {
+  /* If touch already handled it via touchend, ignore the synthetic click */
+  if (e.detail === 0 && lastTouchHandled) { lastTouchHandled = false; return; }
+  togglePanel();
 });
 
-/* Touch-drag to expand/collapse sheet */
-let dragStartY = 0, dragStartTransform = 0, dragging = false;
+/* Touch-drag to expand/collapse — with tap detection */
+let dragStartY = 0, dragStartTransform = 0, dragging = false, movedFar = false;
+let lastTouchHandled = false;
 
 function panelHeight() { return $panel.offsetHeight; }
 function peekY() {
   const peek = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--sheet-peek')) || 220;
-  return panelHeight() - peek;
+  return Math.max(0, panelHeight() - peek);
 }
 
 $handle.addEventListener('touchstart', (e) => {
   if (!isMobile()) return;
   dragStartY = e.touches[0].clientY;
-  const currentExpanded = $panel.classList.contains('expanded');
-  dragStartTransform = currentExpanded ? 0 : peekY();
+  dragStartTransform = $panel.classList.contains('expanded') ? 0 : peekY();
   dragging = true;
+  movedFar = false;
   $panel.classList.add('dragging');
 }, { passive: true });
 
 $handle.addEventListener('touchmove', (e) => {
   if (!dragging) return;
   const dy = e.touches[0].clientY - dragStartY;
+  if (Math.abs(dy) > 6) movedFar = true;
   const target = Math.max(0, Math.min(peekY(), dragStartTransform + dy));
   $panel.style.transform = `translateY(${target}px)`;
 }, { passive: true });
@@ -1880,15 +1924,33 @@ $handle.addEventListener('touchend', () => {
   if (!dragging) return;
   dragging = false;
   $panel.classList.remove('dragging');
-  $panel.style.transform = '';
+
+  if (!movedFar) {
+    /* Was a tap — toggle state. Clear inline transform first so transition runs. */
+    $panel.style.transform = '';
+    togglePanel();
+    lastTouchHandled = true;
+    setTimeout(() => { lastTouchHandled = false; }, 350);
+    return;
+  }
+
+  /* Was a drag — snap based on current position */
   const transform = new DOMMatrixReadOnly(getComputedStyle($panel).transform);
   const currentY = transform.m42;
-  /* Snap: if more than 30% expanded, snap to expanded; else snap to peek */
-  if (currentY < peekY() * 0.7) {
-    $panel.classList.add('expanded');
-  } else {
-    $panel.classList.remove('expanded');
-  }
+  $panel.style.transform = '';
+  setExpanded(currentY < peekY() * 0.5);
+  lastTouchHandled = true;
+  setTimeout(() => { lastTouchHandled = false; }, 350);
+});
+
+/* Tap on visible map area while sheet is expanded → collapse */
+const $stage = document.querySelector('.stage');
+$stage.addEventListener('click', (e) => {
+  if (!isMobile()) return;
+  if (!$panel.classList.contains('expanded')) return;
+  /* Ignore clicks on Leaflet interactive elements — let map handle them */
+  if (e.target.closest('.leaflet-marker-icon, .leaflet-popup, .leaflet-control, .geo-fab')) return;
+  setExpanded(false);
 });
 
 /* Mobile FAB: same handler as panel's geo button */
