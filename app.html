@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mapa spotov — LockAndGo</title>
-<meta name="description" content="12 úschovní batožiny v Bratislave. Filtruj podľa polohy, ceny a otváracích hodín." />
+<meta name="description" content="16 úschovní batožiny v Bratislave. Filtruj podľa polohy, ceny a otváracích hodín." />
 <meta name="theme-color" content="#F2EDE5" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1562,7 +1562,7 @@ body.detail-open { overflow: hidden; }
         Bratislava · live
       </span>
       <h1>Kam <em>odložiť</em><br/>kufor.</h1>
-      <p class="sub">12 úschovní v centre Bratislavy. Filtruj podľa polohy, ceny a otváracích hodín.</p>
+      <p class="sub">16 úschovní v Bratislave. Filtruj podľa polohy, ceny a otváracích hodín.</p>
     </div>
 
     <div class="controls">
@@ -1726,7 +1726,48 @@ const SPOTS = [
     hours:{ display:'Po-Pi 09:00 – 17:00 (St do 19:00, Pi do 15:00)', is247:false,
             schedule:[null,[9,17],[9,17],[9,19],[9,17],[9,15],null] },
     rating:5.0, reviews:1, isNew:true, price:STANDARD_PRICE,
-    bookingUrl:'https://bounce.com/s/location/842633a1-89b0-4634-be47-29111a6aab81?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765' }
+    bookingUrl:'https://bounce.com/s/location/842633a1-89b0-4634-be47-29111a6aab81?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765' },
+
+  /* ─── Walk-in spots (samoobsluha / s personálom, bez online rezervácie) ─── */
+  { id:'13', name:'Nivy · samoobslužné boxy', area:'OC Nivy / Autobusová stanica',
+    lat:48.1488, lng:17.1336,
+    address:'Lobby -1, oproti Alza, Nivy Shopping Centre, Bratislava',
+    hours:{ display:'24/7 · samoobsluha', is247:true,
+            schedule:[[0,24],[0,24],[0,24],[0,24],[0,24],[0,24],[0,24]] },
+    rating:null, reviews:0, price:8.00,
+    priceDetails:'Box M (50×53×70 cm): 4€/3h · 6€/12h · 8€/24h · 14€/72h\nBox L (50×85×70 cm): 5€/3h · 7€/12h · 9€/24h · 15€/72h',
+    notes:'Po 72 h batožina presunutá do skladu (30 € otvorenie + 10 € za deň skladu).',
+    bookingType:'walkin', providerLabel:'Stanica Nivy', isNew:true, bookingUrl:null },
+
+  { id:'14', name:'Hlavná stanica · úschovňa s personálom', area:'Hlavná stanica',
+    lat:48.1583, lng:17.1070,
+    address:'Námestie Franza Liszta 11, 811 04 Bratislava',
+    hours:{ display:'~6:15 – 20:00 · s prestávkami', is247:false,
+            schedule:[[6.25,20],[6.25,20],[6.25,20],[6.25,20],[6.25,20],[6.25,20],[6.25,20]] },
+    rating:null, reviews:0, price:2.00,
+    priceDetails:'Batožina ≤15 kg: 2€/deň · >15 kg: 2,50€/deň\nKočík: 1,50€/deň · Bicykel: 2,50€/deň\nKaždý ďalší deň od 2.: 1,50€/deň',
+    notes:'Klasická úschovňa s personálom — odovzdáš batožinu, dostaneš lístok. Otváracie hodiny sa môžu líšiť podľa dňa, počítaj s prestávkami.',
+    bookingType:'walkin', providerLabel:'ZSSK · Hlavná stanica', isNew:true, bookingUrl:null },
+
+  { id:'15', name:'Hlavná stanica · samoobslužné skrinky', area:'Hlavná stanica · nástupište 1',
+    lat:48.1585, lng:17.1058,
+    address:'Námestie Franza Liszta, pri nástupišti 1, 811 04 Bratislava',
+    hours:{ display:'24/7', is247:true,
+            schedule:[[0,24],[0,24],[0,24],[0,24],[0,24],[0,24],[0,24]] },
+    rating:null, reviews:0, price:2.00,
+    priceDetails:'Od ~2 € (mince 1 € a 2 €) · max 72 hodín',
+    notes:'Automatické skrinky s kľúčom, bez personálu. Platba iba mincami (1€ a 2€).',
+    bookingType:'walkin', providerLabel:'ZSSK · Hlavná stanica', isNew:true, bookingUrl:null },
+
+  { id:'16', name:'Obchodná 9 · automatické skrinky', area:'Staré Mesto · pri Poštovej',
+    lat:48.1466, lng:17.1099,
+    address:'Obchodná 9, Bratislava (pri zastávke Poštová)',
+    hours:{ display:'24/7', is247:true,
+            schedule:[[0,24],[0,24],[0,24],[0,24],[0,24],[0,24],[0,24]] },
+    rating:null, reviews:0, price:6.00,
+    priceDetails:'2€/2h · 4€/4h · 6€/24h · +6€ za každý ďalší deň\nRozmer boxu: ~535×500×700 mm (kabínový bag / batoh)',
+    notes:'Iba bezkontaktná platba kartou (vrátane Apple Pay / Google Pay). Vhodné pre menšiu batožinu.',
+    bookingType:'walkin', providerLabel:'Obchodná 9', isNew:true, bookingUrl:null }
 ];
 
 function toRad(d) { return d * Math.PI / 180; }
@@ -1772,6 +1813,17 @@ function escapeHtml(s) {
    (Eurovea lockers, etc.) just add 'providerLabel: "Eurovea"' to their entry. */
 function spotProvider(spot) {
   return spot.providerLabel || 'Bounce';
+}
+
+/* Walk-in spots (Hlavná stanica skrinky, Nivy boxy, …) — no online booking.
+   Primary CTA = "Navigovať" with exact address. */
+function isWalkin(spot) { return spot.bookingType === 'walkin' || !spot.bookingUrl; }
+
+/* Google Maps directions URL (uses user origin if available) */
+function mapsDirectionsUrl(spot) {
+  return state.user
+    ? `https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=${state.user[0]},${state.user[1]}&destination=${spot.lat},${spot.lng}`
+    : `https://www.google.com/maps/dir/?api=1&travelmode=walking&destination=${spot.lat},${spot.lng}`;
 }
 
 /* Weekly schedule grid for popup — JS getDay() is 0=Sun..6=Sat,
@@ -1840,8 +1892,45 @@ function buildPopup(spot) {
     ? `https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=${state.user[0]},${state.user[1]}&destination=${spot.lat},${spot.lng}`
     : `https://www.google.com/maps/dir/?api=1&travelmode=walking&destination=${spot.lat},${spot.lng}`;
 
+  const walkin = isWalkin(spot);
+  const tag = walkin
+    ? `Spot ${spot.id} · ${escapeHtml(spotProvider(spot))}`
+    : `Spot ${spot.id} · cez ${escapeHtml(spotProvider(spot))}`;
+  const ratingBlock = spot.rating != null
+    ? `<div><div class="big t">★ ${spot.rating.toFixed(1)}</div>
+         <div class="label">${spot.reviews} ${spot.reviews === 1 ? 'recenzia' : 'recenzií'}</div></div>`
+    : `<div><div class="big t" style="font-size:18px">Walk-in</div>
+         <div class="label">bez online recenzií</div></div>`;
+  const addrInfo = (walkin && spot.address)
+    ? `<div class="info-line"><span class="lab">Adresa</span><span style="text-align:right;max-width:170px">${escapeHtml(spot.address)}</span></div>`
+    : '';
+  const noteBlock = walkin
+    ? (spot.notes
+        ? `<div class="approx-note" style="background:var(--moss-50);color:var(--forest);border:1px solid rgba(61,90,64,0.18)">
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+             <span>${escapeHtml(spot.notes)}</span>
+           </div>`
+        : '')
+    : `<div class="approx-note">
+         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+         <span>Presnú adresu a finálnu cenu vidíš pri rezervácii u partnera (${escapeHtml(spotProvider(spot))}). Lokácia na mape je orientačná (oblasť ${escapeHtml(spot.area)}).</span>
+       </div>`;
+  const ctaBlock = walkin
+    ? `<a class="cta" href="${mapsUrl}" target="_blank" rel="noopener">
+         Navigovať
+         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20l-5.4 2.7c-.4.2-.6 0-.6-.4V6.3c0-.3.2-.7.6-.9L9 3m0 17V3m0 17l6 3m0 0l5.4-2.7c.4-.2.6-.6.6-.9V3.7c0-.4-.2-.6-.6-.4L15 6m0 17V6m0 0l-6-3"/></svg>
+       </a>`
+    : `<a class="cta" href="${spot.bookingUrl}" target="_blank" rel="noopener nofollow sponsored">
+         Rezervovať cez ${spotProvider(spot)}
+         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+       </a>
+       <a class="cta cta-maps" href="${mapsUrl}" target="_blank" rel="noopener" aria-label="Navigovať do spotu cez Google Maps">
+         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20l-5.4 2.7c-.4.2-.6 0-.6-.4V6.3c0-.3.2-.7.6-.9L9 3m0 17V3m0 17l6 3m0 0l5.4-2.7c.4-.2.6-.6.6-.9V3.7c0-.4-.2-.6-.6-.4L15 6m0 17V6m0 0l-6-3"/></svg>
+         ${state.user ? 'Navigovať z mojej polohy' : 'Otvoriť v Mapách'}
+       </a>`;
+
   return `<div class="pop">
-    <span class="tag">Spot ${spot.id} · cez ${spotProvider(spot)}</span>
+    <span class="tag">${tag}</span>
     <h3>${escapeHtml(spot.name)}</h3>
     <div class="area">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1849,10 +1938,7 @@ function buildPopup(spot) {
     </div>
     ${userDistHtml}
     <div class="rating-row">
-      <div>
-        <div class="big t">★ ${spot.rating.toFixed(1)}</div>
-        <div class="label">${spot.reviews} ${spot.reviews === 1 ? 'recenzia' : 'recenzií'}</div>
-      </div>
+      ${ratingBlock}
       <div>
         <div class="big">od ${spot.price.toFixed(2).replace('.',',')}€</div>
         <div class="label">/ deň · orientačná</div>
@@ -1863,18 +1949,9 @@ function buildPopup(spot) {
       <span class="today-tag" style="color:${st.open ? 'var(--forest)' : 'var(--terracotta-2)'}">${st.label}</span>
     </div>
     <div class="schedule">${scheduleHtml(spot.hours.schedule)}</div>
-    <div class="approx-note">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-      <span>Presnú adresu a finálnu cenu vidíš pri rezervácii u partnera (${escapeHtml(spotProvider(spot))}). Lokácia na mape je orientačná (oblasť ${escapeHtml(spot.area)}).</span>
-    </div>
-    <a class="cta" href="${spot.bookingUrl}" target="_blank" rel="noopener nofollow sponsored">
-      Rezervovať cez ${spotProvider(spot)}
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
-    </a>
-    <a class="cta cta-maps" href="${mapsUrl}" target="_blank" rel="noopener" aria-label="Navigovať do spotu cez Google Maps">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20l-5.4 2.7c-.4.2-.6 0-.6-.4V6.3c0-.3.2-.7.6-.9L9 3m0 17V3m0 17l6 3m0 0l5.4-2.7c.4-.2.6-.6.6-.9V3.7c0-.4-.2-.6-.6-.4L15 6m0 17V6m0 0l-6-3"/></svg>
-      ${state.user ? 'Navigovať z mojej polohy' : 'Otvoriť v Mapách'}
-    </a>
+    ${addrInfo}
+    ${noteBlock}
+    ${ctaBlock}
   </div>`;
 }
 
@@ -1921,7 +1998,11 @@ function buildList() {
   });
   list.sort((a, b) => {
     if (state.sort === 'price') return (a.price - b.price) || (a.dist - b.dist);
-    if (state.sort === 'rating') return (b.rating - a.rating) || (b.reviews - a.reviews);
+    if (state.sort === 'rating') {
+      const ra = a.rating != null ? a.rating : -1;
+      const rb = b.rating != null ? b.rating : -1;
+      return (rb - ra) || (b.reviews - a.reviews);
+    }
     if (state.sort === 'reviews') return b.reviews - a.reviews;
     if (state.sort === 'name') return a.name.localeCompare(b.name, 'sk');
     return a.dist - b.dist;
@@ -1976,7 +2057,9 @@ function cardHtml(s) {
         ${escapeHtml(s.area)}
       </div>
       <div class="card-meta">
-        <span class="rating"><span class="star">★</span>${s.rating.toFixed(1)}<span class="count">(${s.reviews})</span></span>
+        ${s.rating != null
+          ? `<span class="rating"><span class="star">★</span>${s.rating.toFixed(1)}<span class="count">(${s.reviews})</span></span>`
+          : `<span class="rating" style="color:var(--ink-3);font-weight:500;">Walk-in</span>`}
         <span class="status ${st.open ? 'open' : 'closed'}">${st.label}</span>
         ${s.hours.is247 ? '<span class="badge-247">24/7</span>' : ''}
         ${s.isNew ? '<span class="badge-new">Nové</span>' : ''}
@@ -2276,8 +2359,53 @@ const $detailBack   = document.getElementById('detail-back');
 function buildDetailBody(spot) {
   const st = spotStatus(spot);
   const userDist = state.user ? haversineKm(state.user, [spot.lat, spot.lng]) : null;
+  const walkin = isWalkin(spot);
+
+  const tag = walkin
+    ? `Spot ${spot.id} · ${escapeHtml(spotProvider(spot))}`
+    : `Spot ${spot.id} · cez ${escapeHtml(spotProvider(spot))}`;
+
+  const ratingStat = spot.rating != null
+    ? `<div class="stat">
+         <div class="big t">★ ${spot.rating.toFixed(1)}</div>
+         <div class="lbl">${spot.reviews} ${spot.reviews === 1 ? 'recenzia' : 'recenzií'}</div>
+       </div>`
+    : `<div class="stat">
+         <div class="big t" style="font-size:22px">Walk-in</div>
+         <div class="lbl">bez online recenzií</div>
+       </div>`;
+
+  /* Exact address (walkin spots) — replaces the approx-warning */
+  const addressBlock = (walkin && spot.address)
+    ? `<div class="detail-section-label" style="margin-top:18px"><span>Adresa</span></div>
+       <div style="font-family:var(--body);font-size:15px;color:var(--ink);line-height:1.5;
+                   padding:14px 16px;background:var(--bg);border-radius:var(--r-md);margin-bottom:18px">
+         ${escapeHtml(spot.address)}
+       </div>`
+    : '';
+
+  /* Detailed pricing (multi-line) for walkin spots */
+  const priceDetailsBlock = (walkin && spot.priceDetails)
+    ? `<div class="detail-section-label" style="margin-top:18px"><span>Cenník</span></div>
+       <div style="font-family:var(--body);font-size:14px;color:var(--ink-2);line-height:1.6;white-space:pre-line;
+                   padding:14px 16px;background:var(--bg);border-radius:var(--r-md);margin-bottom:18px">${escapeHtml(spot.priceDetails)}</div>`
+    : '';
+
+  /* Notes (walkin) or approx note (Bounce) */
+  const noteBlock = walkin
+    ? (spot.notes
+        ? `<div class="detail-note" style="background:var(--moss-50);color:var(--forest);border:1px solid rgba(61,90,64,0.2)">
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+             <span>${escapeHtml(spot.notes)}</span>
+           </div>`
+        : '')
+    : `<div class="detail-note">
+         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+         <span>Presnú adresu a finálnu cenu vidíš pri rezervácii u partnera (${escapeHtml(spotProvider(spot))}). Lokácia na mape je orientačná (oblasť ${escapeHtml(spot.area)}).</span>
+       </div>`;
+
   return `
-    <div class="detail-tag">Spot ${spot.id} · cez ${spotProvider(spot)}</div>
+    <div class="detail-tag">${tag}</div>
     <h1 class="detail-name" id="detail-name">${escapeHtml(spot.name)}</h1>
     <div class="detail-area">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -2289,10 +2417,7 @@ function buildDetailBody(spot) {
     </div>` : ''}
 
     <div class="detail-stats">
-      <div class="stat">
-        <div class="big t">★ ${spot.rating.toFixed(1)}</div>
-        <div class="lbl">${spot.reviews} ${spot.reviews === 1 ? 'recenzia' : 'recenzií'}</div>
-      </div>
+      ${ratingStat}
       <div class="stat">
         <div class="big">od ${spot.price.toFixed(2).replace('.',',')}€</div>
         <div class="lbl">/ deň · orientačná</div>
@@ -2305,17 +2430,27 @@ function buildDetailBody(spot) {
     </div>
     <div class="detail-schedule">${scheduleHtml(spot.hours.schedule)}</div>
 
-    <div class="detail-note">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-      <span>Presnú adresu a finálnu cenu vidíš pri rezervácii u partnera (${escapeHtml(spotProvider(spot))}). Lokácia na mape je orientačná (oblasť ${escapeHtml(spot.area)}).</span>
-    </div>
+    ${addressBlock}
+    ${priceDetailsBlock}
+    ${noteBlock}
   `;
 }
 
 function buildDetailFooter(spot) {
-  const mapsUrl = state.user
-    ? `https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=${state.user[0]},${state.user[1]}&destination=${spot.lat},${spot.lng}`
-    : `https://www.google.com/maps/dir/?api=1&travelmode=walking&destination=${spot.lat},${spot.lng}`;
+  const mapsUrl = mapsDirectionsUrl(spot);
+  const walkin = isWalkin(spot);
+
+  if (walkin) {
+    /* Walk-in spots: single Navigate CTA — there's no online booking */
+    return `
+      <a class="detail-cta primary" href="${mapsUrl}" target="_blank" rel="noopener">
+        Navigovať
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20l-5.4 2.7c-.4.2-.6 0-.6-.4V6.3c0-.3.2-.7.6-.9L9 3m0 17V3m0 17l6 3m0 0l5.4-2.7c.4-.2.6-.6.6-.9V3.7c0-.4-.2-.6-.6-.4L15 6m0 17V6m0 0l-6-3"/></svg>
+      </a>
+    `;
+  }
+
+  /* Bounce / online-bookable spots: primary booking + secondary navigate */
   return `
     <a class="detail-cta primary" href="${spot.bookingUrl}" target="_blank" rel="noopener nofollow sponsored">
       Rezervovať cez ${spotProvider(spot)}
