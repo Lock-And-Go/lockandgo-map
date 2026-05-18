@@ -828,6 +828,13 @@ input[type=range]::-moz-range-thumb {
   border-color: var(--paper);
   box-shadow: 0 0 0 5px rgba(184, 154, 69, 0.22), 0 8px 20px rgba(184, 154, 69, 0.4);
 }
+.lg-pin.recent {
+  transform: scale(1.14) translateY(-1px);
+  z-index: 998 !important;
+}
+.lg-pin.recent .dot {
+  box-shadow: 0 0 0 3px rgba(184, 154, 69, 0.18), 0 6px 14px rgba(31, 31, 29, 0.28);
+}
 
 .user-dot-wrap { display: flex; align-items: center; justify-content: center; }
 .user-dot {
@@ -1845,7 +1852,8 @@ function scheduleHtml(schedule) {
 
 const state = {
   user: null, origin: BA_CENTER, radius: 3,
-  sort: 'distance', filter: 'all', query: '', activeId: null
+  sort: 'distance', filter: 'all', query: '', activeId: null,
+  recentId: null, preDetailView: null
 };
 
 const map = L.map('map', {
@@ -1894,8 +1902,8 @@ function buildPopup(spot) {
 
   const walkin = isWalkin(spot);
   const tag = walkin
-    ? `Spot ${spot.id} · ${escapeHtml(spotProvider(spot))}`
-    : `Spot ${spot.id} · cez ${escapeHtml(spotProvider(spot))}`;
+    ? escapeHtml(spotProvider(spot))
+    : `cez ${escapeHtml(spotProvider(spot))}`;
   const ratingBlock = spot.rating != null
     ? `<div><div class="big t">★ ${spot.rating.toFixed(1)}</div>
          <div class="label">${spot.reviews} ${spot.reviews === 1 ? 'recenzia' : 'recenzií'}</div></div>`
@@ -1979,7 +1987,9 @@ function updateMarkerClasses() {
   markersById.forEach((m, id) => {
     const el = m.getElement();
     if (!el) return;
-    el.classList.toggle('active', id === state.activeId);
+    const isActive = id === state.activeId;
+    el.classList.toggle('active', isActive);
+    el.classList.toggle('recent', !isActive && id === state.recentId);
   });
 }
 
@@ -2139,7 +2149,7 @@ document.querySelectorAll('#chips .chip').forEach(btn => {
 });
 document.getElementById('reset-btn').addEventListener('click', () => {
   state.query = ''; state.sort = 'distance'; state.filter = 'all'; state.radius = 3;
-  state.user = null; state.origin = BA_CENTER; state.activeId = null;
+  state.user = null; state.origin = BA_CENTER; state.activeId = null; state.recentId = null;
   document.getElementById('search').value = '';
   document.getElementById('sort').value = 'distance';
   $radius.value = 3; $radiusVal.textContent = '3.0';
@@ -2362,8 +2372,8 @@ function buildDetailBody(spot) {
   const walkin = isWalkin(spot);
 
   const tag = walkin
-    ? `Spot ${spot.id} · ${escapeHtml(spotProvider(spot))}`
-    : `Spot ${spot.id} · cez ${escapeHtml(spotProvider(spot))}`;
+    ? escapeHtml(spotProvider(spot))
+    : `cez ${escapeHtml(spotProvider(spot))}`;
 
   const ratingStat = spot.rating != null
     ? `<div class="stat">
@@ -2476,8 +2486,14 @@ function closeSpotDetail() {
   $detailView.classList.remove('open');
   $detailView.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('detail-open');
-  /* clear active state so map markers normalize */
+  /* Demote active → recent so the marker user just viewed stays subtly hinted */
+  state.recentId = state.activeId;
   state.activeId = null;
+  /* Restore map to where user was before opening detail */
+  if (state.preDetailView) {
+    map.setView(state.preDetailView.center, state.preDetailView.zoom, { animate: false });
+    state.preDetailView = null;
+  }
   updateMarkerClasses();
   renderResults();
 }
@@ -2492,7 +2508,12 @@ document.addEventListener('keydown', (e) => {
 const _origSetActive = setActive;
 setActive = function(id, flyTo) {
   if (isMobile()) {
+    /* Save map view so we can restore exact position when user closes detail */
+    if (!state.preDetailView) {
+      state.preDetailView = { center: map.getCenter(), zoom: map.getZoom() };
+    }
     state.activeId = id;
+    state.recentId = null;
     const m = markersById.get(id);
     const spot = SPOTS.find(s => s.id === id);
     if (spot) openSpotDetail(spot);
