@@ -1318,12 +1318,13 @@ body.detail-open { overflow: hidden; }
     z-index: 1;
   }
 
-  /* Bottom sheet */
+  /* Bottom sheet — fixed to viewport so handle never hides behind header.
+     top = header height + 16px gap → expanded panel starts 16px below header. */
   .panel {
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    height: 88vh;
-    max-height: calc(100vh - var(--header-h) - 40px);
+    position: fixed;
+    left: 0; right: 0;
+    top: calc(var(--header-h) + 16px);
+    bottom: 0;
     background: var(--paper);
     border-right: none;
     border-top: 1px solid var(--line);
@@ -1472,6 +1473,14 @@ body.detail-open { overflow: hidden; }
     border-color: var(--terracotta);
   }
   .geo-fab.loading svg { animation: spin 0.9s linear infinite; }
+  /* Hide FAB when sheet covers most of screen — it's not useful then anyway */
+  .panel.expanded ~ .stage .geo-fab,
+  body:has(.panel.expanded) .geo-fab {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity 0.2s, transform 0.2s;
+  }
 
   /* Hide desktop legend + guarantee overlays — too cluttered on small screens */
   .map-corner.tr,
