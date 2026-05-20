@@ -2,6 +2,7 @@
   "name": "lockandgo",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "LockAndGo — luggage storage discovery for Bratislava",
   "dependencies": {
     "@vercel/og": "^0.6.4"
