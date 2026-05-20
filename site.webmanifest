@@ -1,0 +1,33 @@
+{
+  "name": "LockAndGo — Úschovňa batožiny Bratislava",
+  "short_name": "LockAndGo",
+  "description": "Mapa 32 úschovní batožiny v Bratislave. Bounce, Radical Storage, LuggageHero, ZSSK lockery a walk-in cloakrooms.",
+  "start_url": "/app",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F1F1EC",
+  "theme_color": "#F1F1EC",
+  "lang": "sk-SK",
+  "categories": ["travel", "navigation", "utilities"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}

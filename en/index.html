@@ -149,10 +149,18 @@
       "offers": {
         "@type": "AggregateOffer",
         "priceCurrency": "EUR",
-        "lowPrice": "5.90",
-        "highPrice": "14.00",
+        "lowPrice": "2.00",
+        "highPrice": "8.00",
         "offerCount": "32",
         "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.65",
+        "bestRating": "5",
+        "worstRating": "1",
+        "reviewCount": "808",
+        "description": "Weighted average of Google reviews from 12 rated partner spots in Bratislava"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -1189,6 +1197,10 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
   .footer-inner { grid-template-columns: 1fr; }
 }
 </style>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
 </head>
 <body>
 
@@ -1208,8 +1220,9 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
     <nav class="nav-primary" aria-label="Main navigation">
       <a href="#coverage">Coverage</a>
       <a href="#faq">FAQ</a>
+      <a href="/about">About</a>
       <a href="/" hreflang="sk" lang="sk" rel="alternate" aria-label="Slovenská verzia">SK</a>
-      <a href="/app" class="nav-cta">
+      <a href="/en/app" class="nav-cta">
         Open map
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
@@ -1257,12 +1270,12 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
     </div>
 
     <div class="trust-row">
-      <span class="trust">
+      <span class="trust" title="Weighted average of Google reviews from 12 rated partner spots">
         <span class="stars" aria-hidden="true">★★★★★</span>
-        <b>4.7</b> average
+        <b>4.7</b> Google avg
       </span>
       <span class="sep" aria-hidden="true"></span>
-      <span class="trust">800+ reviews</span>
+      <span class="trust" title="Sum of Google reviews across all 12 rated spots">808 Google reviews</span>
       <span class="sep" aria-hidden="true"></span>
       <span class="trust">32 spots</span>
     </div>
@@ -1529,10 +1542,14 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 LockAndGo &middot; Bratislava</span>
+    <span>© <span id="copyright-year">2026</span> LockAndGo &middot; Bratislava</span>
     <span class="made">made in Bratislava</span>
   </div>
 </footer>
+
+<script>
+(function(){var el=document.getElementById('copyright-year');if(el){el.textContent=new Date().getFullYear();}})();
+</script>
 
 </body>
 </html>

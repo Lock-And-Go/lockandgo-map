@@ -1,0 +1,47 @@
+{
+  "_comment": "Area landing pages — maps area slug to spot IDs. Source of truth for /area/[slug] and /en/area/[slug]. Edit here, then run scripts/render-area-pages.py.",
+  "areas": [
+    {
+      "slug": "stare-mesto",
+      "name_sk": "Staré Mesto",
+      "name_en": "Old Town",
+      "spot_ids": ["01", "02", "05", "06", "07", "08", "09", "10", "11", "16", "17", "31", "32"]
+    },
+    {
+      "slug": "hlavna-stanica",
+      "name_sk": "Hlavná stanica",
+      "name_en": "Hlavná stanica (Main Train Station)",
+      "spot_ids": ["03", "14", "15", "18"]
+    },
+    {
+      "slug": "nivy",
+      "name_sk": "OC Nivy / Autobusová stanica",
+      "name_en": "OC Nivy / Bus Station",
+      "spot_ids": ["13", "19", "23", "29"]
+    },
+    {
+      "slug": "petrzalka",
+      "name_sk": "Petržalka",
+      "name_en": "Petržalka",
+      "spot_ids": ["12", "20", "26", "28", "30"]
+    },
+    {
+      "slug": "ruzinov",
+      "name_sk": "Ružinov",
+      "name_en": "Ružinov",
+      "spot_ids": ["21", "22"]
+    },
+    {
+      "slug": "nove-mesto",
+      "name_sk": "Nové Mesto",
+      "name_en": "Nové Mesto",
+      "spot_ids": ["25", "27"]
+    },
+    {
+      "slug": "medicka-zahrada",
+      "name_sk": "Medická záhrada",
+      "name_en": "Medická záhrada",
+      "spot_ids": ["04", "24"]
+    }
+  ]
+}

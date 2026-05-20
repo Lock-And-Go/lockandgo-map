@@ -43,6 +43,26 @@
   </url>
 
   <url>
+    <loc>https://lockandgo.sk/o-nas</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/o-nas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/o-nas" />
+  </url>
+
+  <url>
+    <loc>https://lockandgo.sk/about</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/o-nas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/o-nas" />
+  </url>
+
+  <url>
     <loc>https://lockandgo.sk/spot/01-stare-mesto-storage-spot</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -376,5 +396,150 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/blog/luggage-storage-bratislava-complete-guide" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/blog/luggage-storage-bratislava-complete-guide" />
   </url>
+
+  
+  
+  
+  <!-- area-pages:start -->
+  <url>
+    <loc>https://lockandgo.sk/area/stare-mesto</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/area/stare-mesto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/area/stare-mesto" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/area/stare-mesto" />
+  </url>
+
+  <url>
+    <loc>https://lockandgo.sk/en/area/stare-mesto</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/area/stare-mesto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/area/stare-mesto" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/area/stare-mesto" />
+  </url>
+
+  <url>
+    <loc>https://lockandgo.sk/area/hlavna-stanica</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/area/hlavna-stanica" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/area/hlavna-stanica" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/area/hlavna-stanica" />
+  </url>
+
+  <url>
+    <loc>https://lockandgo.sk/en/area/hlavna-stanica</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/area/hlavna-stanica" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/area/hlavna-stanica" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/area/hlavna-stanica" />
+  </url>
+
+  <url>
+    <loc>https://lockandgo.sk/area/nivy</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/area/nivy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/area/nivy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/area/nivy" />
+  </url>
+
+  <url>
+    <loc>https://lockandgo.sk/en/area/nivy</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/area/nivy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/area/nivy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/area/nivy" />
+  </url>
+
+  <url>
+    <loc>https://lockandgo.sk/area/petrzalka</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/area/petrzalka" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/area/petrzalka" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/area/petrzalka" />
+  </url>
+
+  <url>
+    <loc>https://lockandgo.sk/en/area/petrzalka</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/area/petrzalka" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/area/petrzalka" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/area/petrzalka" />
+  </url>
+
+  <url>
+    <loc>https://lockandgo.sk/area/ruzinov</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/area/ruzinov" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/area/ruzinov" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/area/ruzinov" />
+  </url>
+
+  <url>
+    <loc>https://lockandgo.sk/en/area/ruzinov</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/area/ruzinov" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/area/ruzinov" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/area/ruzinov" />
+  </url>
+
+  <url>
+    <loc>https://lockandgo.sk/area/nove-mesto</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/area/nove-mesto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/area/nove-mesto" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/area/nove-mesto" />
+  </url>
+
+  <url>
+    <loc>https://lockandgo.sk/en/area/nove-mesto</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/area/nove-mesto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/area/nove-mesto" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/area/nove-mesto" />
+  </url>
+
+  <url>
+    <loc>https://lockandgo.sk/area/medicka-zahrada</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/area/medicka-zahrada" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/area/medicka-zahrada" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/area/medicka-zahrada" />
+  </url>
+
+  <url>
+    <loc>https://lockandgo.sk/en/area/medicka-zahrada</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/area/medicka-zahrada" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/area/medicka-zahrada" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/area/medicka-zahrada" />
+  </url>
+  <!-- area-pages:end -->
 
 </urlset>

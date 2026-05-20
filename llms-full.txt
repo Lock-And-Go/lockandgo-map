@@ -1,0 +1,480 @@
+# LockAndGo — Full Content Dump
+
+> Slovak-language discovery platform for luggage storage in Bratislava, Slovakia.
+> Generated: 2026-05-20. This is the llms-full.txt variant — the
+> shorter overview is at /llms.txt. Both are linked from robots.txt and rsl.xml.
+
+**Site:** https://lockandgo.sk/  |  **English:** https://lockandgo.sk/en
+**Founder:** Šimon Kališ (16, Bratislava, Slovakia)
+**Contact:** info@lockandgo.sk · WhatsApp +421 948 929 260
+
+## What LockAndGo is (and isn't)
+
+LockAndGo is a **discovery and booking-redirection layer** — not a storage operator.
+It aggregates every viable luggage-storage option in Bratislava onto one map with
+prices, opening hours and booking links. Bookings are completed on the partner's
+own site (Bounce affiliate links for Bounce partner shops; direct operator links for
+Radical Storage, LuggageHero, LugLockers, Luggage Lockers Bratislava; walk-in for
+ZSSK station storage, Stanica Nivy lockers, Obchodná 9 lockers, OC Vivo! cloakroom,
+OC Aupark cloakroom, AS Bottova, Safestay hostel, Hotel Loft Bratislava).
+
+**Price for user is identical to booking directly.** Affiliate commission paid by
+12 spots (Bounce, Radical, LuggageHero); 20 spots are listed free of commission
+because they make sense for travelers.
+
+## Key facts
+- **Number of spots:** 32
+- **24/7 spots:** 10
+- **Rated spots (Google reviews):** 12 / 32
+- **Weighted average rating:** 4.65 / 5 across 808 reviews
+- **Price range (daily):** €2.00 – €8.00
+- **City covered:** Bratislava, Slovakia (48.1486 N, 17.1077 E)
+- **Languages:** Slovak (primary), English at /en and /en/app
+- **Launch date:** 2026-05-07
+
+## Common queries this site answers
+
+Slovak: 'úschovňa batožiny Bratislava', 'kde si odložiť batožinu v Bratislave',
+'úschovňa Hlavná stanica', 'úschovňa Nivy', 'úschovňa Petržalka',
+'samoobslužné skrinky Bratislava', 'lockery Bratislava 24/7'.
+
+English: 'luggage storage Bratislava', 'left luggage Bratislava',
+'where to store bags Bratislava', 'Bratislava main station luggage',
+'luggage lockers Stanica Nivy', '24/7 luggage Bratislava', 'cheap luggage storage
+Bratislava', 'luggage storage Old Town Bratislava'.
+
+## All 32 spots (detailed)
+
+### Bottova / Chalupkova
+
+**Náhradná AS Bottova · úschovňa** (id 29)
+- URL: https://lockandgo.sk/spot/29-nahradna-as-bottova-uschovna
+- Address: Chalupkova / Bottova (oproti Alza), Bratislava
+- Coords: 48.1442, 17.1219
+- Hours: podľa prevádzky (typicky 08:00 – 20:00)
+- Price: cena podľa prevádzkovateľa
+- Provider: AS Bottova
+- Notes: Minoritná stanica (krátkodobá zóna z roku 2017). Iná lokalita ako OC Nivy / Mlynské nivy.
+- Booking: https://www.autobusovastanica.sk/nova-stanica-nivy
+
+### Hlavná stanica
+
+**Near Bratislava Station Storage Spot** (id 03)
+- URL: https://lockandgo.sk/spot/03-near-bratislava-station-storage-spot
+- Address: —
+- Coords: 48.1581, 17.1065
+- Hours: 24/7 (non-stop)
+- Price: od 5.90 €/deň
+- Provider: —
+- Rating: 4.2 / 5 (186 Google reviews)
+- Booking: https://bounce.com/s/location/4ed51715-8ae5-401a-897d-53d1a69fe826?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765
+
+**Hlavná stanica · úschovňa s personálom** (id 14)
+- URL: https://lockandgo.sk/spot/14-hlavna-stanica-uschovna-s-personalom
+- Address: Námestie Franza Liszta 11, 811 04 Bratislava
+- Coords: 48.1583, 17.107
+- Hours: ~6:15 – 20:00 · s prestávkami
+- Price: Batožina ≤15 kg: 2€/deň · >15 kg: 2,50€/deň
+Kočík: 1,50€/deň · Bicykel: 2,50€/deň
+Každý ďalší deň od 2.: 1,50€/deň
+- Provider: ZSSK · Hlavná stanica
+- Notes: Klasická úschovňa s personálom — odovzdáš batožinu, dostaneš lístok. Otváracie hodiny sa môžu líšiť podľa dňa, počítaj s prestávkami.
+- Booking: None
+
+**LugLockers · Hlavná stanica** (id 18)
+- URL: https://lockandgo.sk/spot/18-luglockers-hlavna-stanica
+- Address: Námestie Franza Liszta, 811 04 Bratislava
+- Coords: 48.1583, 17.1068
+- Hours: 24/7 (non-stop)
+- Price: cena podľa prevádzkovateľa
+- Provider: LugLockers
+- Notes: Nová sieť lockerov (2026). Pred rezerváciou over dostupnosť — booking systém niekedy ukazuje „0 € / not bookable".
+- Booking: https://www.luglockers.com/branches/hlavna-stanica-central-railway-station
+
+### Hlavná stanica · nástupište 1
+
+**Hlavná stanica · samoobslužné skrinky** (id 15)
+- URL: https://lockandgo.sk/spot/15-hlavna-stanica-samoobsluzne-skrinky
+- Address: Námestie Franza Liszta, pri nástupišti 1, 811 04 Bratislava
+- Coords: 48.1585, 17.1058
+- Hours: 24/7 (non-stop)
+- Price: Od ~2 € (mince 1 € a 2 €) · max 72 hodín
+- Provider: ZSSK · Hlavná stanica
+- Notes: Automatické skrinky s kľúčom, bez personálu. Platba iba mincami (1€ a 2€).
+- Booking: None
+
+### LF UK · Špitálska
+
+**Near Faculty of Medicine Storage Spot** (id 04)
+- URL: https://lockandgo.sk/spot/04-near-faculty-of-medicine-storage-spot
+- Address: —
+- Coords: 48.1498, 17.1138
+- Hours: Po-Pi 10:00 – 17:30 · So-Ne 12:00 – 17:30
+- Price: od 5.90 €/deň
+- Provider: —
+- Rating: 5.0 / 5 (111 Google reviews)
+- Booking: https://bounce.com/s/location/c4b682bc-c881-4f1f-a63a-69d18a4fd4b6?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765
+
+### Medická záhrada
+
+**Radical Storage · Medická záhrada** (id 24)
+- URL: https://lockandgo.sk/spot/24-radical-storage-medicka-zahrada
+- Address: Reštaurácia pri Medickej záhrade (Špitálska, 811 08), Bratislava
+- Coords: 48.1498, 17.1196
+- Hours: 11:00 – 21:00 každý deň
+- Price: 5 €/deň/kus · poistenie 3000 €
+- Provider: Radical Storage
+- Booking: https://radicalstorage.com/luggage-storage/bratislava/city-center/luggage-storage-medicka-zahrada
+
+### Michalská brána
+
+**Near Michael’s Gate Storage Spot** (id 07)
+- URL: https://lockandgo.sk/spot/07-near-michael-s-gate-storage-spot
+- Address: —
+- Coords: 48.1455, 17.1067
+- Hours: Po, St-Ne 11:00 – 21:00 · Ut 13:00 – 21:00
+- Price: od 5.90 €/deň
+- Provider: —
+- Rating: 4.8 / 5 (105 Google reviews)
+- Booking: https://bounce.com/s/location/010bc37f-c778-41df-aba7-3b49f205bca8?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765
+
+### Most SNP · Rázusovo nábrežie
+
+**Luggage Lockers Bratislava · Most SNP** (id 17)
+- URL: https://lockandgo.sk/spot/17-luggage-lockers-bratislava-most-snp
+- Address: Pod Mostom SNP, Rázusovo nábrežie (Staré Mesto), Bratislava
+- Coords: 48.1406, 17.1042
+- Hours: 24/7 (non-stop)
+- Price: cena podľa prevádzkovateľa
+- Provider: Luggage Lockers Bratislava
+- Notes: Self-service lockery 24/7 s CCTV monitoringom. WhatsApp support: +421 905 599 053.
+- Booking: https://www.luggagelockersbratislava.com/
+
+### Nivy
+
+**Radical Storage · Nivy** (id 23)
+- URL: https://lockandgo.sk/spot/23-radical-storage-nivy
+- Address: Reštaurácia v Nivy area, Bratislava
+- Coords: 48.1485, 17.134
+- Hours: 06:00 – 23:00 každý deň
+- Price: 5 €/deň/kus · poistenie 3000 €
+- Provider: Radical Storage
+- Booking: https://radicalstorage.com/luggage-storage/bratislava/bratislava-old-town/luggage-storage-nivy
+
+### Nové Mesto · Vajnorská
+
+**OC Vivo! · skrinky pri infodesku** (id 27)
+- URL: https://lockandgo.sk/spot/27-oc-vivo-skrinky-pri-infodesku
+- Address: Vajnorská 100, 831 04 Bratislava-Nové Mesto
+- Coords: 48.1689, 17.1397
+- Hours: podľa OC (typicky 09:00 – 21:00)
+- Price: cena podľa prevádzkovateľa
+- Provider: OC Vivo!
+- Notes: Vyhradený priestor so skrinkami pri infodesku. Walk-in bez online rezervácie — info na infodesku.
+- Booking: https://vivo-shopping.com/en/bratislava/services
+
+### Nové Mesto · Vinohrady
+
+**LuggageHero · Bratislava-Nové Mesto** (id 25)
+- URL: https://lockandgo.sk/spot/25-luggagehero-bratislava-nove-mesto
+- Address: Pri ŽST Bratislava-Nové Mesto (Tomášikova), 831 04
+- Coords: 48.1712, 17.1462
+- Hours: podľa prevádzky (typicky 08:00 – 22:00)
+- Price: 1.49 €/hod ALEBO 4.90 €/deň · poistenie 500 €
+- Provider: LuggageHero
+- Booking: https://luggagehero.com/bratislava/bratislava-n-mesto/
+
+### Námestie SNP
+
+**Bratislava Stare Mesto Storage Spot** (id 08)
+- URL: https://lockandgo.sk/spot/08-bratislava-stare-mesto-storage-spot
+- Address: —
+- Coords: 48.1465, 17.1085
+- Hours: Po-So 07:00 – 21:00 · Ne 09:00 – 20:00
+- Price: od 5.90 €/deň
+- Provider: —
+- Rating: 4.8 / 5 (172 Google reviews)
+- Booking: https://bounce.com/s/location/65f56376-7df5-4ce6-9a06-be978bc45f41?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765
+
+### OC Nivy / Autobusová stanica
+
+**Nivy · samoobslužné boxy** (id 13)
+- URL: https://lockandgo.sk/spot/13-nivy-samoobsluzne-boxy
+- Address: Lobby -1, oproti Alza, Nivy Shopping Centre, Bratislava
+- Coords: 48.1488, 17.1336
+- Hours: 24/7 (non-stop)
+- Price: Box M (50×53×70 cm): 4€/3h · 6€/12h · 8€/24h · 14€/72h
+Box L (50×85×70 cm): 5€/3h · 7€/12h · 9€/24h · 15€/72h
+- Provider: Stanica Nivy
+- Notes: Po 72 h batožina presunutá do skladu (30 € otvorenie + 10 € za deň skladu).
+- Booking: None
+
+**LugLockers · AS Mlynské Nivy** (id 19)
+- URL: https://lockandgo.sk/spot/19-luglockers-as-mlynske-nivy
+- Address: Mlynské nivy 31, 811 09 Bratislava
+- Coords: 48.1488, 17.1336
+- Hours: 24/7 (non-stop)
+- Price: cena podľa prevádzkovateľa
+- Provider: LugLockers
+- Notes: Lockery v AS Mlynské Nivy. Iná služba ako self-service boxy na -1 podlaží Nivy Shopping Centre (id:13).
+- Booking: https://www.luglockers.com/cities/bratislava
+
+### Obchodná
+
+**Near Slovak Pub Storage Spot** (id 05)
+- URL: https://lockandgo.sk/spot/05-near-slovak-pub-storage-spot
+- Address: —
+- Coords: 48.1491, 17.1098
+- Hours: Po-So 11:00 – 22:00 · Ne zatvorené
+- Price: od 5.90 €/deň
+- Provider: —
+- Rating: 5.0 / 5 (75 Google reviews)
+- Booking: https://bounce.com/s/location/5ac9e530-92c5-4a0d-ae50-a8831d6c52bb?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765
+
+### Petržalka
+
+**Petržalka Storage Spot** (id 12)
+- URL: https://lockandgo.sk/spot/12-petrzalka-storage-spot
+- Address: —
+- Coords: 48.1175, 17.108
+- Hours: Po-Pi 09:00 – 17:00 (St do 19:00, Pi do 15:00)
+- Price: od 5.90 €/deň
+- Provider: —
+- Rating: 5.0 / 5 (1 Google reviews)
+- Booking: https://bounce.com/s/location/842633a1-89b0-4634-be47-29111a6aab81?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765
+
+### Petržalka · Aupark
+
+**OC Aupark · cloakroom** (id 28)
+- URL: https://lockandgo.sk/spot/28-oc-aupark-cloakroom
+- Address: OC Aupark (Einsteinova 18), pri travelátore do garáže (blízko TERNO supermarketu)
+- Coords: 48.1336, 17.1093
+- Hours: podľa OC (typicky 09:00 – 21:00)
+- Price: cena podľa prevádzkovateľa
+- Provider: OC Aupark
+- Notes: Klasická cloakroom (slúži aj ako Packeta výdajné miesto). Walk-in, bez online rezervácie. Iná služba ako Bounce partner v rovnakom OC.
+- Booking: https://aupark-bratislava.sk/en/opening-hours
+
+### Poštová
+
+**Across Poštová Tram Stop Storage Spot** (id 06)
+- URL: https://lockandgo.sk/spot/06-across-postova-tram-stop-storage-spot
+- Address: —
+- Coords: 48.1472, 17.1112
+- Hours: Po-Pi 11:00 – 21:00 · víkend 12:00 – 21:00
+- Price: od 5.90 €/deň
+- Provider: —
+- Rating: 4.5 / 5 (17 Google reviews)
+- Booking: https://bounce.com/s/location/76814354-78c1-4c91-a3d7-13cb7e566990?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765
+
+### Ružinov · Dulovo nám.
+
+**Radical Storage · Dulovo námestie** (id 22)
+- URL: https://lockandgo.sk/spot/22-radical-storage-dulovo-namestie
+- Address: Shop pri Dulovom námestí, 821 08 Bratislava-Ružinov
+- Coords: 48.1496, 17.1339
+- Hours: 09:00 – 18:00 každý deň
+- Price: 5 €/deň/kus · poistenie 3000 €
+- Provider: Radical Storage
+- Booking: https://radicalstorage.com/luggage-storage/bratislava
+
+### Ružinov · Miletička
+
+**Radical Storage · Miletičová** (id 21)
+- URL: https://lockandgo.sk/spot/21-radical-storage-mileticova
+- Address: Reštaurácia pri trhu Miletičova (Miletičova ~17), Ružinov
+- Coords: 48.1536, 17.1366
+- Hours: 10:00 – 21:00 každý deň
+- Price: 5 €/deň/kus · poistenie 3000 €
+- Provider: Radical Storage
+- Booking: https://radicalstorage.com/luggage-storage/bratislava
+
+### Staré Mesto
+
+**Staré Mesto Storage Spot** (id 01)
+- URL: https://lockandgo.sk/spot/01-stare-mesto-storage-spot
+- Address: —
+- Coords: 48.1432, 17.1083
+- Hours: 07:00 – 22:00 každý deň
+- Price: od 5.90 €/deň
+- Provider: —
+- Rating: 4.2 / 5 (13 Google reviews)
+- Booking: https://bounce.com/s/location/ea755c68-8253-4542-9eee-2243854262ee?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765
+
+**Staré Mesto Area Storage Spot** (id 02)
+- URL: https://lockandgo.sk/spot/02-stare-mesto-area-storage-spot
+- Address: —
+- Coords: 48.1438, 17.1066
+- Hours: 09:00 – 21:00 každý deň
+- Price: od 5.90 €/deň
+- Provider: —
+- Rating: 3.4 / 5 (15 Google reviews)
+- Booking: https://bounce.com/s/location/e40956d1-e3d6-4566-8c86-699bf84e856c?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765
+
+### Staré Mesto · Prezidentský palác
+
+**Safestay Bratislava · luggage room** (id 31)
+- URL: https://lockandgo.sk/spot/31-safestay-bratislava-luggage-room
+- Address: Leskova 9A, 811 04 Bratislava
+- Coords: 48.1524, 17.1076
+- Hours: 24/7 (non-stop)
+- Price: cena podľa prevádzkovateľa
+- Provider: Safestay Bratislava
+- Notes: Luggage room explicitne pre non-guests (za poplatok, info na recepcii). Najistejší non-guest hostel v BA.
+- Booking: https://www.safestay.com/venue/safestay-bratislava-presidential-palace/
+
+### Staré Mesto · biznis distrikt
+
+**Hotel Loft Bratislava · luggage storage** (id 32)
+- URL: https://lockandgo.sk/spot/32-hotel-loft-bratislava-luggage-storage
+- Address: Štefánikova 4, 811 05 Bratislava (blízko Prezidentského paláca)
+- Coords: 48.1497, 17.1057
+- Hours: 24/7 (non-stop)
+- Price: cena podľa prevádzkovateľa
+- Provider: Hotel Loft
+- Notes: 4★ hotel s 24h recepciou. Non-guest policy potvrď telefonicky pred príchodom.
+- Booking: https://loft.hotelbratislava.net/en/
+
+### Staré Mesto · galérie
+
+**Near Gallery Multium Storage Spot** (id 09)
+- URL: https://lockandgo.sk/spot/09-near-gallery-multium-storage-spot
+- Address: —
+- Coords: 48.1428, 17.1096
+- Hours: Po-Štv, Ne 11:00 – 22:00 · Pi-So do 23:30
+- Price: od 5.90 €/deň
+- Provider: —
+- Rating: 4.5 / 5 (35 Google reviews)
+- Booking: https://bounce.com/s/location/87194b08-0723-4475-a538-3ec1cdceab46?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765
+
+### Staré Mesto · outdoor shop
+
+**Stare Mesto Area Storage Spot** (id 11)
+- URL: https://lockandgo.sk/spot/11-stare-mesto-area-storage-spot
+- Address: —
+- Coords: 48.1448, 17.1118
+- Hours: Po-Pi 10:00 – 19:00 · So 09:00 – 13:00 · Ne zatvorené
+- Price: od 5.90 €/deň
+- Provider: —
+- Rating: 5.0 / 5 (40 Google reviews)
+- Booking: https://bounce.com/s/location/8bc3beb7-4ca5-4fbf-a854-3dd486a62b26?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765
+
+### Staré Mesto · pri Poštovej
+
+**Obchodná 9 · automatické skrinky** (id 16)
+- URL: https://lockandgo.sk/spot/16-obchodna-9-automaticke-skrinky
+- Address: Obchodná 9, Bratislava (pri zastávke Poštová)
+- Coords: 48.1466, 17.1099
+- Hours: 24/7 (non-stop)
+- Price: 2€/2h · 4€/4h · 6€/24h · +6€ za každý ďalší deň
+Rozmer boxu: ~535×500×700 mm (kabínový bag / batoh)
+- Provider: Obchodná 9
+- Notes: Iba bezkontaktná platba kartou (vrátane Apple Pay / Google Pay). Vhodné pre menšiu batožinu.
+- Booking: None
+
+### Štúrova
+
+**Masala Darbar Storage Spot** (id 10)
+- URL: https://lockandgo.sk/spot/10-masala-darbar-storage-spot
+- Address: —
+- Coords: 48.1421, 17.1108
+- Hours: Ut-Ne 10:30 – 20:00 · Po do 15:00
+- Price: od 5.90 €/deň
+- Provider: —
+- Rating: 4.5 / 5 (38 Google reviews)
+- Booking: https://bounce.com/s/location/8f897e95-b1a0-4932-914d-bfd5ab135e6e?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765
+
+### ŽST Petržalka
+
+**LugLockers · ŽST Petržalka** (id 20)
+- URL: https://lockandgo.sk/spot/20-luglockers-zst-petrzalka
+- Address: Kopčianska, ŽST Bratislava-Petržalka, 851 01
+- Coords: 48.122, 17.0988
+- Hours: 24/7 (non-stop)
+- Price: cena podľa prevádzkovateľa
+- Provider: LugLockers
+- Notes: Lockery na ŽST Petržalka — pohodlné pre cestujúcich z/do Viedne (REX, RegioJet).
+- Booking: https://www.luglockers.com/cities/bratislava
+
+**LuggageHero · ŽST Petržalka** (id 26)
+- URL: https://lockandgo.sk/spot/26-luggagehero-zst-petrzalka
+- Address: Pri ŽST Bratislava-Petržalka (Kopčianska)
+- Coords: 48.1216, 17.0995
+- Hours: podľa prevádzky (typicky 08:00 – 22:00)
+- Price: 1.49 €/hod ALEBO 4.90 €/deň · poistenie 500 €
+- Provider: LuggageHero
+- Booking: https://luggagehero.com/bratislava/zeleznicna-stanica-bratislava-petrzalka/
+
+**ZSSK · ŽST Petržalka** (id 30)
+- URL: https://lockandgo.sk/spot/30-zssk-zst-petrzalka
+- Address: ŽST Bratislava-Petržalka, Kopčianska 64/B, 851 01
+- Coords: 48.1218, 17.0988
+- Hours: manuál ~6:00 – 20:00 · lockery 24/7
+- Price: Manuál: ≤15 kg 2 €/deň · >15 kg 2.50 €/deň · kočík 1.50 € · bicykel 2.50 € · 2.+ deň 1.50 €
+Lockery: od 2 €, max 72h, iba mince 1 € a 2 €
+- Provider: ZSSK · Petržalka
+- Notes: ZSSK manuálna úschovňa + samoobslužné skrinky. Lockery iba mince.
+- Booking: https://www.zssk.sk/sluzby/sluzby-na-stanici/uschova-batozin/
+
+## Blog articles
+
+### Úschovňa s personálom vs. samoobslužné lockery: čo si vybrať | LockAndGo
+**URL:** https://lockandgo.sk/blog/bezpecna-uschovna-vs-lockery
+
+Porovnanie 20. máj 2026 Čítanie: 6 minút Šimon Kališ Bezpečné úschovne vs. samoobslužné lockery: čo si vybrať Personál za pultom alebo automatický box s kľúčom? Záleží na tom, ako dlho, koľko vecí, čo v nich máš a kedy sa vraciaš. Tu je praktické porovnanie z pohľadu reálnych spotov v Bratislave. Otázka „je to bezpečné?" je dvojaká. Niekto myslí na to, či mu niečo ukradnú. Niekto na to, či má spätnú možnosť kompenzácie. A niekto na to, či sa k batožine vôbec dostane v správny čas. Pozriem sa na všetky tri. Na začiatok dôležitá vec: každý zo spotov na mape lockandgo.sk je reálny, fungujúci a obišiel som ho osobne alebo cez kontakt s prevádzkou. Žiadny z nich nemá hromadné sťažnosti na krádež. Rozhodnutie staffed vs. locker teda nie je o tom „čo je bezpečné" — väčšinou je obe — ale o tom, čo ti najviac vyhovuje pri konkrétnej ceste. Krátka odpoveď Cennosti / notebook / dlhý čas / veľký kufor: úschovňa s personálom (Bounce, Radical Storage, ZSSK manuál). Malá batožina / krátky čas / 24/7 prístup / žiadne cennosti: samoobslužný locker (ZSSK skrinky, Stanica Nivy, Obchodná 9, LugLockers, Luggage Lockers BA). Najlepší kompromis: Radical Storage — staffed model s poistením 3000 € za 5 €/deň. Dve filozofie Úschovňa s personálom Človek pri pulte preberie batožinu, dá ti lístok alebo QR kód, batožina visí v zázemí alebo v skladovej miestnosti. Typický príklad: Bounce partner v kaviarni, Radical Storage v reštaurácii, ZSSK manuál v staničnej budove. V Bratislave: 12 Bounce spotov, 4 Rad …
+
+---
+
+### Bratislava na 1 deň bez kufra: itinerár s úschovňou | LockAndGo
+**URL:** https://lockandgo.sk/blog/bratislava-jeden-den-bez-kufra
+
+Itinerár 20. máj 2026 Čítanie: 7 minút Šimon Kališ Bratislava na 1 deň bez kufra : itinerár Si v Bratislave 10 hodín, máš so sebou kufor a chceš vidieť čo najviac. Tu je plán — kam odhodiť batožinu o 9:00, kade chodiť, kde jesť, kedy sa vrátiť pre kufor. Realistické časy aj ceny. Tento plán vychádza z toho, že prichádzaš ráno (vlak alebo autobus z Viedne, Budapešti, Brna) a odchádzaš večerom. Predpokladám 1 kufor a chôdzu — žiadne taxi, žiadny rent-a-car. Cieľ je vidieť hlavné body, zjesť slušne a nezomrieť únavou. Krátka verzia 9:00 — odhoď kufor pri Hlavnej stanici alebo v Starom Meste 9:30 – 12:00 — Michalská brána, Hlavné námestie, Modrý kostol 12:00 – 13:30 — obed v Starom Meste 13:30 – 16:00 — Bratislavský hrad + výhľad na Dunaj 16:00 – 18:00 — Eurovea, UFO most, káva pri Dunaji 18:00 – 19:30 — večera, vyzdvihni kufor 19:30+ — späť na stanicu 9:00 — Odhoď kufor 9:00 – 9:20 Najbližšia úschovňa od stanice Ak prichádzaš na Hlavnú stanicu a chceš ísť priamo do centra, máš dve dobré možnosti: Lacne (2 €) a hneď: ZSSK úschovňa s personálom priamo v staničnej budove. Otvorené od ~6:15. Dáš batožinu, dostaneš lístok, ideš ďalej. Pohodlne (5,90 €) s rezerváciou: Bounce „Near Bratislava Station Storage Spot" — 24/7, 4,2★ s 186 recenziami. Rezervuj online cez mapu na /app , prídeš s QR kódom. Ak prichádzaš autobusom na Nivy, najbližšie sú samoobslužné boxy na podlaží -1 (4 €/3h alebo 8 €/24h) alebo Radical Storage Nivy (5 €/deň). Tip: ak máš drobné, ZSSK skrinky pri nástupišti 1 b …
+
+---
+
+### Úschovňa batožiny v Bratislave: kompletný sprievodca (2026) | LockAndGo
+**URL:** https://lockandgo.sk/blog/bratislava-uschovna-batoziny-kompletny-sprievodca
+
+Sprievodca 20. máj 2026 Čítanie: 8 minút Šimon Kališ Úschovňa batožiny v Bratislave : kompletný sprievodca (2026) Bratislava má v roku 2026 zhruba 32 reálnych miest, kde si môžeš odložiť kufor. Tu je prehľad, kde si vybrať podľa lokality, ceny a otváracích hodín — bez marketingových rečí. Volám sa Šimon a posledný rok som chodil po Bratislave a mapoval každú úschovňu, ktorá funguje. Niektoré sú kaviarne s Bounce partnerstvom, iné sú samoobslužné skrinky na stanici, ďalšie sú cloakroomy v obchodákoch. Tu je rozdiel medzi nimi, ceny a kde sa oplatí ktorú. Najrýchlejšia odpoveď Najlacnejšia úschovňa: ZSSK úschovňa s personálom na Hlavnej stanici — 2 € za deň (≤15 kg). Samoobslužné skrinky tiež od 2 €, ale len mince. Najpohodlnejšia za normálnu cenu: Bounce partner v Starom Meste — 5,90 €/deň , rezervácia online, odovzdáš na pulte v kaviarni alebo obchode. 24/7 nonstop: samoobslužné boxy na OC Nivy, automatické skrinky na Hlavnej stanici a Obchodnej 9, Luggage Lockers pod Mostom SNP. Veľký kufor / viac kusov: Radical Storage v Ružinove a okolo Nivy za 5 €/kus/deň s poistením 3000 €. Detaily a presné adresy nájdeš nižšie. Ak chceš filtrovať podľa polohy alebo otvoreného teraz, otvor mapu na lockandgo.sk/app . Ako sa orientovať podľa mestskej časti Hlavná stanica (Námestie Franza Liszta) Najdôležitejší uzol. Tu sú tri hlavné možnosti vedľa seba: ZSSK úschovňa s personálom — Námestie Franza Liszta 11. Otvorené zhruba 6:15 – 20:00 s prestávkami. 2 €/deň do 15 kg, 2,50 € nad 15 kg. Ko …
+
+---
+
+### Luggage Storage in Bratislava: Complete Guide for Tourists (2026) | LockAndGo
+**URL:** https://lockandgo.sk/blog/luggage-storage-bratislava-complete-guide
+
+Guide May 20, 2026 Read time: 9 min Šimon Kališ Luggage Storage in Bratislava : Complete Guide for Tourists (2026) Bratislava has about 32 real options for leaving bags in 2026. If you're arriving from Vienna, Budapest or Prague and want a few hours hands-free, here's the practical version — no marketing fluff. I'm Šimon, I live in Bratislava, and I've spent the last year mapping every luggage storage spot in the city. This guide covers prices, what to expect when you walk in (Slovak language, payment methods), safety, and which spot to pick depending on where you arrive and how long you stay. The fast answer Cheapest: ZSSK manned storage at the main train station — €2/day (up to 15 kg). Self-service lockers also start at €2 but coins only. Most convenient: Bounce partners (cafés and shops) at €5.90/day with online booking. You arrive with a QR code. 24/7 self-service: Stanica Nivy lockers, ZSSK lockers at the main station, Obchodná 9 lockers, Luggage Lockers under SNP Bridge, LugLockers. Large or valuable bags: Radical Storage at €5/day with €3,000 insurance . Full details and a live map of all 32 spots are at lockandgo.sk/en/app . Where you arrive: storage at each entry point Bratislava Main Train Station (Hlavná stanica) This is where you land if you took the EuroCity from Vienna, the RegioJet from Prague, or the night train from Budapest. Three storage options right here: ZSSK manned storage — Námestie Franza Liszta 11. Open roughly 6:15 – 20:00 with breaks. €2/day under  …
+
+---
+
+### Úschovňa batožiny Hlavná stanica Bratislava: kde, koľko, čo zvoliť | LockAndGo
+**URL:** https://lockandgo.sk/blog/uschovna-batoziny-hlavna-stanica
+
+Hlavná stanica 20. máj 2026 Čítanie: 7 minút Šimon Kališ Kde si odložiť batožinu na Hlavnej stanici v Bratislave Štyri reálne možnosti priamo na stanici alebo pešo do 5 minút. ZSSK úschovňa za 2 € s personálom, samoobslužné skrinky 24/7, nové LugLockers a Bounce partneri pod 500 m. Tu je čo si vybrať. Bratislavská Hlavná stanica je najfrekventovanejší úsek pre úschovňu v meste. Cestujúci z Viedne, Budapešti, Prahy a Košíc tu prestupujú denne, a väčšina chce mať ruky voľné. Postupne som obišiel všetky pulty, skrinky a Bounce partnerov v okruhu 500 m a takto to vyzerá. Adresa a orientácia Námestie Franza Liszta 11, 811 04 Bratislava. Stanica leží asi 1,2 km severne od historického centra. Z výstupu z budovy ideš buď peši Štefánikovou ulicou do centra (15 min), alebo trolejbusom 201, 207, 208 na Hodžovo námestie (5 min). Pred budovou je hlavný vchod, vľavo od neho parkovisko, vpravo terminál autobusov. 1. ZSSK úschovňa s personálom (najlacnejšia) ZSSK · Hlavná stanica — manuálna úschovňa Námestie Franza Liszta 11 · zhruba 6:15 – 20:00 (s prestávkami) 2 €/deň (≤15 kg) · 2,50 €/deň (&gt;15 kg) · kočík 1,50 € · bicykel 2,50 € · 2. a každý ďalší deň 1,50 €/deň Klasická úschovňa v staničnej budove. Odovzdáš batožinu, dostaneš lístok, pri vyzdvihnutí ho vrátiš. Hodnota za peniaze je tu jednoznačne najvyššia — žiadna iná možnosť v meste sa ceny 2 € za 24 hodín nedotkne. Háčik: otváracie hodiny sa môžu líšiť podľa dňa a sezóny a personál má prestávky. Ak prídeš pred 6:30, počkáš, kým ot …
+
+---
+
+## How LockAndGo monetizes (transparency)
+
+Of 32 listed spots: 12 are affiliate partners (Bounce, Radical Storage, LuggageHero)
+paying 5–15% commission per booking; 20 are listed for free (ZSSK, Nivy boxes,
+Aupark/Vivo cloakrooms, hotel storage, walk-in shops). The price you pay is
+identical to booking directly with the operator. No markups, no service fees.
+
+## Source and licensing
+
+Content licensed under CC-BY 4.0 with attribution to lockandgo.sk
+(see /rsl.xml for the machine-readable RSL 1.0 declaration). AI training and AI
+search inference are explicitly permitted; cite lockandgo.sk as source.
+
+## Structured data on each page
+
+- Homepage (/, /en): Organization, Person (Šimon Kališ), WebSite, WebPage,
+  BreadcrumbList, Service with AggregateOffer + AggregateRating, FAQPage.
+- Map page (/app, /en/app): WebPage, BreadcrumbList. The full ItemList of 32
+  spots is rendered server-side as crawlable HTML inside <section id="spots-prerendered">.
+- Spot pages (/spot/[id]-[slug]): LocalBusiness (SelfStorage / Store / LodgingBusiness
+  by subtype), WebPage, BreadcrumbList. Includes geo, openingHoursSpecification,
+  priceRange, paymentAccepted, areaServed, and aggregateRating when available.
+- About page (/o-nas, /about): AboutPage referencing Organization + Person.
+- Blog articles (/blog/*): BlogPosting with author, datePublished, dateModified,
+  mainEntityOfPage, image, publisher.

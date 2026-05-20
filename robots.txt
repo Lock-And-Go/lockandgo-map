@@ -55,4 +55,51 @@ Allow: /
 User-agent: meta-externalagent
 Allow: /
 
+# Social media link unfurlers — needed for OG image previews in shares
+User-agent: FacebookBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: Slackbot-LinkExpanding
+Allow: /
+
+# Additional search + AI crawlers
+User-agent: Amazonbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: SeznamBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: Mojeek
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
 Sitemap: https://lockandgo.sk/sitemap.xml

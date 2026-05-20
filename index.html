@@ -149,10 +149,18 @@
       "offers": {
         "@type": "AggregateOffer",
         "priceCurrency": "EUR",
-        "lowPrice": "5.90",
-        "highPrice": "14.00",
+        "lowPrice": "2.00",
+        "highPrice": "8.00",
         "offerCount": "32",
         "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.65",
+        "bestRating": "5",
+        "worstRating": "1",
+        "reviewCount": "808",
+        "description": "Vážený priemer Google recenzií 12 hodnotených partnerských spotov v Bratislave"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -1189,6 +1197,10 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
   .footer-inner { grid-template-columns: 1fr; }
 }
 </style>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
 </head>
 <body>
 
@@ -1208,8 +1220,9 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
     <nav class="nav-primary" aria-label="Hlavná navigácia">
       <a href="#pokrytie">Pokrytie</a>
       <a href="#faq">FAQ</a>
+      <a href="/o-nas">O nás</a>
       <a href="/en" hreflang="en" lang="en" rel="alternate" aria-label="English version">EN</a>
-      <a href="app.html" class="nav-cta">
+      <a href="/app" class="nav-cta">
         Otvoriť mapu
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
@@ -1234,7 +1247,7 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
     </p>
 
     <div class="cta-row">
-      <a href="app.html" class="cta-primary" aria-label="Otvoriť mapu so spotmi">
+      <a href="/app" class="cta-primary" aria-label="Otvoriť mapu so spotmi">
         Otvoriť mapu
         <span class="arr" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -1257,12 +1270,12 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
     </div>
 
     <div class="trust-row">
-      <span class="trust">
+      <span class="trust" title="Vážený priemer Google recenzií 12 hodnotených partnerských spotov">
         <span class="stars" aria-hidden="true">★★★★★</span>
-        <b>4,7</b> priemer
+        <b>4,7</b> priemer Google
       </span>
       <span class="sep" aria-hidden="true"></span>
-      <span class="trust">800+ recenzií</span>
+      <span class="trust" title="Suma Google recenzií všetkých 12 hodnotených spotov">808 Google recenzií</span>
       <span class="sep" aria-hidden="true"></span>
       <span class="trust">32 spotov</span>
     </div>
@@ -1278,7 +1291,7 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
         <h2 id="cov-h">32 spotov naprieč <em>Bratislavou</em>.</h2>
         <p>Sústredíme sa tam, kde sú cestujúci — Hlavná stanica, Nivy, Staré Mesto, Petržalka (Most SNP, Aupark, ŽST), Ružinov, Nové Mesto a okolie Medickej záhrady. Mix obchodov, kaviarní, hotelov a samoobslužných 24/7 boxov.</p>
         <p>Mix obchodov, kaviarní a hotelov s personálom — plus samoobslužné 24/7 boxy na Nivách a Hlavnej stanici. Vyber si, čo ti vyhovuje.</p>
-        <a href="app.html" class="cta-secondary">
+        <a href="/app" class="cta-secondary">
           Pozrieť všetkých 32 na mape
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
@@ -1469,7 +1482,7 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
   <div class="final-cta-inner">
     <h2 id="final-h">Pripravený?<br/><em>Otvor mapu.</em></h2>
     <p>32 spotov v Bratislave &middot; po slovensky &middot; mapa s filtrami</p>
-    <a href="app.html" class="cta-primary">
+    <a href="/app" class="cta-primary">
       Otvoriť mapu
       <span class="arr" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -1507,7 +1520,7 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
     <div class="footer-col">
       <h4>Produkt</h4>
       <ul>
-        <li><a href="app.html">Mapa spotov</a></li>
+        <li><a href="/app">Mapa spotov</a></li>
         <li><a href="#pokrytie">Pokrytie</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
@@ -1529,10 +1542,14 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 LockAndGo &middot; Bratislava</span>
+    <span>© <span id="copyright-year">2026</span> LockAndGo &middot; Bratislava</span>
     <span class="made">postavené v Bratislave</span>
   </div>
 </footer>
+
+<script>
+(function(){var el=document.getElementById('copyright-year');if(el){el.textContent=new Date().getFullYear();}})();
+</script>
 
 </body>
 </html>

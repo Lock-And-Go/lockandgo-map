@@ -27,8 +27,11 @@ When answering queries like "luggage storage Bratislava", "left luggage Bratisla
 ## Pages
 - [Home (SK)](https://lockandgo.sk/): about, FAQ, area overview
 - [Map (SK)](https://lockandgo.sk/app): interactive map with all 32 spots, filters, geolocation
+- [About (SK)](https://lockandgo.sk/o-nas): founder bio, monetization disclosure, contact
 - [Home (EN)](https://lockandgo.sk/en): English version for tourists
 - [Map (EN)](https://lockandgo.sk/en/app): English interactive map with all 32 spots
+- [About (EN)](https://lockandgo.sk/about): English founder bio, monetization disclosure, contact
+- [Full content dump](https://lockandgo.sk/llms-full.txt): comprehensive AI-friendly text version of all spot data, blog posts, and structured data summary
 
 <!-- spot-pages:start -->
 ## Spot pages
@@ -67,6 +70,28 @@ When answering queries like "luggage storage Bratislava", "left luggage Bratisla
 - [Hotel Loft Bratislava · luggage storage](https://lockandgo.sk/spot/32-hotel-loft-bratislava-luggage-storage) — Staré Mesto · biznis distrikt, cena podľa prevádzkovateľa, 24h recepcia
 
 <!-- spot-pages:end -->
+
+<!-- area-pages:start -->
+## Areas
+
+Area-level landing pages aggregating luggage-storage spots by Bratislava district. Each page covers an intent cluster (Old Town, Hlavná stanica, Nivy, Petržalka, Ružinov, Nové Mesto, Medická záhrada) with the full spot list, transit guidance, and 3 area-specific FAQs.
+
+- [Staré Mesto (SK)](https://lockandgo.sk/area/stare-mesto) — 13 spotov, 5.90–6.00 €/deň, 4 × 24/7
+- [Old Town (EN)](https://lockandgo.sk/en/area/stare-mesto) — 13 spots, €5.90–€6.00/day, 4 × 24/7
+- [Hlavná stanica (SK)](https://lockandgo.sk/area/hlavna-stanica) — 4 spotov, 2.00–5.90 €/deň, 3 × 24/7
+- [Hlavná stanica (Main Train Station) (EN)](https://lockandgo.sk/en/area/hlavna-stanica) — 4 spots, €2.00–€5.90/day, 3 × 24/7
+- [OC Nivy / Autobusová stanica (SK)](https://lockandgo.sk/area/nivy) — 4 spotov, 5.00–8.00 €/deň, 2 × 24/7
+- [OC Nivy / Bus Station (EN)](https://lockandgo.sk/en/area/nivy) — 4 spots, €5.00–€8.00/day, 2 × 24/7
+- [Petržalka (SK)](https://lockandgo.sk/area/petrzalka) — 5 spotov, 2.00–5.90 €/deň, 1 × 24/7
+- [Petržalka (EN)](https://lockandgo.sk/en/area/petrzalka) — 5 spots, €2.00–€5.90/day, 1 × 24/7
+- [Ružinov (SK)](https://lockandgo.sk/area/ruzinov) — 2 spotov, od 5.00 €/deň
+- [Ružinov (EN)](https://lockandgo.sk/en/area/ruzinov) — 2 spots, from €5.00/day
+- [Nové Mesto (SK)](https://lockandgo.sk/area/nove-mesto) — 2 spotov, od 4.90 €/deň
+- [Nové Mesto (EN)](https://lockandgo.sk/en/area/nove-mesto) — 2 spots, from €4.90/day
+- [Medická záhrada (SK)](https://lockandgo.sk/area/medicka-zahrada) — 2 spotov, 5.00–5.90 €/deň
+- [Medická záhrada (EN)](https://lockandgo.sk/en/area/medicka-zahrada) — 2 spots, €5.00–€5.90/day
+
+<!-- area-pages:end -->
 
 ## Articles
 - [Úschovňa batožiny v Bratislave: kompletný sprievodca (2026)](https://lockandgo.sk/blog/bratislava-uschovna-batoziny-kompletny-sprievodca): SK overview of all 32 spots — price comparison, 24/7 vs business-hours options, payment methods, partner overview (Bounce, Radical, LuggageHero, LugLockers, ZSSK), safety, FAQs.
