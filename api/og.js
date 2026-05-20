@@ -13,7 +13,8 @@ const h = (type, props, children) => ({
 });
 
 export default function handler(req) {
-  const { searchParams } = new URL(req.url);
+  const query = (req.url || '').split('?')[1] || '';
+  const searchParams = new URLSearchParams(query);
   const lang = searchParams.get('lang') === 'en' ? 'en' : 'sk';
   const isEn = lang === 'en';
   const title =
