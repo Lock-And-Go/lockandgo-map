@@ -1,0 +1,17 @@
+/* TEAM */
+Founder: Šimon Kališ
+Site: https://lockandgo.sk/
+Twitter / Instagram: @lock1and2go
+Location: Bratislava, Slovakia
+
+/* SITE */
+Last update: 2026-05-20
+Language: Slovak (primary), English
+Standards: HTML5, CSS3, Schema.org structured data, RSL 1.0 licensing
+Components: Leaflet (maps), @vercel/og (social images)
+Doctype: HTML5
+IDE: Cursor / Claude Code
+
+/* THANKS */
+Map tiles: OpenStreetMap contributors, CARTO
+Partners: Bounce, Radical Storage, LuggageHero, ZSSK, all Bratislava cafés and hotels hosting luggage

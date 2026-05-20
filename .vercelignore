@@ -1,0 +1,7 @@
+# Dev-only / private content — not deployed
+marketing/
+scripts/
+data/
+poster-*.html
+README.md
+APLIKACIA_BEZI.md

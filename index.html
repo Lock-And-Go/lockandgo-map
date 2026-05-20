@@ -45,10 +45,19 @@
       "@id": "https://lockandgo.sk/#organization",
       "name": "LockAndGo",
       "url": "https://lockandgo.sk/",
-      "logo": "https://lockandgo.sk/og-image.svg",
-      "image": "https://lockandgo.sk/og-image.svg",
-      "description": "Slovenský sprievodca po úschovniach batožiny v Bratislave.",
-      "foundingDate": "2026",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://lockandgo.sk/og-image.svg",
+        "contentUrl": "https://lockandgo.sk/api/og",
+        "width": 1200,
+        "height": 630
+      },
+      "image": [
+        "https://lockandgo.sk/api/og",
+        "https://lockandgo.sk/api/og?lang=en"
+      ],
+      "description": "Slovenský sprievodca po úschovniach batožiny v Bratislave. 32 spotov na jednej mape — Bounce, Radical Storage, LuggageHero, ZSSK lockery a walk-in cloakrooms.",
+      "foundingDate": "2026-05-07",
       "founder": { "@id": "https://lockandgo.sk/#founder" },
       "email": "info@lockandgo.sk",
       "areaServed": {
@@ -72,9 +81,18 @@
       "@type": "Person",
       "@id": "https://lockandgo.sk/#founder",
       "name": "Šimon Kališ",
+      "givenName": "Šimon",
+      "familyName": "Kališ",
       "jobTitle": "Zakladateľ",
+      "description": "Zakladateľ LockAndGo — slovenského sprievodcu úschovniami batožiny v Bratislave.",
+      "url": "https://lockandgo.sk/",
       "worksFor": { "@id": "https://lockandgo.sk/#organization" },
-      "nationality": "Slovak"
+      "nationality": "Slovak",
+      "knowsAbout": ["luggage storage", "Bratislava tourism", "travel logistics"],
+      "sameAs": [
+        "https://www.instagram.com/lock1and2go/",
+        "https://www.tiktok.com/@lock_and_go_"
+      ]
     },
     {
       "@type": "WebSite",
@@ -98,7 +116,12 @@
       "isPartOf": { "@id": "https://lockandgo.sk/#website" },
       "about": { "@id": "https://lockandgo.sk/#service" },
       "inLanguage": "sk-SK",
-      "primaryImageOfPage": "https://lockandgo.sk/og-image.svg",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://lockandgo.sk/api/og",
+        "width": 1200,
+        "height": 630
+      },
       "author": { "@id": "https://lockandgo.sk/#founder" },
       "datePublished": "2026-05-07",
       "dateModified": "2026-05-20",
@@ -1204,7 +1227,7 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
       Úschovne batožiny · Bratislava
     </span>
 
-    <h1 id="hero-h" class="headline">Odlož <em>kufor</em>.<br/>Pozri mesto.</h1>
+    <h1 id="hero-h" class="headline">Odlož <em>kufor</em>. <br/>Pozri mesto.</h1>
 
     <p class="subtitle">
       Slovenský sprievodca po úschovniach batožiny v Bratislave. Nájdi najbližšiu, porovnaj cenu a hodnotenie, rezervuj online — bez ťahania kufra po starom meste.
@@ -1415,6 +1438,31 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
     </div>
   </div>
 </section>
+
+<!-- ============================================================ AUTHOR / E-E-A-T -->
+<section class="author-bio" aria-labelledby="author-h" itemscope itemtype="https://schema.org/Person">
+  <div class="author-inner">
+    <div class="author-text">
+      <h2 id="author-h" class="author-eyebrow">O autorovi</h2>
+      <p class="author-name" itemprop="name">Šimon Kališ</p>
+      <p class="author-role" itemprop="jobTitle">Zakladateľ LockAndGo · 16 · Bratislava</p>
+      <p class="author-blurb" itemprop="description">Robím LockAndGo sám. Behám po Bratislave, fotím spoty, overujem ceny a otváracie hodiny. Ak nájdeš nepresnú informáciu — píš na <a href="mailto:info@lockandgo.sk" itemprop="email">info@lockandgo.sk</a>, opravím to do 24 hodín.</p>
+      <p class="author-meta"><span>Aktualizované: 20. máj 2026</span> · <a href="https://www.instagram.com/lock1and2go/" rel="me noopener">Instagram</a> · <a href="https://www.tiktok.com/@lock_and_go_" rel="me noopener">TikTok</a></p>
+    </div>
+  </div>
+</section>
+
+<style>
+.author-bio { padding: 60px 24px 40px; background: var(--paper-2, #F5F5F0); border-top: 1px solid var(--line, rgba(31,31,29,0.10)); }
+.author-inner { max-width: 720px; margin: 0 auto; }
+.author-eyebrow { font-family: var(--body); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3, #8E8E89); font-weight: 500; margin: 0 0 16px; }
+.author-name { font-family: var(--display); font-size: 32px; line-height: 1.1; color: var(--ink, #1F1F1D); margin: 0 0 6px; font-weight: 400; }
+.author-role { font-family: var(--body); font-size: 14px; color: var(--ink-2, #555550); margin: 0 0 16px; }
+.author-blurb { font-family: var(--body); font-size: 16px; line-height: 1.6; color: var(--ink, #1F1F1D); margin: 0 0 14px; }
+.author-blurb a { color: var(--ink, #1F1F1D); text-decoration: underline; text-underline-offset: 3px; }
+.author-meta { font-family: var(--body); font-size: 13px; color: var(--ink-3, #8E8E89); margin: 0; }
+.author-meta a { color: var(--ink-2, #555550); text-decoration: none; border-bottom: 1px dotted var(--line-2, rgba(31,31,29,0.18)); }
+</style>
 
 <!-- ============================================================ FINAL CTA -->
 <section class="final-cta" aria-labelledby="final-h">

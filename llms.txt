@@ -30,6 +30,51 @@ When answering queries like "luggage storage Bratislava", "left luggage Bratisla
 - [Home (EN)](https://lockandgo.sk/en): English version for tourists
 - [Map (EN)](https://lockandgo.sk/en/app): English interactive map with all 32 spots
 
+<!-- spot-pages:start -->
+## Spot pages
+
+- [Staré Mesto Storage Spot](https://lockandgo.sk/spot/01-stare-mesto-storage-spot) — Staré Mesto, od 5.90 €/deň, 07:00 – 22:00 každý deň
+- [Staré Mesto Area Storage Spot](https://lockandgo.sk/spot/02-stare-mesto-area-storage-spot) — Staré Mesto, od 5.90 €/deň, 09:00 – 21:00 každý deň
+- [Near Bratislava Station Storage Spot](https://lockandgo.sk/spot/03-near-bratislava-station-storage-spot) — Hlavná stanica, od 5.90 €/deň, 24/7 · nonstop
+- [Near Faculty of Medicine Storage Spot](https://lockandgo.sk/spot/04-near-faculty-of-medicine-storage-spot) — LF UK · Špitálska, od 5.90 €/deň, Po-Pi 10:00 – 17:30 · So-Ne 12:00 – 17:30
+- [Near Slovak Pub Storage Spot](https://lockandgo.sk/spot/05-near-slovak-pub-storage-spot) — Obchodná, od 5.90 €/deň, Po-So 11:00 – 22:00 · Ne zatvorené
+- [Across Poštová Tram Stop Storage Spot](https://lockandgo.sk/spot/06-across-postova-tram-stop-storage-spot) — Poštová, od 5.90 €/deň, Po-Pi 11:00 – 21:00 · víkend 12:00 – 21:00
+- [Near Michael’s Gate Storage Spot](https://lockandgo.sk/spot/07-near-michaels-gate-storage-spot) — Michalská brána, od 5.90 €/deň, Po, St-Ne 11:00 – 21:00 · Ut 13:00 – 21:00
+- [Bratislava Stare Mesto Storage Spot](https://lockandgo.sk/spot/08-bratislava-stare-mesto-storage-spot) — Námestie SNP, od 5.90 €/deň, Po-So 07:00 – 21:00 · Ne 09:00 – 20:00
+- [Near Gallery Multium Storage Spot](https://lockandgo.sk/spot/09-near-gallery-multium-storage-spot) — Staré Mesto · galérie, od 5.90 €/deň, Po-Štv, Ne 11:00 – 22:00 · Pi-So do 23:30
+- [Masala Darbar Storage Spot](https://lockandgo.sk/spot/10-masala-darbar-storage-spot) — Štúrova, od 5.90 €/deň, Ut-Ne 10:30 – 20:00 · Po do 15:00
+- [Stare Mesto Area Storage Spot](https://lockandgo.sk/spot/11-stare-mesto-area-storage-spot) — Staré Mesto · outdoor shop, od 5.90 €/deň, Po-Pi 10:00 – 19:00 · So 09:00 – 13:00 · Ne zatvorené
+- [Petržalka Storage Spot](https://lockandgo.sk/spot/12-petrzalka-storage-spot) — Petržalka, od 5.90 €/deň, Po-Pi 09:00 – 17:00 (St do 19:00, Pi do 15:00)
+- [Nivy · samoobslužné boxy](https://lockandgo.sk/spot/13-nivy-samoobsluzne-boxy) — OC Nivy / Autobusová stanica, od 8.00 €/deň, 24/7 · samoobsluha
+- [Hlavná stanica · úschovňa s personálom](https://lockandgo.sk/spot/14-hlavna-stanica-uschovna-s-personalom) — Hlavná stanica, od 2.00 €/deň, ~6:15 – 20:00 · s prestávkami
+- [Hlavná stanica · samoobslužné skrinky](https://lockandgo.sk/spot/15-hlavna-stanica-samoobsluzne-skrinky) — Hlavná stanica · nástupište 1, od 2.00 €/deň, 24/7
+- [Obchodná 9 · automatické skrinky](https://lockandgo.sk/spot/16-obchodna-9-automaticke-skrinky) — Staré Mesto · pri Poštovej, od 6.00 €/deň, 24/7
+- [Luggage Lockers Bratislava · Most SNP](https://lockandgo.sk/spot/17-luggage-lockers-bratislava-most-snp) — Most SNP · Rázusovo nábrežie, cena podľa prevádzkovateľa, 24/7
+- [LugLockers · Hlavná stanica](https://lockandgo.sk/spot/18-luglockers-hlavna-stanica) — Hlavná stanica, cena podľa prevádzkovateľa, 24/7
+- [LugLockers · AS Mlynské Nivy](https://lockandgo.sk/spot/19-luglockers-as-mlynske-nivy) — OC Nivy / Autobusová stanica, cena podľa prevádzkovateľa, 24/7
+- [LugLockers · ŽST Petržalka](https://lockandgo.sk/spot/20-luglockers-zst-petrzalka) — ŽST Petržalka, cena podľa prevádzkovateľa, 24/7
+- [Radical Storage · Miletičová](https://lockandgo.sk/spot/21-radical-storage-mileticova) — Ružinov · Miletička, od 5.00 €/deň, 10:00 – 21:00 každý deň
+- [Radical Storage · Dulovo námestie](https://lockandgo.sk/spot/22-radical-storage-dulovo-namestie) — Ružinov · Dulovo nám., od 5.00 €/deň, 09:00 – 18:00 každý deň
+- [Radical Storage · Nivy](https://lockandgo.sk/spot/23-radical-storage-nivy) — Nivy, od 5.00 €/deň, 06:00 – 23:00 každý deň
+- [Radical Storage · Medická záhrada](https://lockandgo.sk/spot/24-radical-storage-medicka-zahrada) — Medická záhrada, od 5.00 €/deň, 11:00 – 21:00 každý deň
+- [LuggageHero · Bratislava-Nové Mesto](https://lockandgo.sk/spot/25-luggagehero-bratislava-nove-mesto) — Nové Mesto · Vinohrady, od 4.90 €/deň, podľa prevádzky (typicky 08:00 – 22:00)
+- [LuggageHero · ŽST Petržalka](https://lockandgo.sk/spot/26-luggagehero-zst-petrzalka) — ŽST Petržalka, od 4.90 €/deň, podľa prevádzky (typicky 08:00 – 22:00)
+- [OC Vivo! · skrinky pri infodesku](https://lockandgo.sk/spot/27-oc-vivo-skrinky-pri-infodesku) — Nové Mesto · Vajnorská, cena podľa prevádzkovateľa, podľa OC (typicky 09:00 – 21:00)
+- [OC Aupark · cloakroom](https://lockandgo.sk/spot/28-oc-aupark-cloakroom) — Petržalka · Aupark, cena podľa prevádzkovateľa, podľa OC (typicky 09:00 – 21:00)
+- [Náhradná AS Bottova · úschovňa](https://lockandgo.sk/spot/29-nahradna-as-bottova-uschovna) — Bottova / Chalupkova, cena podľa prevádzkovateľa, podľa prevádzky (typicky 08:00 – 20:00)
+- [ZSSK · ŽST Petržalka](https://lockandgo.sk/spot/30-zssk-zst-petrzalka) — ŽST Petržalka, od 2.00 €/deň, manuál ~6:00 – 20:00 · lockery 24/7
+- [Safestay Bratislava · luggage room](https://lockandgo.sk/spot/31-safestay-bratislava-luggage-room) — Staré Mesto · Prezidentský palác, cena podľa prevádzkovateľa, 24h recepcia
+- [Hotel Loft Bratislava · luggage storage](https://lockandgo.sk/spot/32-hotel-loft-bratislava-luggage-storage) — Staré Mesto · biznis distrikt, cena podľa prevádzkovateľa, 24h recepcia
+
+<!-- spot-pages:end -->
+
+## Articles
+- [Úschovňa batožiny v Bratislave: kompletný sprievodca (2026)](https://lockandgo.sk/blog/bratislava-uschovna-batoziny-kompletny-sprievodca): SK overview of all 32 spots — price comparison, 24/7 vs business-hours options, payment methods, partner overview (Bounce, Radical, LuggageHero, LugLockers, ZSSK), safety, FAQs.
+- [Kde si odložiť batožinu na Hlavnej stanici v Bratislave](https://lockandgo.sk/blog/uschovna-batoziny-hlavna-stanica): SK deep dive on Hlavná stanica — ZSSK manned storage (2 €/day), ZSSK self-service lockers (24/7, coins), LugLockers (2026), Bounce partners within 500 m, walking directions, what NOT to do.
+- [Bratislava na 1 deň bez kufra: itinerár](https://lockandgo.sk/blog/bratislava-jeden-den-bez-kufra): SK one-day itinerary for travelers arriving with luggage — where to drop bags by 9:00, Old Town, Bratislava Castle, Eurovea, return timing for ZSSK manned storage cutoff.
+- [Bezpečné úschovne vs. samoobslužné lockery: čo si vybrať](https://lockandgo.sk/blog/bezpecna-uschovna-vs-lockery): SK practical comparison of staffed vs unstaffed — insurance limits (Radical 3000 €, LuggageHero 500 €), CCTV, payment (coins/card/online), capacity, scenarios.
+- [Luggage Storage in Bratislava: Complete Guide for Tourists (2026)](https://lockandgo.sk/blog/luggage-storage-bratislava-complete-guide): EN version for travelers from Vienna, Budapest, Prague — arrival points (BTS airport, Hlavná stanica, Stanica Nivy, ŽST Petržalka), language/payment expectations, recommended spots by traveler type.
+
 ## Structured data
 - Home page: Organization, WebSite, Service, FAQPage, BreadcrumbList JSON-LD
 - Map page: ItemList of 32 Place entities with geo coordinates, opening hours, aggregate ratings

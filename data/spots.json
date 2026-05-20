@@ -1,0 +1,1526 @@
+[
+  {
+    "id": "01",
+    "name": "Staré Mesto Storage Spot",
+    "area": "Staré Mesto",
+    "lat": 48.1432,
+    "lng": 17.1083,
+    "hours": {
+      "display": "07:00 – 22:00 každý deň",
+      "is247": false,
+      "schedule": [
+        [
+          7,
+          22
+        ],
+        [
+          7,
+          22
+        ],
+        [
+          7,
+          22
+        ],
+        [
+          7,
+          22
+        ],
+        [
+          7,
+          22
+        ],
+        [
+          7,
+          22
+        ],
+        [
+          7,
+          22
+        ]
+      ]
+    },
+    "rating": 4.2,
+    "reviews": 13,
+    "price": 5.9,
+    "bookingUrl": "https://bounce.com/s/location/ea755c68-8253-4542-9eee-2243854262ee?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765"
+  },
+  {
+    "id": "02",
+    "name": "Staré Mesto Area Storage Spot",
+    "area": "Staré Mesto",
+    "lat": 48.1438,
+    "lng": 17.1066,
+    "hours": {
+      "display": "09:00 – 21:00 každý deň",
+      "is247": false,
+      "schedule": [
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ]
+      ]
+    },
+    "rating": 3.4,
+    "reviews": 15,
+    "price": 5.9,
+    "bookingUrl": "https://bounce.com/s/location/e40956d1-e3d6-4566-8c86-699bf84e856c?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765"
+  },
+  {
+    "id": "03",
+    "name": "Near Bratislava Station Storage Spot",
+    "area": "Hlavná stanica",
+    "lat": 48.1581,
+    "lng": 17.1065,
+    "hours": {
+      "display": "24/7 · nonstop",
+      "is247": true,
+      "schedule": [
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ]
+      ]
+    },
+    "rating": 4.2,
+    "reviews": 186,
+    "price": 5.9,
+    "bookingUrl": "https://bounce.com/s/location/4ed51715-8ae5-401a-897d-53d1a69fe826?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765"
+  },
+  {
+    "id": "04",
+    "name": "Near Faculty of Medicine Storage Spot",
+    "area": "LF UK · Špitálska",
+    "lat": 48.1498,
+    "lng": 17.1138,
+    "hours": {
+      "display": "Po-Pi 10:00 – 17:30 · So-Ne 12:00 – 17:30",
+      "is247": false,
+      "schedule": [
+        [
+          12,
+          17.5
+        ],
+        [
+          10,
+          17.5
+        ],
+        [
+          10,
+          17.5
+        ],
+        [
+          10,
+          17.5
+        ],
+        [
+          10,
+          17.5
+        ],
+        [
+          10,
+          17.5
+        ],
+        [
+          12,
+          17.5
+        ]
+      ]
+    },
+    "rating": 5.0,
+    "reviews": 111,
+    "price": 5.9,
+    "bookingUrl": "https://bounce.com/s/location/c4b682bc-c881-4f1f-a63a-69d18a4fd4b6?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765"
+  },
+  {
+    "id": "05",
+    "name": "Near Slovak Pub Storage Spot",
+    "area": "Obchodná",
+    "lat": 48.1491,
+    "lng": 17.1098,
+    "hours": {
+      "display": "Po-So 11:00 – 22:00 · Ne zatvorené",
+      "is247": false,
+      "schedule": [
+        null,
+        [
+          11,
+          22
+        ],
+        [
+          11,
+          22
+        ],
+        [
+          11,
+          22
+        ],
+        [
+          11,
+          22
+        ],
+        [
+          11,
+          22
+        ],
+        [
+          11,
+          22
+        ]
+      ]
+    },
+    "rating": 5.0,
+    "reviews": 75,
+    "price": 5.9,
+    "bookingUrl": "https://bounce.com/s/location/5ac9e530-92c5-4a0d-ae50-a8831d6c52bb?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765"
+  },
+  {
+    "id": "06",
+    "name": "Across Poštová Tram Stop Storage Spot",
+    "area": "Poštová",
+    "lat": 48.1472,
+    "lng": 17.1112,
+    "hours": {
+      "display": "Po-Pi 11:00 – 21:00 · víkend 12:00 – 21:00",
+      "is247": false,
+      "schedule": [
+        [
+          12,
+          21
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          12,
+          21
+        ]
+      ]
+    },
+    "rating": 4.5,
+    "reviews": 17,
+    "price": 5.9,
+    "bookingUrl": "https://bounce.com/s/location/76814354-78c1-4c91-a3d7-13cb7e566990?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765"
+  },
+  {
+    "id": "07",
+    "name": "Near Michael’s Gate Storage Spot",
+    "area": "Michalská brána",
+    "lat": 48.1455,
+    "lng": 17.1067,
+    "hours": {
+      "display": "Po, St-Ne 11:00 – 21:00 · Ut 13:00 – 21:00",
+      "is247": false,
+      "schedule": [
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          13,
+          21
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          21
+        ]
+      ]
+    },
+    "rating": 4.8,
+    "reviews": 105,
+    "price": 5.9,
+    "bookingUrl": "https://bounce.com/s/location/010bc37f-c778-41df-aba7-3b49f205bca8?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765"
+  },
+  {
+    "id": "08",
+    "name": "Bratislava Stare Mesto Storage Spot",
+    "area": "Námestie SNP",
+    "lat": 48.1465,
+    "lng": 17.1085,
+    "hours": {
+      "display": "Po-So 07:00 – 21:00 · Ne 09:00 – 20:00",
+      "is247": false,
+      "schedule": [
+        [
+          9,
+          20
+        ],
+        [
+          7,
+          21
+        ],
+        [
+          7,
+          21
+        ],
+        [
+          7,
+          21
+        ],
+        [
+          7,
+          21
+        ],
+        [
+          7,
+          21
+        ],
+        [
+          7,
+          21
+        ]
+      ]
+    },
+    "rating": 4.8,
+    "reviews": 172,
+    "price": 5.9,
+    "bookingUrl": "https://bounce.com/s/location/65f56376-7df5-4ce6-9a06-be978bc45f41?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765"
+  },
+  {
+    "id": "09",
+    "name": "Near Gallery Multium Storage Spot",
+    "area": "Staré Mesto · galérie",
+    "lat": 48.1428,
+    "lng": 17.1096,
+    "hours": {
+      "display": "Po-Štv, Ne 11:00 – 22:00 · Pi-So do 23:30",
+      "is247": false,
+      "schedule": [
+        [
+          11,
+          22
+        ],
+        [
+          11,
+          22
+        ],
+        [
+          11,
+          22
+        ],
+        [
+          11,
+          22
+        ],
+        [
+          11,
+          22
+        ],
+        [
+          11,
+          23.5
+        ],
+        [
+          11,
+          23.5
+        ]
+      ]
+    },
+    "rating": 4.5,
+    "reviews": 35,
+    "price": 5.9,
+    "bookingUrl": "https://bounce.com/s/location/87194b08-0723-4475-a538-3ec1cdceab46?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765"
+  },
+  {
+    "id": "10",
+    "name": "Masala Darbar Storage Spot",
+    "area": "Štúrova",
+    "lat": 48.1421,
+    "lng": 17.1108,
+    "hours": {
+      "display": "Ut-Ne 10:30 – 20:00 · Po do 15:00",
+      "is247": false,
+      "schedule": [
+        [
+          10.5,
+          20
+        ],
+        [
+          10.5,
+          15
+        ],
+        [
+          10.5,
+          20
+        ],
+        [
+          10.5,
+          20
+        ],
+        [
+          10.5,
+          20
+        ],
+        [
+          10.5,
+          20
+        ],
+        [
+          10.5,
+          20
+        ]
+      ]
+    },
+    "rating": 4.5,
+    "reviews": 38,
+    "price": 5.9,
+    "bookingUrl": "https://bounce.com/s/location/8f897e95-b1a0-4932-914d-bfd5ab135e6e?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765"
+  },
+  {
+    "id": "11",
+    "name": "Stare Mesto Area Storage Spot",
+    "area": "Staré Mesto · outdoor shop",
+    "lat": 48.1448,
+    "lng": 17.1118,
+    "hours": {
+      "display": "Po-Pi 10:00 – 19:00 · So 09:00 – 13:00 · Ne zatvorené",
+      "is247": false,
+      "schedule": [
+        null,
+        [
+          10,
+          19
+        ],
+        [
+          10,
+          19
+        ],
+        [
+          10,
+          19
+        ],
+        [
+          10,
+          19
+        ],
+        [
+          10,
+          19
+        ],
+        [
+          9,
+          13
+        ]
+      ]
+    },
+    "rating": 5.0,
+    "reviews": 40,
+    "price": 5.9,
+    "bookingUrl": "https://bounce.com/s/location/8bc3beb7-4ca5-4fbf-a854-3dd486a62b26?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765"
+  },
+  {
+    "id": "12",
+    "name": "Petržalka Storage Spot",
+    "area": "Petržalka",
+    "lat": 48.1175,
+    "lng": 17.108,
+    "hours": {
+      "display": "Po-Pi 09:00 – 17:00 (St do 19:00, Pi do 15:00)",
+      "is247": false,
+      "schedule": [
+        null,
+        [
+          9,
+          17
+        ],
+        [
+          9,
+          17
+        ],
+        [
+          9,
+          19
+        ],
+        [
+          9,
+          17
+        ],
+        [
+          9,
+          15
+        ],
+        null
+      ]
+    },
+    "rating": 5.0,
+    "reviews": 1,
+    "isNew": true,
+    "price": 5.9,
+    "bookingUrl": "https://bounce.com/s/location/842633a1-89b0-4634-be47-29111a6aab81?_aid=03aaf5de-a000-4f72-8ed7-5c0bbfc5433e&query=Bratislava%2C%20SK&ref=LOCKANDGO36164245765"
+  },
+  {
+    "id": "13",
+    "name": "Nivy · samoobslužné boxy",
+    "area": "OC Nivy / Autobusová stanica",
+    "lat": 48.1488,
+    "lng": 17.1336,
+    "address": "Lobby -1, oproti Alza, Nivy Shopping Centre, Bratislava",
+    "hours": {
+      "display": "24/7 · samoobsluha",
+      "is247": true,
+      "schedule": [
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": 8.0,
+    "priceDetails": "Box M (50×53×70 cm): 4€/3h · 6€/12h · 8€/24h · 14€/72h\nBox L (50×85×70 cm): 5€/3h · 7€/12h · 9€/24h · 15€/72h",
+    "notes": "Po 72 h batožina presunutá do skladu (30 € otvorenie + 10 € za deň skladu).",
+    "bookingType": "walkin",
+    "providerLabel": "Stanica Nivy",
+    "isNew": true,
+    "bookingUrl": null
+  },
+  {
+    "id": "14",
+    "name": "Hlavná stanica · úschovňa s personálom",
+    "area": "Hlavná stanica",
+    "lat": 48.1583,
+    "lng": 17.107,
+    "address": "Námestie Franza Liszta 11, 811 04 Bratislava",
+    "hours": {
+      "display": "~6:15 – 20:00 · s prestávkami",
+      "is247": false,
+      "schedule": [
+        [
+          6.25,
+          20
+        ],
+        [
+          6.25,
+          20
+        ],
+        [
+          6.25,
+          20
+        ],
+        [
+          6.25,
+          20
+        ],
+        [
+          6.25,
+          20
+        ],
+        [
+          6.25,
+          20
+        ],
+        [
+          6.25,
+          20
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": 2.0,
+    "priceDetails": "Batožina ≤15 kg: 2€/deň · >15 kg: 2,50€/deň\nKočík: 1,50€/deň · Bicykel: 2,50€/deň\nKaždý ďalší deň od 2.: 1,50€/deň",
+    "notes": "Klasická úschovňa s personálom — odovzdáš batožinu, dostaneš lístok. Otváracie hodiny sa môžu líšiť podľa dňa, počítaj s prestávkami.",
+    "bookingType": "walkin",
+    "providerLabel": "ZSSK · Hlavná stanica",
+    "isNew": true,
+    "bookingUrl": null
+  },
+  {
+    "id": "15",
+    "name": "Hlavná stanica · samoobslužné skrinky",
+    "area": "Hlavná stanica · nástupište 1",
+    "lat": 48.1585,
+    "lng": 17.1058,
+    "address": "Námestie Franza Liszta, pri nástupišti 1, 811 04 Bratislava",
+    "hours": {
+      "display": "24/7",
+      "is247": true,
+      "schedule": [
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": 2.0,
+    "priceDetails": "Od ~2 € (mince 1 € a 2 €) · max 72 hodín",
+    "notes": "Automatické skrinky s kľúčom, bez personálu. Platba iba mincami (1€ a 2€).",
+    "bookingType": "walkin",
+    "providerLabel": "ZSSK · Hlavná stanica",
+    "isNew": true,
+    "bookingUrl": null
+  },
+  {
+    "id": "16",
+    "name": "Obchodná 9 · automatické skrinky",
+    "area": "Staré Mesto · pri Poštovej",
+    "lat": 48.1466,
+    "lng": 17.1099,
+    "address": "Obchodná 9, Bratislava (pri zastávke Poštová)",
+    "hours": {
+      "display": "24/7",
+      "is247": true,
+      "schedule": [
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": 6.0,
+    "priceDetails": "2€/2h · 4€/4h · 6€/24h · +6€ za každý ďalší deň\nRozmer boxu: ~535×500×700 mm (kabínový bag / batoh)",
+    "notes": "Iba bezkontaktná platba kartou (vrátane Apple Pay / Google Pay). Vhodné pre menšiu batožinu.",
+    "bookingType": "walkin",
+    "providerLabel": "Obchodná 9",
+    "isNew": true,
+    "bookingUrl": null
+  },
+  {
+    "id": "17",
+    "name": "Luggage Lockers Bratislava · Most SNP",
+    "area": "Most SNP · Rázusovo nábrežie",
+    "lat": 48.1406,
+    "lng": 17.1042,
+    "address": "Pod Mostom SNP, Rázusovo nábrežie (Staré Mesto), Bratislava",
+    "hours": {
+      "display": "24/7",
+      "is247": true,
+      "schedule": [
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": null,
+    "notes": "Self-service lockery 24/7 s CCTV monitoringom. WhatsApp support: +421 905 599 053.",
+    "providerLabel": "Luggage Lockers Bratislava",
+    "isNew": true,
+    "bookingUrl": "https://www.luggagelockersbratislava.com/"
+  },
+  {
+    "id": "18",
+    "name": "LugLockers · Hlavná stanica",
+    "area": "Hlavná stanica",
+    "lat": 48.1583,
+    "lng": 17.1068,
+    "address": "Námestie Franza Liszta, 811 04 Bratislava",
+    "hours": {
+      "display": "24/7",
+      "is247": true,
+      "schedule": [
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": null,
+    "notes": "Nová sieť lockerov (2026). Pred rezerváciou over dostupnosť — booking systém niekedy ukazuje „0 € / not bookable\".",
+    "providerLabel": "LugLockers",
+    "isNew": true,
+    "bookingUrl": "https://www.luglockers.com/branches/hlavna-stanica-central-railway-station"
+  },
+  {
+    "id": "19",
+    "name": "LugLockers · AS Mlynské Nivy",
+    "area": "OC Nivy / Autobusová stanica",
+    "lat": 48.1488,
+    "lng": 17.1336,
+    "address": "Mlynské nivy 31, 811 09 Bratislava",
+    "hours": {
+      "display": "24/7",
+      "is247": true,
+      "schedule": [
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": null,
+    "notes": "Lockery v AS Mlynské Nivy. Iná služba ako self-service boxy na -1 podlaží Nivy Shopping Centre (id:13).",
+    "providerLabel": "LugLockers",
+    "isNew": true,
+    "bookingUrl": "https://www.luglockers.com/cities/bratislava"
+  },
+  {
+    "id": "20",
+    "name": "LugLockers · ŽST Petržalka",
+    "area": "ŽST Petržalka",
+    "lat": 48.122,
+    "lng": 17.0988,
+    "address": "Kopčianska, ŽST Bratislava-Petržalka, 851 01",
+    "hours": {
+      "display": "24/7",
+      "is247": true,
+      "schedule": [
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": null,
+    "notes": "Lockery na ŽST Petržalka — pohodlné pre cestujúcich z/do Viedne (REX, RegioJet).",
+    "providerLabel": "LugLockers",
+    "isNew": true,
+    "bookingUrl": "https://www.luglockers.com/cities/bratislava"
+  },
+  {
+    "id": "21",
+    "name": "Radical Storage · Miletičová",
+    "area": "Ružinov · Miletička",
+    "lat": 48.1536,
+    "lng": 17.1366,
+    "address": "Reštaurácia pri trhu Miletičova (Miletičova ~17), Ružinov",
+    "hours": {
+      "display": "10:00 – 21:00 každý deň",
+      "is247": false,
+      "schedule": [
+        [
+          10,
+          21
+        ],
+        [
+          10,
+          21
+        ],
+        [
+          10,
+          21
+        ],
+        [
+          10,
+          21
+        ],
+        [
+          10,
+          21
+        ],
+        [
+          10,
+          21
+        ],
+        [
+          10,
+          21
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": 5.0,
+    "priceDetails": "5 €/deň/kus · poistenie 3000 €",
+    "providerLabel": "Radical Storage",
+    "isNew": true,
+    "bookingUrl": "https://radicalstorage.com/luggage-storage/bratislava"
+  },
+  {
+    "id": "22",
+    "name": "Radical Storage · Dulovo námestie",
+    "area": "Ružinov · Dulovo nám.",
+    "lat": 48.1496,
+    "lng": 17.1339,
+    "address": "Shop pri Dulovom námestí, 821 08 Bratislava-Ružinov",
+    "hours": {
+      "display": "09:00 – 18:00 každý deň",
+      "is247": false,
+      "schedule": [
+        [
+          9,
+          18
+        ],
+        [
+          9,
+          18
+        ],
+        [
+          9,
+          18
+        ],
+        [
+          9,
+          18
+        ],
+        [
+          9,
+          18
+        ],
+        [
+          9,
+          18
+        ],
+        [
+          9,
+          18
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": 5.0,
+    "priceDetails": "5 €/deň/kus · poistenie 3000 €",
+    "providerLabel": "Radical Storage",
+    "isNew": true,
+    "bookingUrl": "https://radicalstorage.com/luggage-storage/bratislava"
+  },
+  {
+    "id": "23",
+    "name": "Radical Storage · Nivy",
+    "area": "Nivy",
+    "lat": 48.1485,
+    "lng": 17.134,
+    "address": "Reštaurácia v Nivy area, Bratislava",
+    "hours": {
+      "display": "06:00 – 23:00 každý deň",
+      "is247": false,
+      "schedule": [
+        [
+          6,
+          23
+        ],
+        [
+          6,
+          23
+        ],
+        [
+          6,
+          23
+        ],
+        [
+          6,
+          23
+        ],
+        [
+          6,
+          23
+        ],
+        [
+          6,
+          23
+        ],
+        [
+          6,
+          23
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": 5.0,
+    "priceDetails": "5 €/deň/kus · poistenie 3000 €",
+    "providerLabel": "Radical Storage",
+    "isNew": true,
+    "bookingUrl": "https://radicalstorage.com/luggage-storage/bratislava/bratislava-old-town/luggage-storage-nivy"
+  },
+  {
+    "id": "24",
+    "name": "Radical Storage · Medická záhrada",
+    "area": "Medická záhrada",
+    "lat": 48.1498,
+    "lng": 17.1196,
+    "address": "Reštaurácia pri Medickej záhrade (Špitálska, 811 08), Bratislava",
+    "hours": {
+      "display": "11:00 – 21:00 každý deň",
+      "is247": false,
+      "schedule": [
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          21
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": 5.0,
+    "priceDetails": "5 €/deň/kus · poistenie 3000 €",
+    "providerLabel": "Radical Storage",
+    "isNew": true,
+    "bookingUrl": "https://radicalstorage.com/luggage-storage/bratislava/city-center/luggage-storage-medicka-zahrada"
+  },
+  {
+    "id": "25",
+    "name": "LuggageHero · Bratislava-Nové Mesto",
+    "area": "Nové Mesto · Vinohrady",
+    "lat": 48.1712,
+    "lng": 17.1462,
+    "address": "Pri ŽST Bratislava-Nové Mesto (Tomášikova), 831 04",
+    "hours": {
+      "display": "podľa prevádzky (typicky 08:00 – 22:00)",
+      "is247": false,
+      "schedule": [
+        [
+          8,
+          22
+        ],
+        [
+          8,
+          22
+        ],
+        [
+          8,
+          22
+        ],
+        [
+          8,
+          22
+        ],
+        [
+          8,
+          22
+        ],
+        [
+          8,
+          22
+        ],
+        [
+          8,
+          22
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": 4.9,
+    "priceDetails": "1.49 €/hod ALEBO 4.90 €/deň · poistenie 500 €",
+    "providerLabel": "LuggageHero",
+    "isNew": true,
+    "bookingUrl": "https://luggagehero.com/bratislava/bratislava-n-mesto/"
+  },
+  {
+    "id": "26",
+    "name": "LuggageHero · ŽST Petržalka",
+    "area": "ŽST Petržalka",
+    "lat": 48.1216,
+    "lng": 17.0995,
+    "address": "Pri ŽST Bratislava-Petržalka (Kopčianska)",
+    "hours": {
+      "display": "podľa prevádzky (typicky 08:00 – 22:00)",
+      "is247": false,
+      "schedule": [
+        [
+          8,
+          22
+        ],
+        [
+          8,
+          22
+        ],
+        [
+          8,
+          22
+        ],
+        [
+          8,
+          22
+        ],
+        [
+          8,
+          22
+        ],
+        [
+          8,
+          22
+        ],
+        [
+          8,
+          22
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": 4.9,
+    "priceDetails": "1.49 €/hod ALEBO 4.90 €/deň · poistenie 500 €",
+    "providerLabel": "LuggageHero",
+    "isNew": true,
+    "bookingUrl": "https://luggagehero.com/bratislava/zeleznicna-stanica-bratislava-petrzalka/"
+  },
+  {
+    "id": "27",
+    "name": "OC Vivo! · skrinky pri infodesku",
+    "area": "Nové Mesto · Vajnorská",
+    "lat": 48.1689,
+    "lng": 17.1397,
+    "address": "Vajnorská 100, 831 04 Bratislava-Nové Mesto",
+    "hours": {
+      "display": "podľa OC (typicky 09:00 – 21:00)",
+      "is247": false,
+      "schedule": [
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": null,
+    "notes": "Vyhradený priestor so skrinkami pri infodesku. Walk-in bez online rezervácie — info na infodesku.",
+    "bookingType": "walkin",
+    "providerLabel": "OC Vivo!",
+    "isNew": true,
+    "bookingUrl": "https://vivo-shopping.com/en/bratislava/services"
+  },
+  {
+    "id": "28",
+    "name": "OC Aupark · cloakroom",
+    "area": "Petržalka · Aupark",
+    "lat": 48.1336,
+    "lng": 17.1093,
+    "address": "OC Aupark (Einsteinova 18), pri travelátore do garáže (blízko TERNO supermarketu)",
+    "hours": {
+      "display": "podľa OC (typicky 09:00 – 21:00)",
+      "is247": false,
+      "schedule": [
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ],
+        [
+          9,
+          21
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": null,
+    "notes": "Klasická cloakroom (slúži aj ako Packeta výdajné miesto). Walk-in, bez online rezervácie. Iná služba ako Bounce partner v rovnakom OC.",
+    "bookingType": "walkin",
+    "providerLabel": "OC Aupark",
+    "isNew": true,
+    "bookingUrl": "https://aupark-bratislava.sk/en/opening-hours"
+  },
+  {
+    "id": "29",
+    "name": "Náhradná AS Bottova · úschovňa",
+    "area": "Bottova / Chalupkova",
+    "lat": 48.1442,
+    "lng": 17.1219,
+    "address": "Chalupkova / Bottova (oproti Alza), Bratislava",
+    "hours": {
+      "display": "podľa prevádzky (typicky 08:00 – 20:00)",
+      "is247": false,
+      "schedule": [
+        [
+          8,
+          20
+        ],
+        [
+          8,
+          20
+        ],
+        [
+          8,
+          20
+        ],
+        [
+          8,
+          20
+        ],
+        [
+          8,
+          20
+        ],
+        [
+          8,
+          20
+        ],
+        [
+          8,
+          20
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": null,
+    "notes": "Minoritná stanica (krátkodobá zóna z roku 2017). Iná lokalita ako OC Nivy / Mlynské nivy.",
+    "bookingType": "walkin",
+    "providerLabel": "AS Bottova",
+    "isNew": true,
+    "bookingUrl": "https://www.autobusovastanica.sk/nova-stanica-nivy"
+  },
+  {
+    "id": "30",
+    "name": "ZSSK · ŽST Petržalka",
+    "area": "ŽST Petržalka",
+    "lat": 48.1218,
+    "lng": 17.0988,
+    "address": "ŽST Bratislava-Petržalka, Kopčianska 64/B, 851 01",
+    "hours": {
+      "display": "manuál ~6:00 – 20:00 · lockery 24/7",
+      "is247": false,
+      "schedule": [
+        [
+          6,
+          20
+        ],
+        [
+          6,
+          20
+        ],
+        [
+          6,
+          20
+        ],
+        [
+          6,
+          20
+        ],
+        [
+          6,
+          20
+        ],
+        [
+          6,
+          20
+        ],
+        [
+          6,
+          20
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": 2.0,
+    "priceDetails": "Manuál: ≤15 kg 2 €/deň · >15 kg 2.50 €/deň · kočík 1.50 € · bicykel 2.50 € · 2.+ deň 1.50 €\nLockery: od 2 €, max 72h, iba mince 1 € a 2 €",
+    "notes": "ZSSK manuálna úschovňa + samoobslužné skrinky. Lockery iba mince.",
+    "bookingType": "walkin",
+    "providerLabel": "ZSSK · Petržalka",
+    "isNew": true,
+    "bookingUrl": "https://www.zssk.sk/sluzby/sluzby-na-stanici/uschova-batozin/"
+  },
+  {
+    "id": "31",
+    "name": "Safestay Bratislava · luggage room",
+    "area": "Staré Mesto · Prezidentský palác",
+    "lat": 48.1524,
+    "lng": 17.1076,
+    "address": "Leskova 9A, 811 04 Bratislava",
+    "hours": {
+      "display": "24h recepcia",
+      "is247": true,
+      "schedule": [
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": null,
+    "notes": "Luggage room explicitne pre non-guests (za poplatok, info na recepcii). Najistejší non-guest hostel v BA.",
+    "bookingType": "walkin",
+    "providerLabel": "Safestay Bratislava",
+    "isNew": true,
+    "bookingUrl": "https://www.safestay.com/venue/safestay-bratislava-presidential-palace/"
+  },
+  {
+    "id": "32",
+    "name": "Hotel Loft Bratislava · luggage storage",
+    "area": "Staré Mesto · biznis distrikt",
+    "lat": 48.1497,
+    "lng": 17.1057,
+    "address": "Štefánikova 4, 811 05 Bratislava (blízko Prezidentského paláca)",
+    "hours": {
+      "display": "24h recepcia",
+      "is247": true,
+      "schedule": [
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          24
+        ]
+      ]
+    },
+    "rating": null,
+    "reviews": 0,
+    "price": null,
+    "notes": "4★ hotel s 24h recepciou. Non-guest policy potvrď telefonicky pred príchodom.",
+    "bookingType": "walkin",
+    "providerLabel": "Hotel Loft",
+    "isNew": true,
+    "bookingUrl": "https://loft.hotelbratislava.net/en/"
+  }
+]
