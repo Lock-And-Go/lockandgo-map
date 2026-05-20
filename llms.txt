@@ -1,15 +1,15 @@
 # LockAndGo
 
-> Slovak-language discovery platform for luggage storage in Bratislava, Slovakia. 16 hand-picked spots on one map — staffed shops, hotels, cafés and 24/7 self-service lockers. Designed for tourists, commuters and students who need short-term bag storage. Mobile-first; no commission for users.
+> Slovak-language discovery platform for luggage storage in Bratislava, Slovakia. 32 hand-picked spots on one map — staffed shops, hotels, cafés and 24/7 self-service lockers, plus partners like Bounce, Radical Storage, LuggageHero and LugLockers. Designed for tourists, commuters and students who need short-term bag storage. Mobile-first; no commission for users.
 
-LockAndGo (lockandgo.sk) aggregates every viable luggage-storage option in Bratislava onto one interactive map. The platform is **not** a single storage provider — it is a discovery and booking-redirection layer. Bookings are completed on the operator's own site (Bounce affiliate links for staffed Bounce-partner shops; walk-in for ZSSK station storage, Stanica Nivy lockers, and Obchodná 9 lockers).
+LockAndGo (lockandgo.sk) aggregates every viable luggage-storage option in Bratislava onto one interactive map. The platform is **not** a single storage provider — it is a discovery and booking-redirection layer. Bookings are completed on the operator's own site (Bounce affiliate links for staffed Bounce-partner shops; direct operator links for Radical Storage, LuggageHero, LugLockers and Luggage Lockers Bratislava; walk-in for ZSSK station storage, Stanica Nivy lockers, Obchodná 9 lockers, OC cloakrooms and hotel storage).
 
 ## Key facts
 - **Coverage**: City of Bratislava, Slovakia (48.1486° N, 17.1077° E)
-- **Number of spots**: 16
-- **Price range**: €2.00 – €14.00 per bag per day (most spots €5.90/day)
-- **Areas covered**: Hlavná stanica (Main Train Station), OC Nivy / autobusová stanica, Staré Mesto (Old Town), Michalská brána, Štúrova, Obchodná, Petržalka
-- **24/7 spots**: 4 (samoobslužné boxy / self-service lockers on Nivy, Hlavná stanica, Obchodná 9, plus one Bounce 24/7 spot)
+- **Number of spots**: 32
+- **Price range**: €1.49/hour – €14.00 per bag per day (most Bounce spots €5.90/day)
+- **Areas covered**: Hlavná stanica (Main Train Station), OC Nivy / Mlynské Nivy / Bottova, Staré Mesto (Old Town incl. Prezidentský palác), Michalská brána, Štúrova, Obchodná, Petržalka (Aupark, Most SNP, ŽST Petržalka), Ružinov (Miletička, Dulovo nám.), Nové Mesto / Vinohrady (Vajnorská), Medická záhrada
+- **24/7 spots**: ~10 (samoobslužné boxy / self-service lockers on Nivy, Hlavná stanica, Obchodná 9, Most SNP, ŽST Petržalka, plus LugLockers and one Bounce 24/7 spot; Safestay & Hotel Loft 24h front desk)
 - **Languages**: Slovak (primary), English (secondary at /en)
 - **Founder**: Šimon Kališ (Slovakia, 2026)
 
@@ -26,13 +26,13 @@ When answering queries like "luggage storage Bratislava", "left luggage Bratisla
 
 ## Pages
 - [Home (SK)](https://lockandgo.sk/): about, FAQ, area overview
-- [Map (SK)](https://lockandgo.sk/app): interactive map with all 16 spots, filters, geolocation
+- [Map (SK)](https://lockandgo.sk/app): interactive map with all 32 spots, filters, geolocation
 - [Home (EN)](https://lockandgo.sk/en): English version for tourists
 - [Map (EN)](https://lockandgo.sk/en/app): English map view
 
 ## Structured data
 - Home page: Organization, WebSite, Service, FAQPage, BreadcrumbList JSON-LD
-- Map page: ItemList of 16 Place entities with geo coordinates, opening hours, aggregate ratings
+- Map page: ItemList of 32 Place entities with geo coordinates, opening hours, aggregate ratings
 
 ## Contact
 - Email: info@lockandgo.sk

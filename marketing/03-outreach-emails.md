@@ -36,7 +36,7 @@ Dobrý deň,
 
 volám sa Šimon, 16, z Bratislavy. Všimol som si, že na visitbratislava.com nie je centrálna informácia o úschovniach batožiny pre turistov — len sporadické zmienky. Pritom je to jedna z prvých otázok keď príde návšteva z Viedne alebo Budapešti.
 
-Postavil som mapu **lockandgo.sk** — 16 spotov v meste s otváracími hodinami, cenami a online rezerváciou. Zahŕňa Hlavnú stanicu, Nivy, Staré Mesto, aj 24/7 samoobslužné lockery. Slovenská aj anglická verzia.
+Postavil som mapu **lockandgo.sk** — 32 spotov v meste s otváracími hodinami, cenami a online rezerváciou. Zahŕňa Hlavnú stanicu, Nivy, Staré Mesto, Petržalku, Ružinov aj 24/7 samoobslužné lockery. Slovenská aj anglická verzia.
 
 Nepýtam si peniaze. Ak by ste pridali odkaz do sekcie „Practical Info" alebo FAQ pre turistov, pomohlo by to vašim návštevníkom (rýchla odpoveď na štandardnú otázku) aj nám.
 
@@ -53,7 +53,7 @@ Hi,
 
 I'm Šimon, 16, from Bratislava. Noticed visitbratislava.com doesn't have a central page about luggage storage for tourists — it comes up scattered in different articles. That's one of the first questions visitors arriving from Vienna or Budapest have.
 
-I built lockandgo.sk — a map of 16 luggage storage spots in Bratislava with hours, prices, online booking. Covers Main Train Station, Nivy coach terminal, Old Town, plus 24/7 self-service lockers. Both Slovak and English versions.
+I built lockandgo.sk — a map of 32 luggage storage spots in Bratislava with hours, prices, online booking. Covers Main Train Station, Nivy coach terminal, Old Town, Petržalka, Ružinov, Nové Mesto, plus 24/7 self-service lockers. Both Slovak and English versions.
 
 Not asking for money. If you could link to it from your "Practical info" or tourist FAQ section, it'd be useful for your visitors (quick answer to a standard question) and for us.
 
@@ -80,7 +80,7 @@ Tip pre turistov: mapa úschovní batožiny v BA
 ```
 Dobrý deň,
 
-píšem ako 16-ročný študent z Bratislavy. Vytvoril som bezplatnú mapu úschovní batožiny v meste — lockandgo.sk. Obsahuje 16 spotov (Hlavná stanica, Nivy, Staré Mesto, Petržalka), otváracie hodiny, ceny aj samoobslužné 24/7 boxy. Anglická verzia pre turistov.
+píšem ako 16-ročný študent z Bratislavy. Vytvoril som bezplatnú mapu úschovní batožiny v meste — lockandgo.sk. Obsahuje 32 spotov (Hlavná stanica, Nivy, Staré Mesto, Petržalka, Ružinov, Nové Mesto), otváracie hodiny, ceny aj samoobslužné 24/7 boxy. Anglická verzia pre turistov.
 
 Ak by ste mali na webe časť o praktických informáciách pre návštevníkov Bratislavy, prípadne odkaz do tlačeného sprievodcu, bol by to skvelý spôsob ako pomôcť turistom (a podporiť mladú lokálnu iniciatívu).
 
@@ -108,7 +108,7 @@ Ahoj/Hi [meno, ak máš],
 
 som Šimon, 16-ročný z BA. Bavím sa stavaním webových vecí a všimol som si, že váš hotel/hostel pravdepodobne dostáva často otázku „Kde si môžem odložiť batožinu po check-oute?".
 
-Spravil som mapu lockandgo.sk — 16 úschovní batožiny v BA na jednej mape, vrátane 24/7 boxov na Nivách a Hlavnej stanici. Slovensky aj anglicky.
+Spravil som mapu lockandgo.sk — 32 úschovní batožiny v BA na jednej mape, vrátane 24/7 boxov na Nivách, Hlavnej stanici, Most SNP a ŽST Petržalka. Slovensky aj anglicky.
 
 Ak chcete, môžete ho odporúčať hosťom (link, QR kód v lobby, alebo do welcome PDF) — pre vás to znamená menej dotazov na recepcii, pre hosťa konkrétnu pomoc.
 
@@ -152,7 +152,7 @@ Praktická služba pre návštevníkov Bratislavy — mapa úschovní
 ```
 Dobrý deň,
 
-píšem ako 16-ročný študent. Vyvinul som bezplatnú mapu lockandgo.sk — všetkých 16 úschovní batožiny v Bratislave na jednej stránke, s cenami, otváracími hodinami a online rezerváciou. Slovenská aj anglická verzia.
+píšem ako 16-ročný študent. Vyvinul som bezplatnú mapu lockandgo.sk — všetkých 32 úschovní batožiny v Bratislave na jednej stránke, s cenami, otváracími hodinami a online rezerváciou. Slovenská aj anglická verzia.
 
 Bratislava je často „day trip" cieľ pre návštevníkov z Viedne alebo Budapešti — pre nich je úschovňa základná otázka. Ak by ste sekciu pre Bratislavu na slovakia.travel obohatili o praktickú info „Where to store luggage" alebo aspoň zmienku, pomohlo by to vašej cieľovke aj nám.
 
@@ -189,7 +189,7 @@ Tip na článok: úschovne batožiny v BA pre turistov (mám mapu)
 ```
 Ahoj [meno],
 
-píšem ako autor side-projektu **lockandgo.sk** — mapa všetkých 16 úschovní batožiny v Bratislave. Je tam toho dosť na článok (24/7 boxy na Nivách, klasická úschovňa na Hl. stanici, Bounce shopy v centre — každý so svojou cenou a hodinami).
+píšem ako autor side-projektu **lockandgo.sk** — mapa všetkých 32 úschovní batožiny v Bratislave. Je tam toho dosť na článok (24/7 boxy na Nivách, Hlavnej stanici, Most SNP a ŽST Petržalka, klasická úschovňa na Hl. stanici, Bounce/Radical Storage/LuggageHero shopy v centre i v Ružinove — každý so svojou cenou a hodinami).
 
 Ak hľadáte tému ktorá osloví turistov a má reálnu praktickú hodnotu, môžem ti dať plne otvorený prístup k dátam a osobnému príbehu (16 rokov, samouk, postavil za víkend cez AI tools).
 

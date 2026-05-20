@@ -62,7 +62,7 @@ Existuje aj **email verifikácia** alebo **video verifikácia** — niekedy Goog
 Skopíruj **presne** toto (750 znakov, maximalizuje keywordy bez stuffingu):
 
 ```
-LockAndGo je slovenský sprievodca úschovniami batožiny v Bratislave. Na jednej mape nájdeš 16 spotov v meste — Hlavná stanica, OC Nivy, Staré Mesto, Michalská brána, Štúrova, Petržalka. Mix obchodov, kaviarní a hotelov s personálom plus samoobslužné 24/7 lockery. Ceny začínajú od 5,90 € za kus batožiny a deň, na klasickej úschovni Hlavnej stanice od 2 €. Online rezervácia, otváracie hodiny live, žiadna prirážka — platí sa priamo prevádzkovateľovi. Slovensky a anglicky. Postavené v Bratislave 2026.
+LockAndGo je slovenský sprievodca úschovniami batožiny v Bratislave. Na jednej mape nájdeš 32 spotov v meste — Hlavná stanica, OC Nivy, Staré Mesto, Petržalka, Ružinov, Nové Mesto a Medická záhrada. Mix obchodov, kaviarní a hotelov s personálom plus samoobslužné 24/7 lockery, partneri ako Bounce, Radical Storage, LuggageHero a LugLockers. Ceny začínajú od 1,49 €/hod, na klasickej úschovni Hlavnej stanice od 2 €/deň. Online rezervácia, otváracie hodiny live, žiadna prirážka — platí sa priamo prevádzkovateľovi. Slovensky a anglicky. Postavené v Bratislave 2026.
 ```
 
 #### Opening Hours

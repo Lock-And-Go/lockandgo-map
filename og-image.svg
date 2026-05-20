@@ -29,7 +29,7 @@
   <text x="80" y="240" font-family="-apple-system, system-ui, sans-serif" font-size="22" font-weight="700" letter-spacing="3" fill="#556142">ÚSCHOVŇA BATOŽINY · BRATISLAVA</text>
 
   <!-- Headline -->
-  <text x="80" y="330" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="700" fill="#1F1F1D" letter-spacing="-2">16 spotov.</text>
+  <text x="80" y="330" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="700" fill="#1F1F1D" letter-spacing="-2">32 spotov.</text>
   <text x="80" y="425" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="700" fill="#1F1F1D" letter-spacing="-2">Jedna <tspan font-style="italic" fill="#8B6F1F">mapa</tspan>.</text>
 
   <!-- Sub-line -->

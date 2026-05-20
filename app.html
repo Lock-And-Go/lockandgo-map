@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mapa úschovní batožiny v Bratislave · 16 spotov | LockAndGo</title>
-<meta name="description" content="Interaktívna mapa 16 úschovní batožiny v Bratislave. Hlavná stanica, Nivy, Staré Mesto, Petržalka. Filtruj podľa otváracích hodín a ceny, rezervuj online za 2 minúty." />
+<title>Mapa úschovní batožiny v Bratislave · 32 spotov | LockAndGo</title>
+<meta name="description" content="Interaktívna mapa 32 úschovní batožiny v Bratislave. Hlavná stanica, Nivy, Staré Mesto, Petržalka, Ružinov, Nové Mesto. Filtruj podľa otváracích hodín a ceny, rezervuj online za 2 minúty." />
 <meta name="theme-color" content="#F1F1EC" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
 <meta name="geo.region" content="SK-BL" />
@@ -17,7 +17,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="sk_SK" />
 <meta property="og:site_name" content="LockAndGo" />
-<meta property="og:title" content="Mapa úschovní batožiny v Bratislave · 16 spotov" />
+<meta property="og:title" content="Mapa úschovní batožiny v Bratislave · 32 spotov" />
 <meta property="og:description" content="Interaktívna mapa úschovní batožiny v Bratislave — filtre, ceny, otváracie hodiny." />
 <meta property="og:url" content="https://lockandgo.sk/app" />
 <meta property="og:image" content="https://lockandgo.sk/og-image.svg" />
@@ -25,7 +25,7 @@
 <meta property="og:image:height" content="630" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Mapa úschovní batožiny v Bratislave · 16 spotov | LockAndGo" />
+<meta name="twitter:title" content="Mapa úschovní batožiny v Bratislave · 32 spotov | LockAndGo" />
 <meta name="twitter:description" content="Interaktívna mapa úschovní v Bratislave." />
 <meta name="twitter:image" content="https://lockandgo.sk/og-image.svg" />
 
@@ -37,8 +37,8 @@
       "@type": "WebPage",
       "@id": "https://lockandgo.sk/app#webpage",
       "url": "https://lockandgo.sk/app",
-      "name": "Mapa úschovní batožiny v Bratislave · 16 spotov",
-      "description": "Interaktívna mapa 16 úschovní batožiny v Bratislave — Hlavná stanica, Nivy, Staré Mesto, Petržalka.",
+      "name": "Mapa úschovní batožiny v Bratislave · 32 spotov",
+      "description": "Interaktívna mapa 32 úschovní batožiny v Bratislave — Hlavná stanica, Nivy, Staré Mesto, Petržalka, Ružinov, Nové Mesto.",
       "isPartOf": { "@id": "https://lockandgo.sk/#website" },
       "inLanguage": "sk-SK",
       "primaryImageOfPage": "https://lockandgo.sk/og-image.svg",
@@ -1618,7 +1618,7 @@ body.detail-open { overflow: hidden; }
         Bratislava · live
       </span>
       <h1>Kam <em>odložiť</em><br/>kufor.</h1>
-      <p class="sub">16 úschovní v Bratislave. Filtruj podľa polohy, ceny a otváracích hodín.</p>
+      <p class="sub">32 úschovní v Bratislave. Filtruj podľa polohy, ceny a otváracích hodín.</p>
     </div>
 
     <div class="controls">
@@ -1823,7 +1823,174 @@ const SPOTS = [
     rating:null, reviews:0, price:6.00,
     priceDetails:'2€/2h · 4€/4h · 6€/24h · +6€ za každý ďalší deň\nRozmer boxu: ~535×500×700 mm (kabínový bag / batoh)',
     notes:'Iba bezkontaktná platba kartou (vrátane Apple Pay / Google Pay). Vhodné pre menšiu batožinu.',
-    bookingType:'walkin', providerLabel:'Obchodná 9', isNew:true, bookingUrl:null }
+    bookingType:'walkin', providerLabel:'Obchodná 9', isNew:true, bookingUrl:null },
+
+  /* ─── Lokálne self-service lockery 24/7 (online bookable) ─── */
+  { id:'17', name:'Luggage Lockers Bratislava · Most SNP', area:'Most SNP · Petržalka',
+    lat:48.1389, lng:17.1063,
+    address:'Pod Mostom SNP (strana Petržalky), Bratislava',
+    hours:{ display:'24/7', is247:true,
+            schedule:[[0,24],[0,24],[0,24],[0,24],[0,24],[0,24],[0,24]] },
+    rating:null, reviews:0, price:null,
+    notes:'Self-service lockery 24/7 s CCTV monitoringom. WhatsApp support: +421 905 599 053.',
+    providerLabel:'Luggage Lockers Bratislava', isNew:true,
+    bookingUrl:'https://www.luggagelockersbratislava.com/' },
+
+  { id:'18', name:'LugLockers · Hlavná stanica', area:'Hlavná stanica',
+    lat:48.1583, lng:17.1068,
+    address:'Námestie Franza Liszta, 811 04 Bratislava',
+    hours:{ display:'24/7', is247:true,
+            schedule:[[0,24],[0,24],[0,24],[0,24],[0,24],[0,24],[0,24]] },
+    rating:null, reviews:0, price:null,
+    notes:'Nová sieť lockerov (2026). Pred rezerváciou over dostupnosť — booking systém niekedy ukazuje „0 € / not bookable".',
+    providerLabel:'LugLockers', isNew:true,
+    bookingUrl:'https://www.luglockers.com/branches/hlavna-stanica-central-railway-station' },
+
+  { id:'19', name:'LugLockers · AS Mlynské Nivy', area:'OC Nivy / Autobusová stanica',
+    lat:48.1488, lng:17.1336,
+    address:'Mlynské nivy 31, 811 09 Bratislava',
+    hours:{ display:'24/7', is247:true,
+            schedule:[[0,24],[0,24],[0,24],[0,24],[0,24],[0,24],[0,24]] },
+    rating:null, reviews:0, price:null,
+    notes:'Lockery v AS Mlynské Nivy. Iná služba ako self-service boxy na -1 podlaží Nivy Shopping Centre (id:13).',
+    providerLabel:'LugLockers', isNew:true,
+    bookingUrl:'https://www.luglockers.com/cities/bratislava' },
+
+  { id:'20', name:'LugLockers · ŽST Petržalka', area:'ŽST Petržalka',
+    lat:48.1131, lng:17.0987,
+    address:'Kopčianska, 851 01 Bratislava-Petržalka',
+    hours:{ display:'24/7', is247:true,
+            schedule:[[0,24],[0,24],[0,24],[0,24],[0,24],[0,24],[0,24]] },
+    rating:null, reviews:0, price:null,
+    notes:'Lockery na ŽST Petržalka — pohodlné pre cestujúcich z/do Viedne (REX, RegioJet).',
+    providerLabel:'LugLockers', isNew:true,
+    bookingUrl:'https://www.luglockers.com/cities/bratislava' },
+
+  /* ─── Radical Storage (Ružinov + nové zóny, online bookable) ─── */
+  { id:'21', name:'Radical Storage · Miletičová', area:'Ružinov · Miletička',
+    lat:48.1530, lng:17.1320,
+    address:'Reštaurácia pri trhu Miletička, Ružinov, Bratislava',
+    hours:{ display:'10:00 – 21:00 každý deň', is247:false,
+            schedule:[[10,21],[10,21],[10,21],[10,21],[10,21],[10,21],[10,21]] },
+    rating:null, reviews:0, price:5.00,
+    priceDetails:'5 €/deň/kus · poistenie 3000 €',
+    providerLabel:'Radical Storage', isNew:true,
+    bookingUrl:'https://radicalstorage.com/luggage-storage/bratislava' },
+
+  { id:'22', name:'Radical Storage · Dulovo námestie', area:'Ružinov · Dulovo nám.',
+    lat:48.1561, lng:17.1296,
+    address:'Shop pri Dulovom námestí, Ružinov, Bratislava',
+    hours:{ display:'09:00 – 18:00 každý deň', is247:false,
+            schedule:[[9,18],[9,18],[9,18],[9,18],[9,18],[9,18],[9,18]] },
+    rating:null, reviews:0, price:5.00,
+    priceDetails:'5 €/deň/kus · poistenie 3000 €',
+    providerLabel:'Radical Storage', isNew:true,
+    bookingUrl:'https://radicalstorage.com/luggage-storage/bratislava' },
+
+  { id:'23', name:'Radical Storage · Nivy', area:'Nivy',
+    lat:48.1485, lng:17.1340,
+    address:'Reštaurácia v Nivy area, Bratislava',
+    hours:{ display:'06:00 – 23:00 každý deň', is247:false,
+            schedule:[[6,23],[6,23],[6,23],[6,23],[6,23],[6,23],[6,23]] },
+    rating:null, reviews:0, price:5.00,
+    priceDetails:'5 €/deň/kus · poistenie 3000 €',
+    providerLabel:'Radical Storage', isNew:true,
+    bookingUrl:'https://radicalstorage.com/luggage-storage/bratislava/bratislava-old-town/luggage-storage-nivy' },
+
+  { id:'24', name:'Radical Storage · Medická záhrada', area:'Medická záhrada',
+    lat:48.1487, lng:17.1180,
+    address:'Reštaurácia pri Medickej záhrade, Bratislava',
+    hours:{ display:'11:00 – 21:00 každý deň', is247:false,
+            schedule:[[11,21],[11,21],[11,21],[11,21],[11,21],[11,21],[11,21]] },
+    rating:null, reviews:0, price:5.00,
+    priceDetails:'5 €/deň/kus · poistenie 3000 €',
+    providerLabel:'Radical Storage', isNew:true,
+    bookingUrl:'https://radicalstorage.com/luggage-storage/bratislava/city-center/luggage-storage-medicka-zahrada' },
+
+  /* ─── LuggageHero (Nové Mesto + Petržalka, online bookable) ─── */
+  { id:'25', name:'LuggageHero · Bratislava-Nové Mesto', area:'Nové Mesto · Vinohrady',
+    lat:48.1670, lng:17.1450,
+    address:'Bratislava-Nové Mesto / Vinohrady',
+    hours:{ display:'podľa prevádzky (typicky 08:00 – 22:00)', is247:false,
+            schedule:[[8,22],[8,22],[8,22],[8,22],[8,22],[8,22],[8,22]] },
+    rating:null, reviews:0, price:4.90,
+    priceDetails:'1.49 €/hod ALEBO 4.90 €/deň · poistenie 500 €',
+    providerLabel:'LuggageHero', isNew:true,
+    bookingUrl:'https://luggagehero.com/bratislava/bratislava-n-mesto/' },
+
+  { id:'26', name:'LuggageHero · ŽST Petržalka', area:'ŽST Petržalka',
+    lat:48.1131, lng:17.0995,
+    address:'Pri ŽST Bratislava-Petržalka',
+    hours:{ display:'podľa prevádzky (typicky 08:00 – 22:00)', is247:false,
+            schedule:[[8,22],[8,22],[8,22],[8,22],[8,22],[8,22],[8,22]] },
+    rating:null, reviews:0, price:4.90,
+    priceDetails:'1.49 €/hod ALEBO 4.90 €/deň · poistenie 500 €',
+    providerLabel:'LuggageHero', isNew:true,
+    bookingUrl:'https://luggagehero.com/bratislava/zeleznicna-stanica-bratislava-petrzalka/' },
+
+  /* ─── Shopping centrá (walk-in cloakroom) ─── */
+  { id:'27', name:'OC Vivo! · skrinky pri infodesku', area:'Nové Mesto · Vajnorská',
+    lat:48.1721, lng:17.1409,
+    address:'Vajnorská 100, Bratislava-Nové Mesto',
+    hours:{ display:'podľa OC (typicky 09:00 – 21:00)', is247:false,
+            schedule:[[9,21],[9,21],[9,21],[9,21],[9,21],[9,21],[9,21]] },
+    rating:null, reviews:0, price:null,
+    notes:'Vyhradený priestor so skrinkami pri infodesku. Walk-in bez online rezervácie — info na infodesku.',
+    bookingType:'walkin', providerLabel:'OC Vivo!', isNew:true,
+    bookingUrl:'https://vivo-shopping.com/en/bratislava/services' },
+
+  { id:'28', name:'OC Aupark · cloakroom', area:'Petržalka · Aupark',
+    lat:48.1339, lng:17.1080,
+    address:'OC Aupark, pri travelátore do garáže (blízko TERNO supermarketu)',
+    hours:{ display:'podľa OC (typicky 09:00 – 21:00)', is247:false,
+            schedule:[[9,21],[9,21],[9,21],[9,21],[9,21],[9,21],[9,21]] },
+    rating:null, reviews:0, price:null,
+    notes:'Klasická cloakroom (slúži aj ako Packeta výdajné miesto). Walk-in, bez online rezervácie. Iná služba ako Bounce partner v rovnakom OC.',
+    bookingType:'walkin', providerLabel:'OC Aupark', isNew:true,
+    bookingUrl:'https://aupark-bratislava.sk/en/opening-hours' },
+
+  /* ─── Dopravné uzly (walk-in) ─── */
+  { id:'29', name:'Náhradná AS Bottova · úschovňa', area:'Bottova / Chalupkova',
+    lat:48.1456, lng:17.1219,
+    address:'Chalupkova / Bottova (oproti Alza), Bratislava',
+    hours:{ display:'podľa prevádzky (typicky 08:00 – 20:00)', is247:false,
+            schedule:[[8,20],[8,20],[8,20],[8,20],[8,20],[8,20],[8,20]] },
+    rating:null, reviews:0, price:null,
+    notes:'Minoritná stanica (krátkodobá zóna z roku 2017). Iná lokalita ako OC Nivy / Mlynské nivy.',
+    bookingType:'walkin', providerLabel:'AS Bottova', isNew:true,
+    bookingUrl:'https://www.autobusovastanica.sk/nova-stanica-nivy' },
+
+  { id:'30', name:'ZSSK · ŽST Petržalka', area:'ŽST Petržalka',
+    lat:48.1131, lng:17.0987,
+    address:'ŽST Bratislava-Petržalka, Kopčianska',
+    hours:{ display:'manuál ~6:00 – 20:00 · lockery 24/7', is247:false,
+            schedule:[[6,20],[6,20],[6,20],[6,20],[6,20],[6,20],[6,20]] },
+    rating:null, reviews:0, price:2.00,
+    priceDetails:'Manuál: ≤15 kg 2 €/deň · >15 kg 2.50 €/deň · kočík 1.50 € · bicykel 2.50 € · 2.+ deň 1.50 €\nLockery: od 2 €, max 72h, iba mince 1 € a 2 €',
+    notes:'ZSSK manuálna úschovňa + samoobslužné skrinky. Lockery iba mince.',
+    bookingType:'walkin', providerLabel:'ZSSK · Petržalka', isNew:true,
+    bookingUrl:'https://www.zssk.sk/sluzby/sluzby-na-stanici/uschova-batozin/' },
+
+  /* ─── Hostely / hotely s non-guest storage (walk-in) ─── */
+  { id:'31', name:'Safestay Bratislava · luggage room', area:'Staré Mesto · Prezidentský palác',
+    lat:48.1521, lng:17.1097,
+    address:'Leskova 9A, Bratislava',
+    hours:{ display:'24h recepcia', is247:true,
+            schedule:[[0,24],[0,24],[0,24],[0,24],[0,24],[0,24],[0,24]] },
+    rating:null, reviews:0, price:null,
+    notes:'Luggage room explicitne pre non-guests (za poplatok, info na recepcii). Najistejší non-guest hostel v BA.',
+    bookingType:'walkin', providerLabel:'Safestay Bratislava', isNew:true,
+    bookingUrl:'https://www.safestay.com/venue/safestay-bratislava-presidential-palace/' },
+
+  { id:'32', name:'Hotel Loft Bratislava · luggage storage', area:'Staré Mesto · biznis distrikt',
+    lat:48.1505, lng:17.1057,
+    address:'Hotel Loft, blízko Prezidentského paláca, Bratislava',
+    hours:{ display:'24h recepcia', is247:true,
+            schedule:[[0,24],[0,24],[0,24],[0,24],[0,24],[0,24],[0,24]] },
+    rating:null, reviews:0, price:null,
+    notes:'4★ hotel s 24h recepciou. Non-guest policy potvrď telefonicky pred príchodom.',
+    bookingType:'walkin', providerLabel:'Hotel Loft', isNew:true,
+    bookingUrl:'https://loft.hotelbratislava.net/en/' }
 ];
 
 /* SEO/GEO — inject ItemList JSON-LD generated from SPOTS so Google + AI bots can index every place */
@@ -1892,7 +2059,7 @@ const SPOTS = [
     '@type': 'ItemList',
     '@id': 'https://lockandgo.sk/app#itemlist',
     name: 'Úschovne batožiny v Bratislave',
-    description: 'Mapa 16 úschovní batožiny v Bratislave — Hlavná stanica, Staré Mesto, Nivy, Petržalka.',
+    description: 'Mapa 32 úschovní batožiny v Bratislave — Hlavná stanica, Staré Mesto, Nivy, Petržalka, Ružinov, Nové Mesto.',
     numberOfItems: SPOTS.length,
     itemListOrder: 'https://schema.org/ItemListOrderAscending',
     itemListElement: items
@@ -1944,8 +2111,8 @@ function escapeHtml(s) {
 }
 
 /* Provider label per spot — used in detail tag, popup tag, CTA text.
-   Default 'Bounce' for current 12 spots. Future non-Bounce spots
-   (Eurovea lockers, etc.) just add 'providerLabel: "Eurovea"' to their entry. */
+   Default 'Bounce' for spots id 01–12. Non-Bounce spots set their own
+   providerLabel (Radical Storage, LuggageHero, LugLockers, ZSSK, …). */
 function spotProvider(spot) {
   return spot.providerLabel || 'Bounce';
 }
@@ -2008,7 +2175,7 @@ function buildIcon(spot) {
   const cls = st.open ? '' : 'closed';
   return L.divIcon({
     className: 'lg-pin ' + cls,
-    html: `<div class="dot">${spot.id}</div>`,
+    html: `<div class="dot"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v3"/></svg></div>`,
     iconSize: [38, 38], iconAnchor: [19, 19], popupAnchor: [0, -20]
   });
 }
@@ -2076,8 +2243,9 @@ function buildPopup(spot) {
     <div class="rating-row">
       ${ratingBlock}
       <div>
-        <div class="big">od ${spot.price.toFixed(2).replace('.',',')}€</div>
-        <div class="label">/ deň · orientačná</div>
+        ${spot.price != null
+          ? `<div class="big">od ${spot.price.toFixed(2).replace('.',',')}€</div><div class="label">/ deň · orientačná</div>`
+          : `<div class="big">—</div><div class="label">cena u prevádzkovateľa</div>`}
       </div>
     </div>
     <div class="schedule-label">
@@ -2135,7 +2303,11 @@ function buildList() {
     return true;
   });
   list.sort((a, b) => {
-    if (state.sort === 'price') return (a.price - b.price) || (a.dist - b.dist);
+    if (state.sort === 'price') {
+      const pa = a.price != null ? a.price : Infinity;
+      const pb = b.price != null ? b.price : Infinity;
+      return (pa - pb) || (a.dist - b.dist);
+    }
     if (state.sort === 'rating') {
       const ra = a.rating != null ? a.rating : -1;
       const rb = b.rating != null ? b.rating : -1;
@@ -2179,15 +2351,16 @@ function cardHtml(s) {
   const st = s._status;
   return `<div class="card${state.activeId === s.id ? ' active' : ''}" data-id="${s.id}" role="listitem">
     <div class="card-pin">
-      <div class="num">${s.id}</div>
+      <div class="num"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v3"/></svg></div>
       <div class="dist">${fmtDist(s.dist)}</div>
     </div>
     <div class="card-body">
       <div class="card-top">
         <div class="card-name">${escapeHtml(s.name)}</div>
         <div class="card-price">
-          <div class="amt">${s.price.toFixed(2).replace('.',',')}€</div>
-          <div class="per">/ deň</div>
+          ${s.price != null
+            ? `<div class="amt">${s.price.toFixed(2).replace('.',',')}€</div><div class="per">/ deň</div>`
+            : `<div class="amt amt-na">—</div><div class="per">cena u prevádzkovateľa</div>`}
         </div>
       </div>
       <div class="card-area">
@@ -2522,8 +2695,8 @@ function buildDetailBody(spot) {
        </div>`
     : '';
 
-  /* Detailed pricing (multi-line) for walkin spots */
-  const priceDetailsBlock = (walkin && spot.priceDetails)
+  /* Detailed pricing (multi-line) — shown whenever spot has priceDetails */
+  const priceDetailsBlock = spot.priceDetails
     ? `<div class="detail-section-label" style="margin-top:18px"><span>Cenník</span></div>
        <div style="font-family:var(--body);font-size:14px;color:var(--ink-2);line-height:1.6;white-space:pre-line;
                    padding:14px 16px;background:var(--bg);border-radius:var(--r-md);margin-bottom:18px">${escapeHtml(spot.priceDetails)}</div>`
@@ -2557,8 +2730,9 @@ function buildDetailBody(spot) {
     <div class="detail-stats">
       ${ratingStat}
       <div class="stat">
-        <div class="big">od ${spot.price.toFixed(2).replace('.',',')}€</div>
-        <div class="lbl">/ deň · orientačná</div>
+        ${spot.price != null
+          ? `<div class="big">od ${spot.price.toFixed(2).replace('.',',')}€</div><div class="lbl">/ deň · orientačná</div>`
+          : `<div class="big">—</div><div class="lbl">cena u prevádzkovateľa</div>`}
       </div>
     </div>
 

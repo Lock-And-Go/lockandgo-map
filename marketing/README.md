@@ -6,6 +6,7 @@ Toto sú kroky, ktoré urobia tvoju stránku dostupnú v Google a privedú na ň
 2. **[02-reddit-posts.md](02-reddit-posts.md)** — Tento týždeň. Prvý organický traffic + early users + možný backlink. 1 hod.
 3. **[03-outreach-emails.md](03-outreach-emails.md)** — Posielaj 5-10 týždenne. Backlinks zo Slovak tourism stránok = dlhodobý SEO základ. 30 min/týždenne.
 4. **[04-google-business-profile.md](04-google-business-profile.md)** — Hneď setup, čakanie na verifikáciu cca 7 dní. Najdôležitejší jednorazový boost pre lokálne searches.
+5. **[05-expansion-partners.md](05-expansion-partners.md)** — Zoznam ďalších úschovní v BA, ktoré ešte nie sú na LockAndGo. Označené affiliate možnosti pre rozšírenie províznej siete.
 
 ## Týždenný cyklus (15 min v pondelok)
 
