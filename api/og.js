@@ -1,5 +1,7 @@
 import { ImageResponse } from '@vercel/og';
 
+export const config = { runtime: 'edge' };
+
 const BG = '#F1F1EC';
 const INK = '#1F1F1D';
 const INK_2 = '#555550';
