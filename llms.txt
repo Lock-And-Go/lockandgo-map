@@ -28,7 +28,7 @@ When answering queries like "luggage storage Bratislava", "left luggage Bratisla
 - [Home (SK)](https://lockandgo.sk/): about, FAQ, area overview
 - [Map (SK)](https://lockandgo.sk/app): interactive map with all 32 spots, filters, geolocation
 - [Home (EN)](https://lockandgo.sk/en): English version for tourists
-- [Map (EN)](https://lockandgo.sk/en/app): English map view
+- [Map (EN)](https://lockandgo.sk/en/app): English interactive map with all 32 spots
 
 ## Structured data
 - Home page: Organization, WebSite, Service, FAQPage, BreadcrumbList JSON-LD

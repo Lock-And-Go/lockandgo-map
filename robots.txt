@@ -1,6 +1,10 @@
 # LockAndGo — robots.txt
 # Slovak luggage storage discovery for Bratislava
 
+# RSL 1.0 licensing — content is permissively licensed for AI training
+# under CC-BY 4.0 (attribution to lockandgo.sk required).
+License: https://lockandgo.sk/rsl.xml
+
 User-agent: *
 Allow: /
 

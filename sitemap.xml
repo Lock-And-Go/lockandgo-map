@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://lockandgo.sk/</loc>
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/" />
@@ -14,19 +14,32 @@
 
   <url>
     <loc>https://lockandgo.sk/app</loc>
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/app" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/app" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/app" />
   </url>
 
   <url>
     <loc>https://lockandgo.sk/en</loc>
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/" />
+  </url>
+
+  <url>
+    <loc>https://lockandgo.sk/en/app</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/app" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/app" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/app" />
   </url>
 
 </urlset>
