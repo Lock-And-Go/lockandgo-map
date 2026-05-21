@@ -260,6 +260,192 @@ def build_description(spot: Dict[str, Any]) -> str:
     return truncate(desc, 155)
 
 
+# ── Anonymous Bounce spot detection + landmark inference ─────────
+#
+# 12 Bounce partner spots (ids 01–12) have anonymized English names from
+# the upstream provider (e.g. "Near Bratislava Station Storage Spot").
+# Those names hurt long-tail SK SEO. We translate them into landmark-led
+# Slovak headlines while keeping transparency that it's a Bounce partner.
+# URLs/slugs stay the same — only visible content + schema name changes.
+
+# "Near {X} Storage Spot" landmark translations (English → Slovak landmark)
+LANDMARK_EN_TO_SK = {
+    "Bratislava Station": "Hlavnej stanici",
+    "Faculty of Medicine": "Lekárskej fakulte UK",
+    "Slovak Pub": "Slovak Pub",
+    "Michael's Gate": "Michalskej bráne",
+    "Michael’s Gate": "Michalskej bráne",
+    "Michaels Gate": "Michalskej bráne",
+    "Gallery Multium": "Galérii Multium",
+    "Poštová Tram Stop": "zastávke Poštová",
+    "Postova Tram Stop": "zastávke Poštová",
+}
+
+# Anonymous-name pattern detection
+ANON_PATTERNS = [
+    re.compile(r"^Near (.+?) Storage Spot$", re.IGNORECASE),
+    re.compile(r"^Across (.+?) Storage Spot$", re.IGNORECASE),
+    re.compile(r"^(Stare Mesto Area|Staré Mesto Area) Storage Spot$", re.IGNORECASE),
+    re.compile(r"^Bratislava (Stare Mesto|Staré Mesto) Storage Spot$", re.IGNORECASE),
+    re.compile(r"^(Petržalka|Petrzalka|Staré Mesto|Stare Mesto) Storage Spot$", re.IGNORECASE),
+    re.compile(r"^(Masala Darbar) Storage Spot$", re.IGNORECASE),  # venue-named anon
+]
+
+
+def is_anonymous_bounce(spot: Dict[str, Any]) -> bool:
+    """True if this spot uses Bounce's anonymized naming pattern."""
+    name = spot.get("name") or ""
+    if not is_affiliate(spot):
+        return False
+    for pat in ANON_PATTERNS:
+        if pat.match(name):
+            return True
+    # Catch-all: any Bounce spot whose name ends with "Storage Spot"
+    return bool(re.search(r"Storage Spot$", name))
+
+
+def _translate_landmark(en_landmark: str) -> str:
+    """Translate an English landmark phrase to Slovak (locative case)."""
+    en_landmark = en_landmark.strip()
+    # Try exact match first
+    if en_landmark in LANDMARK_EN_TO_SK:
+        return LANDMARK_EN_TO_SK[en_landmark]
+    # Try case-insensitive
+    for key, val in LANDMARK_EN_TO_SK.items():
+        if key.lower() == en_landmark.lower():
+            return val
+    # Fall back to the original
+    return en_landmark
+
+
+def landmark_for(spot: Dict[str, Any]) -> Dict[str, str]:
+    """Return SEO display fields for a spot.
+
+    Returns a dict with keys: headline, seo_title, seo_description, breadcrumb_name.
+    For anonymous Bounce spots, builds a landmark-led Slovak headline.
+    For non-anonymous spots, uses the original name as-is.
+    """
+    name = spot["name"]
+    area = spot.get("area", "")
+    address = spot.get("address") or ""
+    price = spot.get("price")
+    hours_display = (spot.get("hours") or {}).get("display", "")
+    is247 = bool((spot.get("hours") or {}).get("is247"))
+
+    if not is_anonymous_bounce(spot):
+        # Non-anonymous spot — keep existing behavior. The name is already specific
+        # (e.g. "Hlavná stanica · samoobslužné skrinky", "Radical Storage · Miletičová").
+        return {
+            "headline": name,
+            "seo_title": build_title(name),
+            "seo_description": build_description(spot),
+            "breadcrumb_name": name,
+            "og_name": name,
+        }
+
+    # ── Anonymous Bounce spot: infer landmark from name (in priority order). ──
+    landmark = None
+    preposition = None  # SK preposition that fits the landmark's locative case
+
+    # Rule 1: "Near {X} Storage Spot" → "pri/v {translated X}"
+    m = re.match(r"^Near (.+?) Storage Spot$", name, re.IGNORECASE)
+    if m:
+        en = m.group(1).strip()
+        landmark = _translate_landmark(en)
+        # Pick preposition: "pri" for buildings/gates/stations, "v" for galleries
+        if "galéri" in landmark.lower() or "galér" in landmark.lower():
+            preposition = "v"
+        else:
+            preposition = "pri"
+
+    # Rule 2: "Across {X} Storage Spot" → "pri/oproti {translated X}"
+    if landmark is None:
+        m = re.match(r"^Across (.+?) Storage Spot$", name, re.IGNORECASE)
+        if m:
+            en = m.group(1).strip()
+            landmark = _translate_landmark(en)
+            preposition = "oproti"
+
+    # Rule 3: "{Venue} Storage Spot" where venue is a real proper noun (e.g. Masala Darbar)
+    if landmark is None:
+        m = re.match(r"^(Masala Darbar) Storage Spot$", name, re.IGNORECASE)
+        if m:
+            landmark = m.group(1)
+            preposition = "pri"
+
+    # Rule 4: area-based fallback for "{Area} Storage Spot" or "Bratislava {Area} Storage Spot"
+    if landmark is None:
+        if area:
+            # area may contain " · " segments (e.g. "Staré Mesto · galérie"); take the head
+            landmark = area.split(" · ")[0].strip()
+            # Pick a sensible locative preposition based on area name.
+            low = landmark.lower()
+            if low in ("petržalka", "petrzalka"):
+                preposition = "v"
+            elif low.startswith("staré mesto") or low.startswith("stare mesto"):
+                preposition = "v"
+            elif low.startswith("námestie") or low.startswith("namestie"):
+                preposition = "na"
+            else:
+                preposition = "v"
+            # Apply locative case for common areas
+            locative_map = {
+                "Staré Mesto": "Starom Meste",
+                "Stare Mesto": "Starom Meste",
+                "Petržalka": "Petržalke",
+                "Petrzalka": "Petržalke",
+                "Námestie SNP": "Námestí SNP",
+                "Obchodná": "Obchodnej",
+                "Štúrova": "Štúrovej",
+                "Hlavná stanica": "Hlavnej stanici",
+            }
+            if landmark in locative_map:
+                landmark = locative_map[landmark]
+                if landmark == "Hlavnej stanici":
+                    preposition = "pri"
+
+    if landmark is None:
+        landmark = area or "Bratislave"
+        preposition = "v"
+
+    # ── Build headline (for H1, breadcrumb, JSON-LD name). ──
+    headline = f"Úschovňa batožiny {preposition} {landmark} (Bounce partner)"
+
+    # ── Build SEO title (≤60 chars). ──
+    # Prefer: "Úschovňa {landmark} · Bratislava | LockAndGo"
+    title_attempts = [
+        f"Úschovňa {preposition} {landmark} · Bratislava | LockAndGo",
+        f"Úschovňa batožiny {preposition} {landmark} | LockAndGo",
+        f"Úschovňa {landmark} | LockAndGo",
+    ]
+    seo_title = next((t for t in title_attempts if len(t) <= 60), truncate(title_attempts[0], 60))
+
+    # ── Build SEO description (≤155 chars). ──
+    # Template: "Úschovňa batožiny [pri/v/oproti {landmark}] v Bratislave. {price}. Otváracie hodiny {hours}. Bounce partner — rezervácia online."
+    price_str = f"Od {price:.2f} €/deň" if price is not None else "Cena podľa prevádzkovateľa"
+    hours_str = "Otvorené 24/7" if is247 else f"Otváracie hodiny {hours_display}"
+    desc = (
+        f"Úschovňa batožiny {preposition} {landmark} v Bratislave. "
+        f"{price_str}. {hours_str}. Bounce partner — rezervácia online."
+    )
+    # If too long, shorten the hours portion progressively
+    if len(desc) > 155:
+        desc = (
+            f"Úschovňa batožiny {preposition} {landmark} v Bratislave. "
+            f"{price_str}. Bounce partner — rezervácia online."
+        )
+    if len(desc) > 155:
+        desc = truncate(desc, 155)
+
+    return {
+        "headline": headline,
+        "seo_title": seo_title,
+        "seo_description": desc,
+        "breadcrumb_name": headline,
+        "og_name": headline,
+    }
+
+
 CSS = """
 :root{
   --bg:#F1F1EC; --paper:#FAFAF6; --ink:#1F1F1D; --ink-2:#555550; --ink-3:#8E8E89;
@@ -347,8 +533,13 @@ def render_spot_page(spot: Dict[str, Any]) -> str:
     slug = slugify(name)
     canonical = f"{BASE_URL}/spot/{spot_id}-{slug}"
 
-    title = build_title(name)
-    description = build_description(spot)
+    # SEO display fields (handles anonymous Bounce spots → landmark-led headlines).
+    seo = landmark_for(spot)
+    headline = seo["headline"]
+    title = seo["seo_title"]
+    description = seo["seo_description"]
+    breadcrumb_name = seo["breadcrumb_name"]
+    og_name = seo["og_name"]
     biz_type = infer_business_type(spot)
 
     gmaps_link = (
@@ -361,7 +552,7 @@ def render_spot_page(spot: Dict[str, Any]) -> str:
     local_business: Dict[str, Any] = {
         "@type": biz_type,
         "@id": f"{canonical}#business",
-        "name": name,
+        "name": headline,
         "url": canonical,
         "address": {
             "@type": "PostalAddress",
@@ -413,7 +604,7 @@ def render_spot_page(spot: Dict[str, Any]) -> str:
             {
                 "@type": "ListItem",
                 "position": 3,
-                "name": name,
+                "name": breadcrumb_name,
                 "item": canonical,
             },
         ],
@@ -526,7 +717,7 @@ def render_spot_page(spot: Dict[str, Any]) -> str:
 
     # ── FAQ ───────────────────────────────────────────────────────
     faq_where = (
-        f"{html_escape(name)} sa nachádza v lokalite <strong>{html_escape(area)}</strong>"
+        f"{html_escape(headline)} sa nachádza v lokalite <strong>{html_escape(area)}</strong>"
     )
     if address and address != area:
         faq_where += f" — adresa: {html_escape(address)}"
@@ -570,7 +761,7 @@ def render_spot_page(spot: Dict[str, Any]) -> str:
 
     faq_html = f"""
     <details>
-      <summary>Kde presne je {html_escape(name)}?</summary>
+      <summary>Kde presne je {html_escape(headline)}?</summary>
       <p>{faq_where}</p>
     </details>
     <details>
@@ -629,7 +820,7 @@ def render_spot_page(spot: Dict[str, Any]) -> str:
     else:
         price_phrase = "Cena podľa prevádzkovateľa."
     lede = (
-        f"{html_escape(name)} je úschovňa batožiny v lokalite {html_escape(area)}. "
+        f"{html_escape(headline)} je úschovňa batožiny v lokalite {html_escape(area)}. "
         f"{availability_phrase} {price_phrase} "
         f"Rezerváciu spravíš za pár minút, LockAndGo si neúčtuje žiadnu prirážku."
     )
@@ -660,13 +851,13 @@ def render_spot_page(spot: Dict[str, Any]) -> str:
 <meta property="og:type" content="article" />
 <meta property="og:locale" content="sk_SK" />
 <meta property="og:site_name" content="LockAndGo" />
-<meta property="og:title" content="{html_escape(truncate(name + ' · LockAndGo', 90))}" />
+<meta property="og:title" content="{html_escape(truncate(og_name + ' · LockAndGo', 90))}" />
 <meta property="og:description" content="{html_escape(description)}" />
 <meta property="og:url" content="{canonical}" />
 <meta property="og:image" content="{BASE_URL}/api/og" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="{html_escape(truncate(name + ' · LockAndGo', 90))}" />
+<meta name="twitter:title" content="{html_escape(truncate(og_name + ' · LockAndGo', 90))}" />
 <meta name="twitter:description" content="{html_escape(description)}" />
 <meta name="twitter:image" content="{BASE_URL}/api/og" />
 
@@ -681,6 +872,10 @@ def render_spot_page(spot: Dict[str, Any]) -> str:
 <style>
 {CSS}
 </style>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
 </head>
 <body>
 <a class="skip" href="#main" style="position:absolute;left:-9999px">Preskočiť na obsah</a>
@@ -699,12 +894,12 @@ def render_spot_page(spot: Dict[str, Any]) -> str:
   <span aria-hidden="true">›</span>
   <a href="/app">Mapa spotov</a>
   <span aria-hidden="true">›</span>
-  <span aria-current="page">{html_escape(name)}</span>
+  <span aria-current="page">{html_escape(breadcrumb_name)}</span>
 </nav>
 
 <main id="main">
 
-  <h1>{html_escape(name)}</h1>
+  <h1>{html_escape(headline)}</h1>
   <p class="lede">{lede}</p>
 
   <div class="badges">
@@ -839,7 +1034,10 @@ def rewrite_llms(spots: List[Dict[str, Any]]) -> None:
             price_str = f"od {price:.2f} €/deň"
         else:
             price_str = "cena podľa prevádzkovateľa"
-        lines.append(f"- [{spot['name']}]({url}) — {area}, {price_str}, {hours_display}")
+        # Use the landmark-led headline for anonymous Bounce spots so LLM-readable
+        # lists show the SK landmark name instead of the upstream English alias.
+        display_name = landmark_for(spot)["headline"]
+        lines.append(f"- [{display_name}]({url}) — {area}, {price_str}, {hours_display}")
     lines.append("")
     lines.append(LLMS_MARK_END)
     new_section = "\n".join(lines)
@@ -851,13 +1049,20 @@ def rewrite_llms(spots: List[Dict[str, Any]]) -> None:
     )
     content_stripped = pattern.sub("", content).rstrip()
 
-    # Insert after the existing "## Pages" block. Find next "## " heading after Pages.
+    # Insert after the existing "## Pages" block. Prefer inserting BEFORE the
+    # area-pages marker (if present) so the spot-pages block stays a sibling,
+    # not nested inside area-pages. Otherwise fall back to the next "## " heading.
     idx_pages = content_stripped.find("## Pages")
     if idx_pages != -1:
-        # find next heading or end
-        m = re.search(r"\n## ", content_stripped[idx_pages + 1 :])
-        if m:
-            insert_at = idx_pages + 1 + m.start()
+        idx_area_start = content_stripped.find("<!-- area-pages:start -->", idx_pages)
+        m_next_h2 = re.search(r"\n## ", content_stripped[idx_pages + 1 :])
+        candidates: List[int] = []
+        if idx_area_start != -1:
+            candidates.append(idx_area_start)
+        if m_next_h2:
+            candidates.append(idx_pages + 1 + m_next_h2.start())
+        if candidates:
+            insert_at = min(candidates)
             new_content = (
                 content_stripped[:insert_at]
                 + "\n"
