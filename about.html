@@ -143,6 +143,16 @@ li { margin-bottom:8px; }
 
 @media (max-width:560px) { h1 { font-size:48px; } main { padding:40px 20px; } .contact-grid { grid-template-columns:1fr; } }
 </style>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQDTMNYDXN"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-RQDTMNYDXN', { anonymize_ip: true, allow_google_signals: false });
+</script>
+
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to content</a>
@@ -242,5 +252,6 @@ li { margin-bottom:8px; }
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
 
+<script defer src="/analytics-events.js"></script>
 </body>
 </html>

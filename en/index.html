@@ -1201,6 +1201,16 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
 <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQDTMNYDXN"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-RQDTMNYDXN', { anonymize_ip: true, allow_google_signals: false });
+</script>
+
 </head>
 <body>
 
@@ -1556,5 +1566,6 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
 
+<script defer src="/analytics-events.js"></script>
 </body>
 </html>

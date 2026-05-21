@@ -253,6 +253,16 @@ footer.bot a:hover{color:var(--accent-2)}
   h1{font-size:34px}
 }
 </style>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQDTMNYDXN"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-RQDTMNYDXN', { anonymize_ip: true, allow_google_signals: false });
+</script>
+
 </head>
 <body>
 <a class="skip" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
@@ -349,5 +359,6 @@ footer.bot a:hover{color:var(--accent-2)}
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
 
+<script defer src="/analytics-events.js"></script>
 </body>
 </html>
