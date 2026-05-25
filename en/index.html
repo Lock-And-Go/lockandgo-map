@@ -377,6 +377,19 @@ img, svg { display: block; max-width: 100%; }
 .nav-cta svg { width: 14px; height: 14px; transition: transform 0.25s; }
 .nav-cta:hover svg { transform: translateX(3px); }
 
+.nav-primary > a.lang-toggle {
+  padding: 7px 12px;
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 0.05em;
+}
+.nav-primary > a.lang-toggle:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
 /* ───── Hero ───── */
 .hero {
   padding: 96px 32px 110px;
@@ -1165,8 +1178,10 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
 
 /* ───── Mobile ───── */
 @media (max-width: 880px) {
-  .nav-primary > a:not(.nav-cta) { display: none; }
+  .nav-primary > a:not(.nav-cta):not(.lang-toggle) { display: none; }
   .nav-cta { margin-left: 0; }
+  .nav-primary { gap: 8px; }
+  .nav-primary > a.lang-toggle { padding: 6px 10px; font-size: 12px; }
   .header-inner { padding: 14px 20px; }
 
   .hero { padding: 56px 20px 72px; }
@@ -1223,7 +1238,7 @@ gtag('config', 'G-RQDTMNYDXN', { anonymize_ip: true, allow_google_signals: false
       <a href="#coverage">Coverage</a>
       <a href="#faq">FAQ</a>
       <a href="/about">About</a>
-      <a href="/" hreflang="sk" lang="sk" rel="alternate" aria-label="Slovenská verzia">SK</a>
+      <a href="/" hreflang="sk" lang="sk" rel="alternate" aria-label="Slovenská verzia" class="lang-toggle">SK</a>
       <a href="/en/app" class="nav-cta">
         Open map
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>

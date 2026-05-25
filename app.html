@@ -187,12 +187,30 @@ a { color: inherit; text-decoration: none; }
   font-weight: 600;
 }
 
+.header-right {
+  display: flex; justify-content: flex-end; align-items: center; gap: 12px;
+}
 .header-stats {
   display: flex; justify-content: flex-end; gap: 14px; align-items: center;
   font-family: var(--body);
   font-size: 13px;
   color: var(--ink-2);
 }
+.lang-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 0.05em;
+  padding: 7px 12px;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--r-full);
+  color: var(--ink);
+  background: transparent;
+  transition: all 0.18s;
+  white-space: nowrap;
+}
+.lang-toggle:hover { background: var(--ink); color: var(--bg); }
 .header-stats .stat-pill {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 7px 14px;
@@ -1371,6 +1389,8 @@ body.detail-open { overflow: hidden; }
   }
   .nav-wrap { display: none; }
   .header-stats { display: none; }
+  .header-right { gap: 0; }
+  .lang-toggle { padding: 6px 11px; font-size: 12px; }
   .brand { font-size: 20px; }
   .brand-mark { width: 30px; height: 30px; }
 
@@ -1616,13 +1636,15 @@ gtag('config', 'G-RQDTMNYDXN', { anonymize_ip: true, allow_google_signals: false
   <nav class="nav-wrap" aria-label="Hlavná navigácia">
     <a href="/">O nás</a>
     <a href="/app" class="active">Mapa</a>
-    <a href="/en/app" hreflang="en" lang="en" title="English version">EN</a>
   </nav>
-  <div class="header-stats">
-    <div class="stat-pill">
-      <span class="dot" aria-hidden="true"></span>
-      <span><b id="open-count">—</b> teraz otvorené</span>
+  <div class="header-right">
+    <div class="header-stats">
+      <div class="stat-pill">
+        <span class="dot" aria-hidden="true"></span>
+        <span><b id="open-count">—</b> teraz otvorené</span>
+      </div>
     </div>
+    <a href="/en/app" hreflang="en" lang="en" title="English version" aria-label="English version" class="lang-toggle">EN</a>
   </div>
 </header>
 
