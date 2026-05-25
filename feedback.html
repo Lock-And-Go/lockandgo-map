@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Feedback · LockAndGo — pomôžte nám zlepšiť mapu úschovní</title>
+<meta name="description" content="Krátky formulár — ohodnoťte LockAndGo a napíšte, čo by ste zmenili. Trvá 30 sekúnd, ide priamo Šimonovi na email." />
+<meta name="theme-color" content="#F1F1EC" />
+<meta name="author" content="Šimon Kališ" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+
+<link rel="canonical" href="https://lockandgo.sk/feedback" />
+<link rel="alternate" hreflang="sk" href="https://lockandgo.sk/feedback" />
+<link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/feedback" />
+<link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/feedback" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="sk_SK" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:site_name" content="LockAndGo" />
+<meta property="og:title" content="Feedback · LockAndGo" />
+<meta property="og:description" content="Ohodnoťte LockAndGo a napíšte, čo by ste zmenili." />
+<meta property="og:url" content="https://lockandgo.sk/feedback" />
+<meta property="og:image" content="https://lockandgo.sk/api/og?title=Feedback&subtitle=Pom%C3%B4%C5%BEte%20n%C3%A1m%20zlep%C5%A1i%C5%A5%20LockAndGo&footnote=30%20sek%C3%BAnd" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Feedback · LockAndGo",
+  "description": "Formulár na spätnú väzbu pre LockAndGo.",
+  "url": "https://lockandgo.sk/feedback",
+  "inLanguage": "sk-SK",
+  "isPartOf": { "@type": "WebSite", "url": "https://lockandgo.sk/", "name": "LockAndGo" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Domov", "item": "https://lockandgo.sk/" },
+      { "@type": "ListItem", "position": 2, "name": "Feedback", "item": "https://lockandgo.sk/feedback" }
+    ]
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<style>
+:root { --bg:#F1F1EC; --paper:#FAFAF6; --paper-2:#F5F5F0; --ink:#1F1F1D; --ink-2:#555550; --ink-3:#8E8E89; --line:rgba(31,31,29,0.10); --line-2:rgba(31,31,29,0.18); --accent:#B89A45; --accent-2:#8B6F2A; --accent-50:#F5EFD8; --forest:#556142; --star:#E5B82E; --display:'Instrument Serif','Times New Roman',serif; --body:'Manrope',system-ui,sans-serif; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--body); line-height:1.65; -webkit-font-smoothing:antialiased; }
+a { color:inherit; }
+.skip-link { position:absolute; left:-9999px; }
+
+.site-header { display:flex; align-items:center; justify-content:space-between; padding:18px 24px; border-bottom:1px solid var(--line); background:var(--bg); position:sticky; top:0; z-index:10; }
+.brand { display:flex; align-items:center; gap:10px; text-decoration:none; font-family:var(--display); font-size:22px; font-weight:400; color:var(--ink); letter-spacing:-0.01em; }
+.brand-mark { display:inline-flex; }
+.brand .amp { color:var(--accent); margin:0 1px; }
+.nav-wrap { display:flex; gap:18px; font-size:14px; align-items:center; }
+.nav-wrap a { text-decoration:none; color:var(--ink-2); padding:6px 0; border-bottom:1px solid transparent; }
+.nav-wrap a:hover, .nav-wrap a.active { color:var(--ink); border-bottom-color:var(--ink); }
+.nav-wrap a.lang-toggle { border:1.5px solid var(--ink); border-radius:999px; padding:5px 11px; font-weight:700; font-size:12.5px; letter-spacing:0.05em; color:var(--ink); }
+.nav-wrap a.lang-toggle:hover { background:var(--ink); color:var(--bg); border-bottom-color:var(--ink); }
+
+main { max-width:620px; margin:0 auto; padding:60px 24px 40px; }
+
+.eyebrow { display:inline-block; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-3); border:1px solid var(--line); border-radius:999px; padding:6px 14px; margin-bottom:24px; }
+h1 { font-family:var(--display); font-size:60px; line-height:1.05; margin:0 0 12px; font-weight:400; letter-spacing:-0.02em; }
+h1 em { color:var(--accent); font-style:italic; }
+.lede { font-size:19px; color:var(--ink-2); margin:0 0 36px; line-height:1.45; }
+
+form.fb { background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:30px 28px; }
+.field { margin-bottom:24px; }
+.field label.lbl { display:block; font-size:14px; font-weight:600; color:var(--ink); margin-bottom:10px; }
+.field .hint { display:block; font-size:13px; color:var(--ink-3); margin-top:6px; }
+
+/* Star rating — radio buttons styled as stars, row-reverse trick so hover fills left side */
+.stars { display:inline-flex; flex-direction:row-reverse; gap:6px; }
+.stars input[type=radio] { position:absolute; opacity:0; width:0; height:0; pointer-events:none; }
+.stars label { font-size:38px; line-height:1; cursor:pointer; color:#D8D8D2; transition:color 0.15s, transform 0.12s; user-select:none; }
+.stars label:hover { transform:scale(1.08); }
+.stars label:hover, .stars label:hover ~ label,
+.stars input[type=radio]:checked ~ label { color:var(--star); }
+.stars input[type=radio]:focus-visible + label { outline:2px solid var(--ink); outline-offset:3px; border-radius:4px; }
+.rating-row { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+.rating-row .rating-label { font-size:13px; color:var(--ink-3); }
+
+textarea, input[type=email], input[type=text] {
+  width:100%;
+  font-family:var(--body);
+  font-size:15px;
+  color:var(--ink);
+  background:var(--bg);
+  border:1px solid var(--line-2);
+  border-radius:10px;
+  padding:12px 14px;
+  resize:vertical;
+  transition:border-color 0.15s, background 0.15s;
+}
+textarea:focus, input[type=email]:focus, input[type=text]:focus { outline:none; border-color:var(--ink); background:#fff; }
+textarea { min-height:96px; }
+
+button.submit {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 26px;
+  background:var(--ink); color:var(--bg);
+  border:none; border-radius:999px;
+  font-family:var(--body); font-size:15px; font-weight:600;
+  cursor:pointer;
+  transition:transform 0.12s, background 0.18s;
+}
+button.submit:hover { transform:translateY(-1px); background:var(--forest); }
+button.submit svg { width:16px; height:16px; }
+
+.honey { position:absolute; left:-9999px; opacity:0; pointer-events:none; }
+
+.thanks {
+  display:none;
+  background:var(--accent-50);
+  border:1px solid var(--accent);
+  border-left:4px solid var(--accent);
+  border-radius:12px;
+  padding:24px 28px;
+  margin-bottom:28px;
+}
+.thanks.show { display:block; }
+.thanks h3 { font-family:var(--display); font-weight:400; font-size:26px; margin:0 0 6px; color:var(--accent-2); }
+.thanks p { margin:0; font-size:15px; color:var(--ink-2); }
+
+.foot-note { font-size:13px; color:var(--ink-3); margin-top:18px; text-align:center; }
+.foot-note a { color:var(--ink-2); text-decoration:underline; text-underline-offset:3px; }
+
+.site-footer { padding:40px 24px; border-top:1px solid var(--line); margin-top:60px; text-align:center; color:var(--ink-3); font-size:13px; }
+
+@media (max-width:560px) {
+  h1 { font-size:42px; }
+  main { padding:40px 18px; }
+  form.fb { padding:22px 18px; border-radius:14px; }
+  .stars label { font-size:34px; }
+  .nav-wrap { gap:10px; font-size:13px; }
+  .nav-wrap a:not(.lang-toggle):not(.active) { display:none; }
+}
+</style>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQDTMNYDXN"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-RQDTMNYDXN', { anonymize_ip: true, allow_google_signals: false });
+</script>
+
+</head>
+<body>
+<a href="#main" class="skip-link">Preskočiť na obsah</a>
+
+<header class="site-header">
+  <a href="/" class="brand" aria-label="LockAndGo — domov">
+    <span class="brand-mark" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="10" width="16" height="11" rx="2.5"/>
+        <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+      </svg>
+    </span>
+    Lock<span class="amp">&amp;</span>Go
+  </a>
+  <nav class="nav-wrap" aria-label="Hlavná navigácia">
+    <a href="/">Domov</a>
+    <a href="/app">Mapa</a>
+    <a href="/o-nas">O nás</a>
+    <a href="/feedback" class="active">Feedback</a>
+    <a href="/en/feedback" hreflang="en" lang="en" class="lang-toggle" aria-label="English version">EN</a>
+  </nav>
+</header>
+
+<main id="main">
+  <span class="eyebrow">Feedback</span>
+  <h1>Čo by si <em>zmenil</em>?</h1>
+  <p class="lede">30 sekúnd, žiadna registrácia. Tvoj feedback mi ide priamo na email a pomáha mapu zlepšovať. Píš úprimne — chcem vedieť aj zlé veci.</p>
+
+  <div class="thanks" id="thanks" role="status" aria-live="polite">
+    <h3>Vďaka! 🙏</h3>
+    <p>Tvoj feedback dorazil. Ak si nechal email, ozvem sa do 24 hodín.</p>
+  </div>
+
+  <form class="fb" action="https://formsubmit.co/simon.kalis@lyceum.sk" method="POST" id="feedback-form">
+    <!-- formsubmit.co config -->
+    <input type="hidden" name="_subject" value="LockAndGo · nový feedback" />
+    <input type="hidden" name="_template" value="table" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_next" value="https://lockandgo.sk/feedback?ok=1" />
+    <input type="hidden" name="_autoresponse" value="Ďakujem za feedback k LockAndGo! Ozvem sa, ak si nechal odpoveď. — Šimon" />
+    <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <input type="hidden" name="zdroj" value="lockandgo.sk · SK feedback form" />
+
+    <div class="field">
+      <label class="lbl" for="rating-group">Hodnotenie <span aria-hidden="true">(1 = zlé, 5 = výborné)</span></label>
+      <div class="rating-row">
+        <div class="stars" role="radiogroup" aria-label="Hodnotenie od 1 do 5 hviezdičiek" id="rating-group">
+          <input type="radio" id="r5" name="hodnotenie" value="5 ★★★★★" required />
+          <label for="r5" title="Výborné — 5 hviezdičiek" aria-label="5 hviezdičiek">★</label>
+          <input type="radio" id="r4" name="hodnotenie" value="4 ★★★★" />
+          <label for="r4" title="Dobré — 4 hviezdičky" aria-label="4 hviezdičky">★</label>
+          <input type="radio" id="r3" name="hodnotenie" value="3 ★★★" />
+          <label for="r3" title="OK — 3 hviezdičky" aria-label="3 hviezdičky">★</label>
+          <input type="radio" id="r2" name="hodnotenie" value="2 ★★" />
+          <label for="r2" title="Slabé — 2 hviezdičky" aria-label="2 hviezdičky">★</label>
+          <input type="radio" id="r1" name="hodnotenie" value="1 ★" />
+          <label for="r1" title="Zlé — 1 hviezdička" aria-label="1 hviezdička">★</label>
+        </div>
+        <span class="rating-label" id="rating-text" aria-hidden="true">— vyber počet hviezdičiek</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="lbl" for="paci">Čo sa ti páčilo?</label>
+      <textarea id="paci" name="co_sa_pacilo" placeholder="Napríklad: ľahko som našiel spot pri stanici, mapa fungovala aj na mobile…"></textarea>
+    </div>
+
+    <div class="field">
+      <label class="lbl" for="zlepsit">Čo by sa dalo zlepšiť?</label>
+      <textarea id="zlepsit" name="co_zlepsit" placeholder="Napríklad: chýba mi spot v Petržalke pri Auparku, cena nesedí, mapa pomaly načítava…" required></textarea>
+      <span class="hint">Najužitočnejšie pole — píš úprimne, vďaka.</span>
+    </div>
+
+    <div class="field">
+      <label class="lbl" for="email">E-mail <span style="color:var(--ink-3); font-weight:400;">— voliteľný</span></label>
+      <input type="email" id="email" name="_replyto" placeholder="ak chceš, aby som odpísal" autocomplete="email" />
+      <span class="hint">Neukladám, nezdieľam. Použijem len na osobnú odpoveď.</span>
+    </div>
+
+    <button type="submit" class="submit">
+      Odoslať feedback
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+
+    <p class="foot-note">Alebo napíš priamo na <a href="mailto:info@lockandgo.sk">info@lockandgo.sk</a> · <a href="https://wa.me/421948929260">WhatsApp 0948 929 260</a></p>
+  </form>
+</main>
+
+<footer class="site-footer">
+  <span>© <span id="copyright-year">2026</span> LockAndGo · Šimon Kališ · Bratislava</span>
+</footer>
+
+<script>
+(function(){
+  var el=document.getElementById('copyright-year');
+  if(el){el.textContent=new Date().getFullYear();}
+
+  // Show thank-you banner after formsubmit redirect
+  if (location.search.indexOf('ok=1') !== -1) {
+    var t = document.getElementById('thanks');
+    if (t) { t.classList.add('show'); t.scrollIntoView({behavior:'smooth', block:'center'}); }
+    var f = document.getElementById('feedback-form');
+    if (f) { f.style.display = 'none'; }
+    if (window.gtag) { gtag('event', 'feedback_submit', { event_category: 'engagement' }); }
+  }
+
+  // Live rating text
+  var labels = {'5':'Výborné','4':'Dobré','3':'OK','2':'Slabé','1':'Zlé'};
+  var ratingText = document.getElementById('rating-text');
+  document.querySelectorAll('input[name="hodnotenie"]').forEach(function(r){
+    r.addEventListener('change', function(){
+      var v = r.value.charAt(0);
+      if (ratingText) ratingText.textContent = v + '/5 — ' + (labels[v] || '');
+    });
+  });
+})();
+</script>
+
+
+<!-- Vercel Web Analytics + Speed Insights -->
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+
+<script defer src="/analytics-events.js"></script>
+</body>
+</html>

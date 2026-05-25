@@ -542,4 +542,23 @@
   </url>
   <!-- area-pages:end -->
 
+  <url>
+    <loc>https://lockandgo.sk/feedback</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/feedback" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/feedback" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/feedback" />
+  </url>
+  <url>
+    <loc>https://lockandgo.sk/en/feedback</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://lockandgo.sk/feedback" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://lockandgo.sk/en/feedback" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lockandgo.sk/feedback" />
+  </url>
+
 </urlset>
