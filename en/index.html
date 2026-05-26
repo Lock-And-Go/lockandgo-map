@@ -389,6 +389,8 @@ img, svg { display: block; max-width: 100%; }
   background: var(--ink);
   color: var(--bg);
 }
+.nav-primary > a.nav-feedback { color: var(--ink-2); font-weight: 500; }
+.nav-cta .cta-short { display: none; }
 
 /* ───── Hero ───── */
 .hero {
@@ -1178,11 +1180,19 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
 
 /* ───── Mobile ───── */
 @media (max-width: 880px) {
-  .nav-primary > a:not(.nav-cta):not(.lang-toggle) { display: none; }
+  .nav-primary > a:not(.nav-cta):not(.lang-toggle):not(.nav-feedback) { display: none; }
   .nav-cta { margin-left: 0; }
-  .nav-primary { gap: 8px; }
-  .nav-primary > a.lang-toggle { padding: 6px 10px; font-size: 12px; }
-  .header-inner { padding: 14px 20px; }
+  .nav-primary { gap: 4px; }
+  .nav-primary > a.nav-feedback { padding: 6px 8px; font-size: 12px; }
+  .nav-primary > a.lang-toggle { padding: 5px 9px; font-size: 11.5px; letter-spacing: 0.04em; }
+  .nav-primary > a.nav-cta { padding: 7px 12px; font-size: 12.5px; gap: 5px; }
+  .nav-cta .cta-full { display: none; }
+  .nav-cta .cta-short { display: inline; }
+  .nav-cta svg { width: 12px; height: 12px; }
+  .header-inner { padding: 12px 16px; }
+  .brand { font-size: 20px; gap: 9px; }
+  .brand-mark { width: 28px; height: 28px; border-radius: 8px; }
+  .brand-mark svg { width: 14px; height: 14px; }
 
   .hero { padding: 56px 20px 72px; }
   .trust-row { gap: 14px; padding: 12px 18px; font-size: 12px; }
@@ -1238,9 +1248,11 @@ gtag('config', 'G-RQDTMNYDXN', { anonymize_ip: true, allow_google_signals: false
       <a href="#coverage">Coverage</a>
       <a href="#faq">FAQ</a>
       <a href="/about">About</a>
+      <a href="/en/feedback" class="nav-feedback">Feedback</a>
       <a href="/" hreflang="sk" lang="sk" rel="alternate" aria-label="Slovenská verzia" class="lang-toggle">SK</a>
       <a href="/en/app" class="nav-cta">
-        Open map
+        <span class="cta-full">Open map</span>
+        <span class="cta-short" aria-hidden="true">Map</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </nav>
@@ -1252,11 +1264,6 @@ gtag('config', 'G-RQDTMNYDXN', { anonymize_ip: true, allow_google_signals: false
 <!-- ============================================================ HERO -->
 <section class="hero" aria-labelledby="hero-h">
   <div class="hero-inner">
-    <span class="eyebrow">
-      <span class="pulse" aria-hidden="true"></span>
-      Luggage storage · Bratislava
-    </span>
-
     <h1 id="hero-h" class="headline">Drop your <em>bags</em>. <br/>See the city.</h1>
 
     <p class="subtitle">
