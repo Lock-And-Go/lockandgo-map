@@ -392,6 +392,78 @@ img, svg { display: block; max-width: 100%; }
 .nav-primary > a.nav-feedback { color: var(--ink-2); font-weight: 500; }
 .nav-cta .cta-short { display: none; }
 
+/* ───── Scroll reveal (inspired by Watermelon / Skiper UI) ───── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.reveal[data-delay="100"] { transition-delay: 0.08s; }
+.reveal[data-delay="200"] { transition-delay: 0.16s; }
+.reveal[data-delay="300"] { transition-delay: 0.24s; }
+.reveal[data-delay="400"] { transition-delay: 0.32s; }
+
+/* ───── Marquee ticker ───── */
+.ticker {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 20px 0;
+}
+.ticker::before, .ticker::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 90px;
+  z-index: 2;
+  pointer-events: none;
+}
+.ticker::before { left: 0; background: linear-gradient(to right, var(--bg) 30%, transparent); }
+.ticker::after { right: 0; background: linear-gradient(to left, var(--bg) 30%, transparent); }
+.ticker-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 52px;
+  white-space: nowrap;
+  animation: ticker-scroll 42s linear infinite;
+}
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.ticker-item {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--ink-2);
+  letter-spacing: -0.01em;
+  display: inline-flex; align-items: center; gap: 14px;
+}
+.ticker-item em { color: var(--terracotta); font-style: italic; }
+.ticker-item::after {
+  content: '·';
+  color: var(--terracotta);
+  font-size: 26px;
+  line-height: 1;
+  opacity: 0.6;
+}
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .ticker-track { animation: none; }
+}
+@media (max-width: 560px) {
+  .ticker { padding: 14px 0; }
+  .ticker-item { font-size: 18px; gap: 12px; }
+  .ticker-track { gap: 36px; animation-duration: 32s; }
+}
+
 /* ───── Hero ───── */
 .hero {
   padding: 96px 32px 110px;
@@ -1264,13 +1336,13 @@ gtag('config', 'G-RQDTMNYDXN', { anonymize_ip: true, allow_google_signals: false
 <!-- ============================================================ HERO -->
 <section class="hero" aria-labelledby="hero-h">
   <div class="hero-inner">
-    <h1 id="hero-h" class="headline">Drop your <em>bags</em>. <br/>See the city.</h1>
+    <h1 id="hero-h" class="headline reveal">Drop your <em>bags</em>. <br/>See the city.</h1>
 
-    <p class="subtitle">
+    <p class="subtitle reveal" data-delay="100">
       32 luggage storage spots in Bratislava — staffed shops, hotels, cafés and 24/7 self-service lockers. Find the closest, compare prices and ratings, book online in two minutes. No dragging your suitcase around the Old Town.
     </p>
 
-    <div class="cta-row">
+    <div class="cta-row reveal" data-delay="200">
       <a href="/app" class="cta-primary" aria-label="Open the map of storage spots">
         Open map
         <span class="arr" aria-hidden="true">
@@ -1293,26 +1365,57 @@ gtag('config', 'G-RQDTMNYDXN', { anonymize_ip: true, allow_google_signals: false
       </a>
     </div>
 
-    <div class="trust-row">
+    <div class="trust-row reveal" data-delay="200">
       <span class="trust" title="Weighted average of Google reviews from 12 rated partner spots">
         <span class="stars" aria-hidden="true">★★★★★</span>
-        <b>4.7</b> Google avg
+        <b><span data-target="4.7" data-decimals="1" data-locale="en-US">4.7</span></b> Google avg
       </span>
       <span class="sep" aria-hidden="true"></span>
-      <span class="trust" title="Sum of Google reviews across all 12 rated spots">808 Google reviews</span>
+      <span class="trust" title="Sum of Google reviews across all 12 rated spots"><span data-target="808" data-locale="en-US">808</span> Google reviews</span>
       <span class="sep" aria-hidden="true"></span>
-      <span class="trust">32 spots</span>
+      <span class="trust"><span data-target="32" data-locale="en-US">32</span> spots</span>
     </div>
   </div>
 </section>
+
+<!-- ============================================================ TICKER -->
+<div class="ticker" aria-label="Partners and coverage areas">
+  <div class="ticker-track" aria-hidden="true">
+    <span class="ticker-item">Bounce</span>
+    <span class="ticker-item">Radical Storage</span>
+    <span class="ticker-item">LuggageHero</span>
+    <span class="ticker-item">ZSSK <em>Main Station</em></span>
+    <span class="ticker-item">Nivy 24/7 lockers</span>
+    <span class="ticker-item">Aupark Petržalka</span>
+    <span class="ticker-item">Vivo! Bratislava</span>
+    <span class="ticker-item"><em>Old Town</em></span>
+    <span class="ticker-item">Ružinov</span>
+    <span class="ticker-item">Nové Mesto</span>
+    <span class="ticker-item">Medická záhrada</span>
+    <span class="ticker-item">from <em>€2</em> a day</span>
+    <!-- duplicate set for seamless loop -->
+    <span class="ticker-item">Bounce</span>
+    <span class="ticker-item">Radical Storage</span>
+    <span class="ticker-item">LuggageHero</span>
+    <span class="ticker-item">ZSSK <em>Main Station</em></span>
+    <span class="ticker-item">Nivy 24/7 lockers</span>
+    <span class="ticker-item">Aupark Petržalka</span>
+    <span class="ticker-item">Vivo! Bratislava</span>
+    <span class="ticker-item"><em>Old Town</em></span>
+    <span class="ticker-item">Ružinov</span>
+    <span class="ticker-item">Nové Mesto</span>
+    <span class="ticker-item">Medická záhrada</span>
+    <span class="ticker-item">from <em>€2</em> a day</span>
+  </div>
+</div>
 
 <!-- ============================================================ COVERAGE -->
 <section id="coverage" class="alt" aria-labelledby="cov-h">
   <div class="container">
     <div class="coverage">
-      <div class="coverage-text">
+      <div class="coverage-text reveal">
         <div class="label">Coverage</div>
-        <h2 id="cov-h">32 spots across <em>Bratislava</em>.</h2>
+        <h2 id="cov-h"><span data-target="32" data-locale="en-US">32</span> spots across <em>Bratislava</em>.</h2>
         <p>We focus on the places travellers actually go — the Main Train Station, OC Nivy, the Old Town, Petržalka (Most SNP, Aupark, Petržalka station), Ružinov, Nové Mesto and the Medická záhrada area.</p>
         <p>A mix of staffed shops, cafés, hotels and 24/7 self-service lockers — plus partners like Bounce, Radical Storage, LuggageHero and LugLockers. Pick whatever fits your schedule.</p>
         <a href="/app" class="cta-secondary">
@@ -1321,7 +1424,7 @@ gtag('config', 'G-RQDTMNYDXN', { anonymize_ip: true, allow_google_signals: false
         </a>
       </div>
 
-      <div class="coverage-list">
+      <div class="coverage-list reveal" data-delay="200">
         <div class="coverage-item">
           <span class="num">01</span>
           <div>
@@ -1402,13 +1505,13 @@ gtag('config', 'G-RQDTMNYDXN', { anonymize_ip: true, allow_google_signals: false
 <!-- ============================================================ USE CASES -->
 <section class="alt" aria-labelledby="case-h">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="label">Who it's for</div>
       <h2 id="case-h">Common <em>use cases</em>.</h2>
       <p>Three typical situations when having the nearest storage spot on hand is a lifesaver.</p>
     </div>
 
-    <div class="cases">
+    <div class="cases reveal" data-delay="200">
       <article class="case">
         <span class="case-tag">→ Between flights</span>
         <h3>Three hours before departure</h3>
@@ -1431,13 +1534,13 @@ gtag('config', 'G-RQDTMNYDXN', { anonymize_ip: true, allow_google_signals: false
 <!-- ============================================================ FAQ -->
 <section id="faq" aria-labelledby="faq-h">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="label">Questions</div>
       <h2 id="faq-h">Frequently <em>asked</em>.</h2>
       <p>Anything unclear? Write to <a href="mailto:info@lockandgo.sk" style="color: var(--terracotta); text-decoration: underline; text-underline-offset: 3px;">info@lockandgo.sk</a>.</p>
     </div>
 
-    <div class="faq-list">
+    <div class="faq-list reveal" data-delay="200">
       <details class="faq-item">
         <summary>What is LockAndGo?</summary>
         <div class="faq-body">A discovery platform for luggage storage in Bratislava, Slovakia. We aggregate every viable storage spot in the city onto one map with prices, ratings and opening hours. Tap a spot → open its details → book directly with the operator.</div>
@@ -1503,9 +1606,9 @@ gtag('config', 'G-RQDTMNYDXN', { anonymize_ip: true, allow_google_signals: false
 
 <!-- ============================================================ FINAL CTA -->
 <section class="final-cta" aria-labelledby="final-h">
-  <div class="final-cta-inner">
+  <div class="final-cta-inner reveal">
     <h2 id="final-h">Ready?<br/><em>Open the map.</em></h2>
-    <p>32 spots in Bratislava &middot; interactive map with filters</p>
+    <p><span data-target="32" data-locale="en-US">32</span> spots in Bratislava &middot; interactive map with filters</p>
     <a href="/app" class="cta-primary">
       Open map
       <span class="arr" aria-hidden="true">
@@ -1582,5 +1685,6 @@ gtag('config', 'G-RQDTMNYDXN', { anonymize_ip: true, allow_google_signals: false
 <script defer src="/_vercel/speed-insights/script.js"></script>
 
 <script defer src="/analytics-events.js"></script>
+<script defer src="/motion.js"></script>
 </body>
 </html>
